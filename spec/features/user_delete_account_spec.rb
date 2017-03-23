@@ -9,9 +9,9 @@ feature 'deletes account', %Q{
   # ACCEPTANCE CRITERIA
   # * User can delete account
 
-  pending 'sucessfully delete account' do
-    mrs_clay = FactoryGirl.create(:mrs_clay)
+  let!(:mrs_clay) { FactoryGirl.create(:mrs_clay) }
 
+  pending 'sucessfully delete account' do
     sign_in mrs_clay
     visit root_path
     click_link 'Update Profile'

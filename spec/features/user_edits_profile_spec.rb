@@ -13,13 +13,12 @@ feature 'edits account', %Q{
   # * If all information is complete, User is updated.
   # * If information is incomplete, User gets error message.
 
-  anne = FactoryGirl.create(:anne)
+  let!(:anne) { FactoryGirl.create(:anne) }
 
   pending 'sucessfully update account when user enters valid information' do
     mrs_anne = { first_name: 'Mrs. Anne',
                  last_name: 'Wentworth',
-                 email: 'love@lyme.uk'
-               }
+                 email: 'love@lyme.uk' }
 
     sign_in anne
     visit root_path
@@ -48,6 +47,6 @@ feature 'edits account', %Q{
     click_button 'Update'
 
     expect(page).to have_content(
-    'errors prohibited this user from being saved:')
+     'errors prohibited this user from being saved:')
   end
 end

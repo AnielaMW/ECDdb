@@ -12,8 +12,8 @@ feature 'sign_in to account', %Q{
   # * If information is incomplete, User gets error message.
   # * If information is invalid, User gets error message.
 
-  anne = FactoryGirl.create(:anne)
-  william = { email: 'two_faced@bath.com', password: 'lied4money' }
+  let!(:anne) { FactoryGirl.create(:anne) }
+  let!(:william) { email: 'two_faced@bath.com', password: 'lied4money' }
 
   pending 'sucessfully sign_in when user enters valid information' do
     visit root_path
