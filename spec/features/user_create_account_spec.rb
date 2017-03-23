@@ -1,6 +1,6 @@
-require "rails_helper"
+require 'rails_helper'
 
-feature "create account", %Q{
+feature 'create account', %Q{
   As a User
   I want to create an account
   So that I can login
@@ -13,9 +13,46 @@ feature "create account", %Q{
   # * If all information is complete, User is registered and authenticated.
   # * If information is incomplete, User gets error message.
 
-  pending "sucessfully create account when user enters valid information"
+  new_user = { first_name: 'William',
+    last_name: 'Elliot',
+    email: 'heir@kellage.uk',
+    password: 'readytoinherit'
+  }
 
-  pending "fails to create account when user enters invalid information"
+  pending 'sucessfully create account when user enters valid information' do
+    visit root_path
+    click_link 'Sign Up'
+    fill_in 'First Name', with: '#{new_user[:first_name]}'
+    fill_in 'Last Name', with: '#{new_user[:last_name]}'
+    fill_in 'Email', with: '#{new_user[:email]}'
+    fill_in 'Password', with: '#{new_user[:password]}'
+    fill_in 'Confirm Password', with: '#{new_user[:password]}'
+    click_button 'Sign Up'
 
-  pending "fails to create account when user password and confirm password don't match"
+    expect(page).to have_content('Welcome!')
+    expect(page).to have_content('Sign Out')
+  end
+
+  pending 'fails to create account when user enters invalid information' do
+    visit root_path
+    click_link 'Sign Up'
+    click_button 'Sign Up'
+
+    expect(page).to have_content('errors prohibited this user from being saved:')
+    expect(page).to have_content('Sign Up')
+  end
+
+  pending 'fails to create account when user password and confirm password do not match' do
+    visit root_path
+    click_link 'Sign Up'
+    fill_in 'First Name', with: '#{new_user[:first_name]}'
+    fill_in 'Last Name', with: '#{new_user[:last_name]}'
+    fill_in 'Email', with: '#{new_user[:email]}'
+    fill_in 'Password', with: '#{new_user[:password]}'
+    fill_in 'Confirm Password', with: 'playingbothsides'
+    click_button 'Sign Up'
+
+    expect(page).to have_content("Password confirmation doesn't match")
+    expect(page).to have_content('Sign Up')
+  end
 end
