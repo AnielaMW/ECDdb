@@ -16,7 +16,10 @@ feature 'edits account', %Q{
   anne = FactoryGirl.create(:anne)
 
   pending 'sucessfully update account when user enters valid information' do
-    mrs_anne = {first_name: 'Mrs. Anne', last_name: 'Wentworth', email: 'love@lyme.uk'}
+    mrs_anne = { first_name: 'Mrs. Anne',
+                 last_name: 'Wentworth',
+                 email: 'love@lyme.uk'
+               }
 
     sign_in anne
     visit root_path
@@ -44,6 +47,7 @@ feature 'edits account', %Q{
     fill_in 'Email', with: ''
     click_button 'Update'
 
-    expect(page).to have_content('errors prohibited this user from being saved:')
+    expect(page).to have_content(
+    'errors prohibited this user from being saved:')
   end
 end

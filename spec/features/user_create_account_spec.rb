@@ -13,20 +13,20 @@ feature 'create account', %Q{
   # * If all information is complete, User is registered and authenticated.
   # * If information is incomplete, User gets error message.
 
-  new_user = { first_name: 'William',
-    last_name: 'Elliot',
-    email: 'heir@kellage.uk',
-    password: 'readytoinherit'
-  }
+  willam = { first_name: 'William',
+             last_name: 'Elliot',
+             email: 'heir@kellage.uk',
+             password: 'readytoinherit'
+           }
 
   pending 'sucessfully create account when user enters valid information' do
     visit root_path
     click_link 'Sign Up'
-    fill_in 'First Name', with: '#{new_user[:first_name]}'
-    fill_in 'Last Name', with: '#{new_user[:last_name]}'
-    fill_in 'Email', with: '#{new_user[:email]}'
-    fill_in 'Password', with: '#{new_user[:password]}'
-    fill_in 'Confirm Password', with: '#{new_user[:password]}'
+    fill_in 'First Name', with: '#{willam[:first_name]}'
+    fill_in 'Last Name', with: '#{willam[:last_name]}'
+    fill_in 'Email', with: '#{willam[:email]}'
+    fill_in 'Password', with: '#{willam[:password]}'
+    fill_in 'Confirm Password', with: '#{willam[:password]}'
     click_button 'Sign Up'
 
     expect(page).to have_content('Welcome!')
@@ -38,17 +38,19 @@ feature 'create account', %Q{
     click_link 'Sign Up'
     click_button 'Sign Up'
 
-    expect(page).to have_content('errors prohibited this user from being saved:')
+    expect(page).to have_content('
+    errors prohibited this user from being saved:')
     expect(page).to have_content('Sign Up')
   end
 
-  pending 'fails to create account when user password and confirm password do not match' do
+  pending 'fails to create account when user password and
+  confirm password do not match' do
     visit root_path
     click_link 'Sign Up'
-    fill_in 'First Name', with: '#{new_user[:first_name]}'
-    fill_in 'Last Name', with: '#{new_user[:last_name]}'
-    fill_in 'Email', with: '#{new_user[:email]}'
-    fill_in 'Password', with: '#{new_user[:password]}'
+    fill_in 'First Name', with: '#{willam[:first_name]}'
+    fill_in 'Last Name', with: '#{willam[:last_name]}'
+    fill_in 'Email', with: '#{willam[:email]}'
+    fill_in 'Password', with: '#{willam[:password]}'
     fill_in 'Confirm Password', with: 'playingbothsides'
     click_button 'Sign Up'
 
