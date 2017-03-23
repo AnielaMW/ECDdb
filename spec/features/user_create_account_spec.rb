@@ -13,7 +13,7 @@ feature 'create account', %Q{
   # * If all information is complete, User is registered and authenticated.
   # * If information is incomplete, User gets error message.
 
-  let!(:willam) { first_name: 'William',
+  willam = { first_name: 'William',
              last_name: 'Elliot',
              email: 'heir@kellage.uk',
              password: 'readytoinherit'}

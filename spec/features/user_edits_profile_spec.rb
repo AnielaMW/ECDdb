@@ -47,6 +47,7 @@ feature 'edits account', %Q{
     click_button 'Update'
 
     expect(page).to have_content(
-     'errors prohibited this user from being saved:')
+      'errors prohibited this user from being saved:'
+      )
   end
 end
