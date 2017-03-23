@@ -16,7 +16,7 @@ feature 'create account', %Q{
   willam = { first_name: 'William',
              last_name: 'Elliot',
              email: 'heir@kellage.uk',
-             password: 'readytoinherit'}
+             password: 'readytoinherit' }
 
   pending 'sucessfully create account when user enters valid information' do
     visit root_path

@@ -48,6 +48,6 @@ feature 'edits account', %Q{
 
     expect(page).to have_content(
       'errors prohibited this user from being saved:'
-      )
+    )
   end
 end
