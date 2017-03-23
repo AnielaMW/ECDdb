@@ -6,12 +6,12 @@ feature "edits account", %Q{
   So that I can update my profile
   } do
 
-    # ACCEPTANCE CRITERIA
-    # * User can edit first_name
-    # * User can edit last_name
-    # * User can edit email
-    # * If all information is complete, User is updated.
-    # * If information is incomplete, User gets error message.
+  # ACCEPTANCE CRITERIA
+  # * User can edit first_name
+  # * User can edit last_name
+  # * User can edit email
+  # * If all information is complete, User is updated.
+  # * If information is incomplete, User gets error message.
 
   pending "sucessfully update account when user enters valid information"
 

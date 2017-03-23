@@ -6,8 +6,8 @@ feature "deletes account", %Q{
   So that my profile is no longer retained
   } do
 
-    # ACCEPTANCE CRITERIA
-    # * User can delete account
+  # ACCEPTANCE CRITERIA
+  # * User can delete account
 
   pending "sucessfully delete account"
 end

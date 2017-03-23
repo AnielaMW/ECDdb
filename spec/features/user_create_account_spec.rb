@@ -5,13 +5,13 @@ feature "create account", %Q{
   I want to create an account
   So that I can login
   } do
-    # Acceptance
-    # * User must specify first_name
-    # * User must specify last_name
-    # * User must specify email
-    # * User must specify and confirm password.
-    # * If all information is complete, User is registered and authenticated.
-    # * If information is incomplete, User gets error message.
+  # Acceptance
+  # * User must specify first_name
+  # * User must specify last_name
+  # * User must specify email
+  # * User must specify and confirm password.
+  # * If all information is complete, User is registered and authenticated.
+  # * If information is incomplete, User gets error message.
 
   pending "sucessfully create account when user enters valid information"
 

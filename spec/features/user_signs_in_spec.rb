@@ -6,11 +6,11 @@ feature "sign_in to account", %Q{
   So that I cen be signed-in
   } do
 
-    # ACCEPTANCE CRITERIA
-    # * User provide email
-    # * User provide password
-    # * If information is incomplete, User gets error message.
-    # * If information is invalid, User gets error message.
+  # ACCEPTANCE CRITERIA
+  # * User provide email
+  # * User provide password
+  # * If information is incomplete, User gets error message.
+  # * If information is invalid, User gets error message.
 
   pending "sucessfully sign_in when user enters valid information"
 
