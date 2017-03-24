@@ -9,10 +9,10 @@ feature 'deletes account', %Q{
   # ACCEPTANCE CRITERIA
   # * User can delete account
 
-  let!(:mrs_clay) { FactoryGirl.create(:mrs_clay) }
+  let!(:anne) { FactoryGirl.create(:anne) }
 
   pending 'sucessfully delete account' do
-    sign_in mrs_clay
+    sign_in anne
     visit root_path
     click_link 'Update Profile'
     click_button 'Cancle My Account'

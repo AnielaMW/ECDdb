@@ -14,11 +14,11 @@ feature 'create account', %Q{
   # * If information is incomplete, User gets error message.
 
   william = { first_name: 'William',
-             last_name: 'Elliot',
-             email: 'heir@kellage.uk',
-             password: 'readytoinherit' }
+              last_name: 'Elliot',
+              email: 'heir@kellage.uk',
+              password: 'readytoinherit' }
 
-  pending 'sucessfully create account when user enters valid information' do
+  scenario 'sucessfully create account when user enters valid information' do
     visit root_path
     click_link 'Sign Up'
     fill_in 'First Name', with: '#{william[:first_name]}'
@@ -32,7 +32,7 @@ feature 'create account', %Q{
     expect(page).to have_content('Sign Out')
   end
 
-  pending 'fails to create account when user enters invalid information' do
+  scenario 'fails to create account when user enters invalid information' do
     visit root_path
     click_link 'Sign Up'
     click_button 'Sign Up'
@@ -42,7 +42,7 @@ feature 'create account', %Q{
     expect(page).to have_content('Sign Up')
   end
 
-  pending 'fails to create account when user password and
+  scenario 'fails to create account when user password and
   confirm password do not match' do
     visit root_path
     click_link 'Sign Up'
