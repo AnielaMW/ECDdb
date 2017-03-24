@@ -18,7 +18,7 @@ feature 'create account', %Q{
               email: 'heir@kellage.uk',
               password: 'readytoinherit' }
 
-  scenario 'sucessfully create account when user enters valid information' do
+  pending 'sucessfully create account when user enters valid information' do
     visit root_path
     click_link 'Sign Up'
     fill_in 'First Name', with: '#{william[:first_name]}'
@@ -32,7 +32,7 @@ feature 'create account', %Q{
     expect(page).to have_content('Sign Out')
   end
 
-  scenario 'fails to create account when user enters invalid information' do
+  pending 'fails to create account when user enters invalid information' do
     visit root_path
     click_link 'Sign Up'
     click_button 'Sign Up'
@@ -42,7 +42,7 @@ feature 'create account', %Q{
     expect(page).to have_content('Sign Up')
   end
 
-  scenario 'fails to create account when user password and
+  pending 'fails to create account when user password and
   confirm password do not match' do
     visit root_path
     click_link 'Sign Up'
