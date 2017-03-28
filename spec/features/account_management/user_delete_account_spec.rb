@@ -17,6 +17,7 @@ feature 'deletes account', %Q{
     click_link 'Update Profile'
     click_button 'Cancel My Account'
 
+    expect(page).to have_content('Bye! Your account has been successfully cancelled. We hope to see you again soon.')
     expect(page).to have_content('Sign Up')
     expect(page).to have_content('Sign In')
   end
