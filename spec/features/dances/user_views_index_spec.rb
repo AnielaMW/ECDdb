@@ -10,5 +10,15 @@ feature 'view dances#index', %Q{
   # The list should be sorted alphabetically by Title
   # The list should include the Dance Title
 
-  pending 'sucessfully view the dances#index'
+  let!(:dance1) { FactoryGirl.create(:dance) }
+  let!(:dance2) { FactoryGirl.create(:dance) }
+  let!(:dance3) { FactoryGirl.create(:authored) }
+
+  scenario 'sucessfully view the dances#index' do
+    visit dances_path
+
+    expect(page).to have_content(dance1.title)
+    expect(page).to have_content(dance2.title)
+    expect(page).to have_content(dance3.title)
+  end
 end

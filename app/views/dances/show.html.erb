@@ -1,0 +1,20 @@
+<h1><%= @dance.title %></h1>
+<p><%= @dance.user.first_name %></p>
+<p>Formation: <%= @dance.formation.name %> Meter: <%= @dance.meter.name %></p>
+
+<% if @dance.author %>
+  <h3>Author</h3>
+  <p><%= @dance.author %>
+<% end %>
+
+<% if @dance.publication %>
+  <h3>Publication</h3>
+  <p><%= @dance.publication %></p>
+<% end %>
+
+<% if @dance.year %>
+(<%= @dance.year %>)</p>
+<% end %>
+
+<h3>Direction</h3>
+<p><%= @dance.direction %></p>

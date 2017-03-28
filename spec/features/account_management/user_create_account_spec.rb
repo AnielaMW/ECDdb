@@ -15,7 +15,7 @@ feature 'create account', %Q{
 
   william = { first_name: 'William',
               last_name: 'Elliot',
-              email: 'heirttyuwgyu@kellage.com',
+              email: 'heirtowalter@kellage.com',
               password: 'readytoinherit' }
 
   scenario 'sucessfully create account when user enters valid information' do
