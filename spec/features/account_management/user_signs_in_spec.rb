@@ -15,7 +15,7 @@ feature 'sign_in to account', %Q{
   let!(:anne) { FactoryGirl.create(:anne) }
   william = { email: 'two_faced@bath.com', password: 'lied4money' }
 
-  pending 'sucessfully sign_in when user enters valid information' do
+  scenario 'sucessfully sign_in when user enters valid information' do
     visit root_path
     click_link 'Sign In'
     fill_in 'Email', with: '#{anne.email}'
@@ -26,7 +26,7 @@ feature 'sign_in to account', %Q{
     # Expect users first_name to appear on the page.
   end
 
-  pending 'fails to sign_in when user enters incomplete information' do
+  scenario 'fails to sign_in when user enters incomplete information' do
     visit root_path
     click_link 'Sign In'
     click_button 'Sign In'
@@ -35,7 +35,7 @@ feature 'sign_in to account', %Q{
     expect(page).to have_content('Sign In')
   end
 
-  pending 'fails to sign_in when user enters invalid email' do
+  scenario 'fails to sign_in when user enters invalid email' do
     visit root_path
     click_link 'Sign In'
     fill_in 'Email', with: '#{william.email}'
@@ -46,7 +46,7 @@ feature 'sign_in to account', %Q{
     expect(page).to have_content('Sign In')
   end
 
-  pending 'fails to sign_in when user enters invalid password' do
+  scenario 'fails to sign_in when user enters invalid password' do
     visit root_path
     click_link 'Sign In'
     fill_in 'Email', with: '#{anne.email}'

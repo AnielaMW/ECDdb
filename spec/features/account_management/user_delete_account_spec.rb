@@ -11,11 +11,11 @@ feature 'deletes account', %Q{
 
   let!(:anne) { FactoryGirl.create(:anne) }
 
-  pending 'sucessfully delete account' do
+  scenario 'sucessfully delete account' do
     sign_in anne
     visit root_path
     click_link 'Update Profile'
-    click_button 'Cancle My Account'
+    click_button 'Cancel My Account'
 
     expect(page).to have_content('Sign Up')
     expect(page).to have_content('Sign In')
