@@ -15,17 +15,17 @@ feature 'create account', %Q{
 
   william = { first_name: 'William',
               last_name: 'Elliot',
-              email: 'heir@kellage.uk',
+              email: 'heirttyuwgyu@kellage.com',
               password: 'readytoinherit' }
 
   scenario 'sucessfully create account when user enters valid information' do
     visit root_path
     click_link 'Sign Up'
-    fill_in 'First Name', with: '#{william[:first_name]}'
-    fill_in 'Last Name', with: '#{william[:last_name]}'
-    fill_in 'Email', with: '#{william[:email]}'
-    fill_in 'Password', with: '#{william[:password]}'
-    fill_in 'Confirm Password', with: '#{william[:password]}'
+    fill_in 'First Name', with: "#{william[:first_name]}"
+    fill_in 'Last Name', with: "#{william[:last_name]}"
+    fill_in 'Email', with: "#{william[:email]}"
+    fill_in 'Password', with: "#{william[:password]}"
+    fill_in 'Confirm Password', with: "#{william[:password]}"
     click_button 'Sign Up'
 
     expect(page).to have_content('Welcome!')

@@ -15,7 +15,7 @@ feature 'edits account', %Q{
 
   let!(:anne) { FactoryGirl.create(:anne) }
 
-  pending 'sucessfully update account when user enters valid information' do
+  scenario 'sucessfully update account when user enters valid information' do
     mrs_anne = { first_name: 'Mrs. Anne',
                  last_name: 'Wentworth',
                  email: 'love@lyme.uk' }
@@ -26,9 +26,6 @@ feature 'edits account', %Q{
     fill_in 'First Name', with: '#{anne[:first_name]}'
     fill_in 'Last Name', with: '#{anne[:last_name]}'
     fill_in 'Email', with: '#{anne[:email]}'
-    fill_in 'Password', with: '#{anne.password}'
-    fill_in 'Confirm Password', with: '#{anne.password}'
-    fill_in 'Current Password', with: '#{anne.password}'
     click_button 'Update'
 
     expect(page).to have_content('Sign Out')
@@ -36,7 +33,7 @@ feature 'edits account', %Q{
     # Visit profile(user#show_path) to verify changes were made?
   end
 
-  pending 'fails to update account when user enters invalid information' do
+  scenario 'fails to update account when user enters invalid information' do
 
     sign_in anne
     visit root_path

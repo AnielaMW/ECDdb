@@ -11,7 +11,7 @@ feature 'sign_out of account', %Q{
 
   let!(:anne) { FactoryGirl.create(:anne) }
 
-  pending 'sucessfully sign_out when user signs_out' do
+  scenario 'sucessfully sign_out when user signs_out' do
     sign_in anne
     visit root_path
     click_link 'Sign Out'
