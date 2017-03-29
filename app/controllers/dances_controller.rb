@@ -16,7 +16,7 @@ class DancesController < ApplicationController
   end
 
   def create
-    @dance = Dance.new(dance_params.merge({user_id: "#{current_user.id}"}))
+    @dance = Dance.new(dance_params.merge(user_id: current_user.id.to_s))
     if @dance.save
       redirect_to dance_path(@dance.id)
     else

@@ -18,7 +18,7 @@ feature 'create a dance', %Q{
                 author: "Louisa M.",
                 publication: "Dance Books",
                 year: "2016",
-                direction: "2nd couple right hand turn"}
+                direction: "2nd couple right hand turn" }
 
   scenario 'authenticated user successfully create dance with valid information' do
     sign_in anne
