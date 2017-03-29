@@ -40,7 +40,7 @@ feature 'create a dance', %Q{
     expect(page).to have_content(new_dance[:direction])
   end
 
-  scenario 'successfully create a dance when authenticated user provides all information'do
+  scenario 'successfully create a dance when authenticated user provides all information' do
     sign_in anne
     visit root_path
     click_link "Create Dance"
@@ -63,7 +63,7 @@ feature 'create a dance', %Q{
     expect(page).to have_content(new_dance[:direction])
   end
 
-  scenario 'fail to create a dance when authenticated user provides invalid information'do
+  scenario 'fail to create a dance when authenticated user provides invalid information' do
     sign_in anne
     visit root_path
     click_link "Create Dance"

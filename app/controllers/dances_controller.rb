@@ -6,7 +6,6 @@ class DancesController < ApplicationController
   def index
     @dances = Dance.all
   end
-
   def show
     @creator = creator?
   end
