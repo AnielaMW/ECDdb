@@ -40,7 +40,7 @@ feature 'view dances#show', %Q{
 
   scenario 'sucessfully view a dance#show from dances#index_path' do
     visit dances_path
-    click_link "#{dance1.title}"
+    click_link dance1.title.to_s
 
     expect(page).to have_current_path(dance_path(dance1.id))
     expect(page).to have_content(dance1.title)
@@ -52,7 +52,7 @@ feature 'view dances#show', %Q{
 
   scenario 'sucessfully view a dance#show from root_path' do
     visit root_path
-    click_link "#{dance1.title}"
+    click_link dance1.title.to_s
 
     expect(page).to have_current_path(dance_path(dance1.id))
     expect(page).to have_content(dance1.title)
