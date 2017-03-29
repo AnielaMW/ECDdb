@@ -1,6 +1,6 @@
 class DancesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_dance, only: [:show]
+  before_action :set_dance, only: [:show, :edit, :update, :destroy]
   before_action :collections, only: [:new, :create, :edit, :update]
 
   def index
@@ -8,6 +8,7 @@ class DancesController < ApplicationController
   end
 
   def show
+    @creator = creator?
   end
 
   def new
@@ -21,6 +22,15 @@ class DancesController < ApplicationController
     else
       flash[:alert] = @dance.errors.full_messages.join(", ")
       render new_dance_path
+    end
+  end
+
+  def destroy
+    if creator?
+      @dance.destroy
+      redirect_to root_path
+    else
+      redirect_to dance_path(@dance)
     end
   end
 
@@ -45,5 +55,9 @@ class DancesController < ApplicationController
   def collections
     @formation_collection = Formation.all
     @meter_collection = Meter.all
+  end
+
+  def creator?
+    current_user && current_user.id == @dance.user_id
   end
 end
