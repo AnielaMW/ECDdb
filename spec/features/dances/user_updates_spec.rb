@@ -13,11 +13,11 @@ feature 'update a dance', %Q{
   # If user is not signed-in, they cannot see the 'Edit' button
   # If user is not the creator, they cannot see the 'Edit' button
 
-  pending 'sucessfully update a dance when authenticated user provides valid information'
+  pending 'authenticated user sucessfully update dance with valid information'
 
-  pending 'sucessfully update a dance when authenticated user provides all information'
+  pending 'authenticated user sucessfully update dance with all information'
 
-  pending 'fail to update a dance when authenticated user provides invalid information'
+  pending 'authenticated user fail to update dance with invalid information'
 
   pending 'fail to see "Edit" button with unauthenticated user'
 

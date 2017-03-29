@@ -75,14 +75,16 @@ feature 'create a dance', %Q{
 
     expect(page).to have_content(
       "Title can't be blank, Direction can't be blank"
-      )
+    )
   end
 
   scenario 'fail to create a dance with unauthenticated user' do
     visit root_path
     click_link "Create Dance"
 
-    expect(page).to have_content("You need to sign in or sign up before continuing.")
+    expect(page).to have_content(
+      "You need to sign in or sign up before continuing."
+    )
     expect(page).to have_current_path(new_user_session_path)
   end
 end

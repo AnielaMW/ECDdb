@@ -29,7 +29,8 @@ feature 'delete a dance', %Q{
     expect(page).not_to have_content("Delete")
   end
 
-  scenario 'fail to see "Delete" button if authenticated user is not the creator' do
+  scenario 'fail to see "Delete" button
+    if authenticated user is not the creator' do
     sign_in clay
     visit dance_path(dance1.id)
     expect(page).not_to have_content("Delete")
