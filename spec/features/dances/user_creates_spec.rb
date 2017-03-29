@@ -69,7 +69,8 @@ feature 'create a dance', %Q{
     click_link "Create Dance"
     click_button "Create Dance"
 
-    expect(page).to have_content("Title can't be blank, Direction can't be blank")
+    expect(page).to have_content(
+      "Title can't be blank, Direction can't be blank")
   end
 
   scenario 'fail to create a dance with unauthenticated user' do
