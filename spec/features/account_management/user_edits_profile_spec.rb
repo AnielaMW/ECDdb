@@ -23,10 +23,10 @@ feature 'edits account', %Q{
     sign_in anne
     visit root_path
     click_link 'Update Profile'
-    fill_in 'First Name', with: "#{anne[:first_name]}"
-    fill_in 'Last Name', with: "#{anne[:last_name]}"
-    fill_in 'Email', with: "#{anne[:email]}"
-    fill_in 'Current password', with: "#{anne.password}"
+    fill_in 'First Name', with: anne[:first_name].to_s
+    fill_in 'Last Name', with: anne[:last_name].to_s
+    fill_in 'Email', with: anne[:email].to_s
+    fill_in 'Current password', with: anne.password.to_s
     click_button 'Update'
 
     expect(page).to have_content('Your account has been updated successfully.')

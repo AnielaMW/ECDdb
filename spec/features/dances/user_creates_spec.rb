@@ -27,10 +27,10 @@ feature 'create a dance', %Q{
 
     expect(page).to have_current_path(new_dance_path)
 
-    fill_in 'Title', with: "#{new_dance[:title]}"
-    select "#{form.name}", from: 'Formation'
-    select "#{met.name}", from: 'Meter'
-    fill_in 'Direction', with: "#{new_dance[:direction]}"
+    fill_in 'Title', with: new_dance[:title].to_s
+    select form.name.to_s, from: 'Formation'
+    select met.name.to_s, from: 'Meter'
+    fill_in 'Direction', with: new_dance[:direction].to_s
     click_button "Create Dance"
 
     expect(page).to have_content(new_dance[:title])
@@ -44,13 +44,13 @@ feature 'create a dance', %Q{
     sign_in anne
     visit root_path
     click_link "Create Dance"
-    fill_in 'Title', with: "#{new_dance[:title]}"
-    select "#{form.name}", from: 'Formation'
-    select "#{met.name}", from: 'Meter'
-    fill_in 'Author', with: "#{new_dance[:author]}"
-    fill_in 'Year', with: "#{new_dance[:year]}"
-    fill_in 'Publication', with: "#{new_dance[:publication]}"
-    fill_in 'Direction', with: "#{new_dance[:direction]}"
+    fill_in 'Title', with: new_dance[:title].to_s
+    select form.name.to_s, from: 'Formation'
+    select met.name.to_s, from: 'Meter'
+    fill_in 'Author', with: new_dance[:author].to_s
+    fill_in 'Year', with: new_dance[:year].to_s
+    fill_in 'Publication', with: new_dance[:publication].to_s
+    fill_in 'Direction', with: new_dance[:direction].to_s
     click_button "Create Dance"
 
     expect(page).to have_content(new_dance[:title])

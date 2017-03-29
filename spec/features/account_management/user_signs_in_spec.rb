@@ -18,8 +18,8 @@ feature 'sign_in to account', %Q{
   scenario 'sucessfully sign_in when user enters valid information' do
     visit root_path
     click_link 'Sign In'
-    fill_in 'Email', with: "#{anne.email}"
-    fill_in 'Password', with: "#{anne.password}"
+    fill_in 'Email', with: anne.email.to_s
+    fill_in 'Password', with: anne.password.to_s
     click_button 'Sign In'
 
     expect(page).to have_content('Signed in successfully.')
@@ -39,8 +39,8 @@ feature 'sign_in to account', %Q{
   scenario 'fails to sign_in when user enters invalid email' do
     visit root_path
     click_link 'Sign In'
-    fill_in 'Email', with: "#{william[:email]}"
-    fill_in 'Password', with: "#{anne.password}"
+    fill_in 'Email', with: william[:email].to_s
+    fill_in 'Password', with: anne.password.to_s
     click_button 'Sign In'
 
     expect(page).to have_content('Invalid Email or password')
@@ -50,8 +50,8 @@ feature 'sign_in to account', %Q{
   scenario 'fails to sign_in when user enters invalid password' do
     visit root_path
     click_link 'Sign In'
-    fill_in 'Email', with: "#{anne.email}"
-    fill_in 'Password', with: "#{william[:password]}"
+    fill_in 'Email', with: anne.email.to_s
+    fill_in 'Password', with: william[:password].to_s
     click_button 'Sign In'
 
     expect(page).to have_content('Invalid Email or password')
