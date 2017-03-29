@@ -20,7 +20,7 @@ feature 'create a dance', %Q{
                 year: "2016",
                 direction: "2nd couple right hand turn"}
 
-  scenario 'successfully create a dance when authenticated user provides valid information'do
+  scenario 'authenticated user successfully create dance with valid information' do
     sign_in anne
     visit root_path
     click_link "Create Dance"
