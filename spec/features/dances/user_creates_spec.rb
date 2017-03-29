@@ -9,7 +9,8 @@ feature 'create a dance', %Q{
   # User cannot create new dances unless user is signed-in
   # User must povide Title, Formation, Meter, Dance_Instructions
   # User may provide Author, Year, Publication
-  # If user is not signed-in and tries to create a new dance, they are redirected and prompted to sign-in
+  # If user is not signed-in and tries to create a new dance,
+  # they are redirected and prompted to sign-in
 
   let!(:anne) { FactoryGirl.create(:anne) }
   let!(:form) { FactoryGirl.create(:formation) }
@@ -20,7 +21,8 @@ feature 'create a dance', %Q{
                 year: "2016",
                 direction: "2nd couple right hand turn" }
 
-  scenario 'authenticated user successfully create dance with valid information' do
+  scenario 'authenticated user successfully create dance
+    with valid information' do
     sign_in anne
     visit root_path
     click_link "Create Dance"
@@ -40,7 +42,8 @@ feature 'create a dance', %Q{
     expect(page).to have_content(new_dance[:direction])
   end
 
-  scenario 'successfully create a dance when authenticated user provides all information' do
+  scenario 'authenticated user successfully create dance
+    with all information' do
     sign_in anne
     visit root_path
     click_link "Create Dance"
@@ -63,14 +66,16 @@ feature 'create a dance', %Q{
     expect(page).to have_content(new_dance[:direction])
   end
 
-  scenario 'fail to create a dance when authenticated user provides invalid information' do
+  scenario 'authenticated user fail to create dance
+    with invalid information' do
     sign_in anne
     visit root_path
     click_link "Create Dance"
     click_button "Create Dance"
 
     expect(page).to have_content(
-      "Title can't be blank, Direction can't be blank")
+      "Title can't be blank, Direction can't be blank"
+      )
   end
 
   scenario 'fail to create a dance with unauthenticated user' do
