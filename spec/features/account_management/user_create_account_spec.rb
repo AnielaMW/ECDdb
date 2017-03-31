@@ -15,20 +15,20 @@ feature 'create account', %Q{
 
   william = { first_name: 'William',
               last_name: 'Elliot',
-              email: 'heirttyuwgyu@kellage.com',
+              email: 'heirtowalter@kellage.com',
               password: 'readytoinherit' }
 
   scenario 'sucessfully create account when user enters valid information' do
     visit root_path
     click_link 'Sign Up'
-    fill_in 'First Name', with: "#{william[:first_name]}"
-    fill_in 'Last Name', with: "#{william[:last_name]}"
-    fill_in 'Email', with: "#{william[:email]}"
-    fill_in 'Password', with: "#{william[:password]}"
-    fill_in 'Confirm Password', with: "#{william[:password]}"
+    fill_in 'First Name', with: william[:first_name].to_s
+    fill_in 'Last Name', with: william[:last_name].to_s
+    fill_in 'Email', with: william[:email].to_s
+    fill_in 'Password', with: william[:password].to_s
+    fill_in 'Confirm Password', with: william[:password].to_s
     click_button 'Sign Up'
 
-    expect(page).to have_content('Welcome!')
+    expect(page).to have_content('Welcome! You have signed up successfully.')
     expect(page).to have_content('Sign Out')
   end
 
@@ -46,10 +46,10 @@ feature 'create account', %Q{
   confirm password do not match' do
     visit root_path
     click_link 'Sign Up'
-    fill_in 'First Name', with: '#{william[:first_name]}'
-    fill_in 'Last Name', with: '#{william[:last_name]}'
-    fill_in 'Email', with: '#{william[:email]}'
-    fill_in 'Password', with: '#{william[:password]}'
+    fill_in 'First Name', with: william[:first_name].to_s
+    fill_in 'Last Name', with: william[:last_name].to_s
+    fill_in 'Email', with: william[:email].to_s
+    fill_in 'Password', with: william[:password].to_s
     fill_in 'Confirm Password', with: 'playingbothsides'
     click_button 'Sign Up'
 

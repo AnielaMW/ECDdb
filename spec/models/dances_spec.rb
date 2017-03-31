@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Dance, type: :model do
   it { should belong_to(:user) }
+  it { should belong_to(:formation) }
+  it { should belong_to(:meter) }
 
   it { should validate_presence_of(:title) }
   it { should_not have_valid(:title).when('') }

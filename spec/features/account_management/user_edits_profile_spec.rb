@@ -23,14 +23,13 @@ feature 'edits account', %Q{
     sign_in anne
     visit root_path
     click_link 'Update Profile'
-    fill_in 'First Name', with: '#{anne[:first_name]}'
-    fill_in 'Last Name', with: '#{anne[:last_name]}'
-    fill_in 'Email', with: '#{anne[:email]}'
+    fill_in 'First Name', with: anne[:first_name].to_s
+    fill_in 'Last Name', with: anne[:last_name].to_s
+    fill_in 'Email', with: anne[:email].to_s
+    fill_in 'Current password', with: anne.password.to_s
     click_button 'Update'
 
-    expect(page).to have_content('Sign Out')
-
-    # Visit profile(user#show_path) to verify changes were made?
+    expect(page).to have_content('Your account has been updated successfully.')
   end
 
   scenario 'fails to update account when user enters invalid information' do
@@ -43,8 +42,6 @@ feature 'edits account', %Q{
     fill_in 'Email', with: ''
     click_button 'Update'
 
-    expect(page).to have_content(
-      'errors prohibited this user from being saved:'
-    )
+    expect(page).to have_content('prohibited this user from being saved:')
   end
 end

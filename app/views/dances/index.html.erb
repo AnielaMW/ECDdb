@@ -1,0 +1,7 @@
+<%= link_to "Create Dance", new_dance_path %>
+
+<ul>
+  <% @dances.each do |dance| %>
+    <li><%= link_to dance.title, dance_path(dance) %></li>
+  <% end %>
+</ul>

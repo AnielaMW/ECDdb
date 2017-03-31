@@ -11,9 +11,28 @@ feature 'delete a dance', %Q{
   # If user is not signed-in, they cannot see the 'Delete' button
   # If user is not the creator, they cannot see the 'Delete' button
 
-  pending 'sucessfully delete a dance when authenticated user'
+  let!(:anne) { FactoryGirl.create(:anne) }
+  let!(:dance1) { FactoryGirl.create(:dance, user_id: anne.id) }
+  let!(:clay) { FactoryGirl.create(:anne) }
 
-  pending 'fail to see "Delete" button with unauthenticated user'
+  scenario 'sucessfully delete a dance when authenticated user' do
+    sign_in anne
+    visit dance_path(dance1.id)
+    click_link "Delete"
 
-  pending 'fail to see "Delete" button if authenticated user is not the creator'
+    expect(page).to have_current_path(root_path)
+    expect(page).not_to have_content(dance1.title)
+  end
+
+  scenario 'fail to see "Delete" button with unauthenticated user' do
+    visit dance_path(dance1.id)
+    expect(page).not_to have_content("Delete")
+  end
+
+  scenario 'fail to see "Delete" button
+    if authenticated user is not the creator' do
+    sign_in clay
+    visit dance_path(dance1.id)
+    expect(page).not_to have_content("Delete")
+  end
 end

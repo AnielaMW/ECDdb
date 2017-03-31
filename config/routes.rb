@@ -4,9 +4,6 @@ Rails.application.routes.draw do
 
   root 'dances#index'
 
-  resources :dances, only: [:index, :show]
-
-  resources :users do
-    resources :dances, except: [:index, :show]
-  end
+  resources :dances
+  resources :users
 end

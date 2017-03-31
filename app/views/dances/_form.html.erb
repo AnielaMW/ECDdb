@@ -1,0 +1,41 @@
+<%= form_for(@dance) do |f| %>
+
+  <div class="field">
+    <%= f.label :title, "Title" %><br />
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :author, "Author" %><br />
+    <%= f.text_field :author %>
+  </div>
+
+  <div class="field">
+    <%= f.label :publication, "Publication" %><br />
+    <%= f.text_field :publication %>
+  </div>
+
+  <div class="field">
+    <%= f.label :year, "Year" %><br />
+    <%= f.text_field :year %>
+  </div>
+
+  <div class="field">
+    <%= f.label :formation_id, "Formation" %><br />
+    <%= f.collection_select :formation_id, @formation_collection, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :meter_id, "Meter" %><br />
+    <%= f.collection_select :meter_id, @meter_collection, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :direction, "Direction" %><br />
+    <%= f.text_field :direction %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
