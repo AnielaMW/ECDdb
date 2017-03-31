@@ -13,13 +13,94 @@ feature 'update a dance', %Q{
   # If user is not signed-in, they cannot see the 'Edit' button
   # If user is not the creator, they cannot see the 'Edit' button
 
-  pending 'authenticated user sucessfully update dance with valid information'
+  let!(:anne) { FactoryGirl.create(:anne) }
+  let!(:dance1) { FactoryGirl.create(:dance, user_id: anne.id) }
+  let!(:dance2) { FactoryGirl.create(:authored, user_id: anne.id) }
+  changes = { title: "My New Dance",
+              author: "Louisa M.",
+              publication: "Dance Books",
+              year: "2016",
+              direction: "2nd couple right hand turn" }
+  let!(:clay) { FactoryGirl.create(:anne) }
 
-  pending 'authenticated user sucessfully update dance with all information'
+  scenario 'authenticated user sucessfully update dance with valid information' do
+    sign_in anne
+    visit dance_path(dance1.id)
+    click_link "Edit"
 
-  pending 'authenticated user fail to update dance with invalid information'
+    expect(page).to have_current_path(edit_dance_path(dance1))
 
-  pending 'fail to see "Edit" button with unauthenticated user'
+    fill_in 'Title', with: changes[:title].to_s
+    fill_in 'Direction', with: changes[:direction].to_s
+    click_button "Update"
 
-  pending 'fail to see "Edit" button if authenticated user is not the creator'
+    expect(page).to have_current_path(dance_path(dance1.id))
+    expect(page).to have_content(changes[:title])
+    expect(page).to have_content(anne.first_name)
+    expect(page).to have_content(changes[:direction])
+  end
+
+  scenario 'authenticated user sucessfully update dance to all information' do
+    sign_in anne
+    visit dance_path(dance1.id)
+    click_link "Edit"
+    fill_in 'Title', with: changes[:title].to_s
+    fill_in 'Author', with: changes[:author].to_s
+    fill_in 'Year', with: changes[:year].to_s
+    fill_in 'Publication', with: changes[:publication].to_s
+    fill_in 'Direction', with: changes[:direction].to_s
+    click_button "Update"
+
+    expect(page).to have_current_path(dance_path(dance1.id))
+    expect(page).to have_content(changes[:title])
+    expect(page).to have_content(anne.first_name)
+    expect(page).to have_content(changes[:author])
+    expect(page).to have_content(changes[:publication])
+    expect(page).to have_content(changes[:year])
+    expect(page).to have_content(changes[:direction])
+  end
+
+  scenario 'authenticated user sucessfully update dance with all information' do
+    sign_in anne
+    visit dance_path(dance2.id)
+    click_link "Edit"
+    fill_in 'Title', with: changes[:title].to_s
+    fill_in 'Author', with: changes[:author].to_s
+    fill_in 'Year', with: changes[:year].to_s
+    fill_in 'Publication', with: changes[:publication].to_s
+    fill_in 'Direction', with: changes[:direction].to_s
+    click_button "Update"
+
+    expect(page).to have_current_path(dance_path(dance2.id))
+    expect(page).to have_content(changes[:title])
+    expect(page).to have_content(anne.first_name)
+    expect(page).to have_content(changes[:author])
+    expect(page).to have_content(changes[:publication])
+    expect(page).to have_content(changes[:year])
+    expect(page).to have_content(changes[:direction])
+  end
+
+  scenario 'authenticated user fail to update dance with invalid information' do
+    sign_in anne
+    visit dance_path(dance1.id)
+    click_link "Edit"
+    fill_in 'Title', with: ""
+    fill_in 'Direction', with: ""
+    click_button "Update"
+
+    expect(page).to have_content("Title can't be blank, Direction can't be blank")
+  end
+
+  scenario 'fail to see "Edit" button with unauthenticated user' do
+    visit dance_path(dance1.id)
+
+    expect(page).not_to have_content("Edit")
+  end
+
+  scenario 'fail to see "Edit" button if authenticated user is not the creator' do
+    sign_in clay
+    visit dance_path(dance1.id)
+
+    expect(page).not_to have_content("Edit")
+  end
 end

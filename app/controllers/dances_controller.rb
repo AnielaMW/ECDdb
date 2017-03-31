@@ -25,6 +25,18 @@ class DancesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @dance.update(dance_params)
+      redirect_to dance_path(@dance)
+    else
+      flash[:alert] = @dance.errors.full_messages.join(", ")
+      redirect_to edit_dance_path(@dance)
+    end
+  end
+
   def destroy
     if creator?
       @dance.destroy
