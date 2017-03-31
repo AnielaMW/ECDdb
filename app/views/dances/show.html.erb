@@ -1,28 +1,37 @@
-<h1><%= @dance.title %></h1>
-<p><%= @dance.user.first_name %></p>
-
 <% if @creator %>
-  <ul>
-    <li><%= link_to 'Edit', edit_dance_path(@dance) %></li>
-    <li><%= link_to 'Delete', @dance, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-  </ul>
+<ul class="user_bar">
+  <li><%= link_to 'Edit', edit_dance_path(@dance) %></li>
+  <li><%= link_to 'Delete', @dance, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+</ul>
 <% end %>
 
-<p>Formation: <%= @dance.formation.name %> Meter: <%= @dance.meter.name %></p>
+<h2><%= @dance.title %></h2>
+<p>Created by: <%= @dance.user.first_name %></p>
 
-<% if @dance.author %>
-  <h3>Author</h3>
-  <p><%= @dance.author %>
-<% end %>
+<div class="dance_info">
 
-<% if @dance.publication %>
-  <h3>Publication</h3>
-  <p><%= @dance.publication %></p>
-<% end %>
+  <h3>Formation:</h3>
+  <p><%= @dance.formation.name %></p>
 
-<% if @dance.year %>
-(<%= @dance.year %>)</p>
-<% end %>
+  <h3>Meter:</h3>
+  <p><%= @dance.meter.name %></p>
 
-<h3>Direction</h3>
-<p><%= @dance.direction %></p>
+  <% if @dance.author %>
+    <h3>Author</h3>
+    <p><%= @dance.author %>
+  <% end %>
+
+  <% if @dance.publication %>
+    <h3>Publication</h3>
+    <p><%= @dance.publication %></p>
+  <% end %>
+
+  <% if @dance.year %>
+    (<%= @dance.year %>)</p>
+  <% end %>
+</div>
+
+<div class="dance_directions">
+  <h3>Direction</h3>
+  <p><%= @dance.direction %></p>
+</div>
