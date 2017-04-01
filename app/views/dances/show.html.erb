@@ -14,7 +14,7 @@
   <p><%= link_to @dance.formation.name, formation_path(@dance.formation) %></p>
 
   <h3>Meter:</h3>
-  <p><%= @dance.meter.name %></p>
+  <p><%= link_to @dance.meter.name, meter_path(@dance.meter) %></p>
 
   <% if @dance.author %>
     <h3>Author</h3>

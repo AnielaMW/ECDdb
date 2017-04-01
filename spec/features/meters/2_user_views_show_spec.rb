@@ -15,14 +15,14 @@ feature 'view meters#show', %Q{
   let!(:meter) { FactoryGirl.create(:meter) }
   let!(:dance) { FactoryGirl.create(:dance, meter_id: meter.id) }
 
-  pending 'sucessfully view a meter#show when entered directly' do
+  scenario 'sucessfully view a meter#show when entered directly' do
     visit meter_path(meter.id)
 
     expect(page).to have_content(meter.name)
     expect(page).to have_content(meter.description)
   end
 
-  pending 'sucessfully view a meter#show from meters#index_path' do
+  scenario 'sucessfully view a meter#show from meters#index_path' do
     visit meters_path
     click_link meter.name.to_s
 
@@ -31,7 +31,7 @@ feature 'view meters#show', %Q{
     expect(page).to have_content(meter.description)
   end
 
-  pending 'sucessfully view a meter#show from a dance_path' do
+  scenario 'sucessfully view a meter#show from a dance_path' do
     visit dance_path(dance)
     click_link meter.name.to_s
 

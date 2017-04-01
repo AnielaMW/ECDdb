@@ -29,6 +29,7 @@
   <div class="field">
     <%= f.label :meter_id, "Meter" %><br />
     <%= f.collection_select :meter_id, @meter_collection, :id, :name %>
+    <%= link_to "New Meter", new_meter_path, target: '_blank' %>
   </div>
 
   <div class="field">

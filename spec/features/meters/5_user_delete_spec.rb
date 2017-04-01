@@ -14,7 +14,7 @@ feature 'delete a meter', %Q{
   let!(:admin) { FactoryGirl.create(:admin) }
   let!(:meter) { FactoryGirl.create(:meter) }
 
-  pending 'sucessfully delete a meter when admin user' do
+  scenario 'sucessfully delete a meter when admin user' do
     sign_in admin
     visit meter_path(meter.id)
     click_link "Delete"
@@ -23,7 +23,7 @@ feature 'delete a meter', %Q{
     expect(page).not_to have_content(meter.name)
   end
 
-  pending 'fail to see "Delete" button with non-admin user' do
+  scenario 'fail to see "Delete" button with non-admin user' do
     visit meter_path(meter.id)
     expect(page).not_to have_content("Delete")
   end
