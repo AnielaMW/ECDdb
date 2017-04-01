@@ -13,10 +13,6 @@ RSpec.describe User, type: :model do
   it { should have_valid(:email).when('me@this.com', 'Us@that.us') }
   it { should_not have_valid(:email).when('', 'me', 'here.com') }
 
-  it { should validate_presence_of(:admin) }
-  it { should have_valid(:admin).when('true', 'false') }
-  it { should_not have_valid(:admin).when('', 'yes') }
-
   it 'has a matching password confirmation for the password' do
     user = User.new
     user.password = 'password'

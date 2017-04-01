@@ -4,7 +4,7 @@ class DancesController < ApplicationController
   before_action :collections, only: [:new, :create, :edit, :update]
 
   def index
-    @dances = Dance.all
+    @dances = dances.sort_by{ |d| d.title }
   end
 
   def show
@@ -67,6 +67,10 @@ class DancesController < ApplicationController
   def collections
     @formation_collection = Formation.all
     @meter_collection = Meter.all
+  end
+
+  def dances
+    Dance.all
   end
 
   def creator?

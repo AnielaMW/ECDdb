@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :formation do
-    name "4 couple set"
-    description "8 people in two lines"
+    sequence(:name) { |n| "#{n} couple set" }
+    sequence(:description) { |n| "#{n * 2} people in two lines" }
   end
 end

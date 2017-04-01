@@ -1,8 +1,8 @@
 <% if @creator %>
-<ul class="user_bar">
-  <li><%= link_to 'Edit', edit_dance_path(@dance) %></li>
-  <li><%= link_to 'Delete', @dance, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-</ul>
+  <ul class="user_bar">
+    <li><%= link_to 'Edit', edit_dance_path(@dance) %></li>
+    <li><%= link_to 'Delete', @dance, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+  </ul>
 <% end %>
 
 <h2><%= @dance.title %></h2>
@@ -11,7 +11,7 @@
 <div class="dance_info">
 
   <h3>Formation:</h3>
-  <p><%= @dance.formation.name %></p>
+  <p><%= link_to @dance.formation.name, formation_path(@dance.formation) %></p>
 
   <h3>Meter:</h3>
   <p><%= @dance.meter.name %></p>

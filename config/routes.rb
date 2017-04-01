@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   root 'dances#index'
 
-  resources :dances
   resources :users
+  resources :dances
+  resources :formations
 end
