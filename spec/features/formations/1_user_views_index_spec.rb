@@ -13,8 +13,7 @@ feature 'view formations#index', %Q{
 
   let!(:formation1) { FactoryGirl.create(:formation, name: "2 Couple") }
   let!(:formation2) { FactoryGirl.create(:formation, name: "Scicilian Circle") }
-  let!(:formation3) { FactoryGirl.create(:formation, name: "4 Couple 1st and
-    3rd Improper") }
+  let!(:formation3) { FactoryGirl.create(:formation, name: "4 Couple") }
 
   scenario 'sucessfully view the formations#index' do
     visit formations_path
