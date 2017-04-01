@@ -15,8 +15,7 @@ feature 'update a formation', %Q{
   let!(:admin) { FactoryGirl.create(:admin) }
   let!(:formation) { FactoryGirl.create(:formation) }
   changes = { name: "2 Couple Improper",
-              description: "4 people the first couple are on the wrong side of
-              the set." }
+              description: "4 people the 1st Couple on wrong side of set." }
 
   scenario 'admin user sucessfully update formation with valid information' do
     sign_in admin

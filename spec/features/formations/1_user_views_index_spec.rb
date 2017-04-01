@@ -11,17 +11,17 @@ feature 'view formations#index', %Q{
   # The list should be sorted alphabetically by Title
   # The list should include the Name
 
-  let!(:formation1) { FactoryGirl.create(:formation, name: "2 Couple") }
-  let!(:formation2) { FactoryGirl.create(:formation, name: "Scicilian Circle") }
-  let!(:formation3) { FactoryGirl.create(:formation, name: "4 Couple") }
+  let!(:form1) { FactoryGirl.create(:formation, name: "2 Couple") }
+  let!(:form2) { FactoryGirl.create(:formation, name: "Scicilian Circle") }
+  let!(:form3) { FactoryGirl.create(:formation, name: "4 Couple") }
 
   scenario 'sucessfully view the formations#index' do
     visit formations_path
 
     formations = page.all("div#formationlist ul li")
 
-    expect(formations[0]).to have_content(formation1.name)
-    expect(formations[1]).to have_content(formation3.name)
-    expect(formations[2]).to have_content(formation2.name)
+    expect(formations[0]).to have_content(form1.name)
+    expect(formations[1]).to have_content(form3.name)
+    expect(formations[2]).to have_content(form2.name)
   end
 end
