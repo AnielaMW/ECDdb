@@ -12,7 +12,7 @@ feature 'create a formation', %Q{
 
   let!(:anne) { FactoryGirl.create(:anne) }
   let!(:dance) { FactoryGirl.create(:dance) }
-  new_formation = { name: "", description: "" }
+  new_formation = { name: "6 Couple", description: "3 next to 3" }
 
   scenario 'authenticated user successfully create formation
     with valid information' do
@@ -25,7 +25,9 @@ feature 'create a formation', %Q{
     fill_in 'Name', with: new_formation[:name].to_s
     fill_in 'Description', with: new_formation[:description].to_s
     click_button "Create Formation"
+    visit formations_path
 
+    expect(page).to have_content(new_formation[:name])
   end
 
   scenario 'authenticated user fail to create formation
@@ -33,8 +35,8 @@ feature 'create a formation', %Q{
     sign_in anne
     visit new_dance_path
     click_link "New Formation"
-    fill_in 'Name', with: new_formation[:name].to_s
-    fill_in 'Description', with: new_formation[:description].to_s
+    fill_in 'Name', with: ""
+    fill_in 'Description', with: ""
     click_button "Create Formation"
 
     expect(page).to have_content(
