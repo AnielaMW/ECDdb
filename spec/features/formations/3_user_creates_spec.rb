@@ -52,7 +52,8 @@ feature 'create a formation', %Q{
   end
 
   pending 'formation form should open in a new window, close, and new formation
-   should be in the formation select box of the new dance form'
-    # expect the form to open in new window?
-    # expect the form to close and be able to select the new formation from the select box?
+  should be in the formation select box of the new dance form'
+  # expect the form to open in new window?
+  # expect the form to close and be able to select the new formation from the
+  # select box?
 end

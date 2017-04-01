@@ -14,7 +14,9 @@ feature 'update a formation', %Q{
 
   let!(:admin) { FactoryGirl.create(:admin) }
   let!(:formation) { FactoryGirl.create(:formation) }
-  changes = { name: "2 Couple Improper", description: "4 people the first couple are on the wrong side of the set." }
+  changes = { name: "2 Couple Improper",
+              description: "4 people the first couple are on the wrong side of
+              the set." }
 
   scenario 'admin user sucessfully update formation with valid information' do
     sign_in admin
@@ -40,7 +42,8 @@ feature 'update a formation', %Q{
     fill_in 'Description', with: ""
     click_button "Update"
 
-    expect(page).to have_content("Name can't be blank, Description can't be blank")
+    expect(page).to have_content("Name can't be blank,
+    Description can't be blank")
   end
 
   scenario 'fail to see "Edit" button with non-admin user' do

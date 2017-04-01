@@ -4,7 +4,7 @@ class DancesController < ApplicationController
   before_action :collections, only: [:new, :create, :edit, :update]
 
   def index
-    @dances = dances.sort_by{ |d| d.title }
+    @dances = dances.sort_by { |d| d.title }
   end
 
   def show
