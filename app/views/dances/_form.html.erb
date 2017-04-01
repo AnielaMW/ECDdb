@@ -23,7 +23,7 @@
   <div class="field">
     <%= f.label :formation_id, "Formation" %><br />
     <%= f.collection_select :formation_id, @formation_collection, :id, :name %>
-    <%= link_to "New Formation", new_formation_path %>
+    <%= link_to "New Formation", new_formation_path, target: '_blank' %>
   </div>
 
   <div class="field">
