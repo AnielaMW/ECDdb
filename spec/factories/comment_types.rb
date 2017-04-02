@@ -1,6 +1,14 @@
 FactoryGirl.define do
   factory :comment_type do
-    sequence(:name) { |n| "#{n}. Variation" }
-    sequence(:description) { |n| "#{n * 2} name says it all." }
+    name "Comment"
+    sequence(:description) { |n| "#{n}" }
+
+    factory :variation do
+      name "Variation"
+    end
+
+    factory :style_point do
+      name "Style Point"
+    end
   end
 end

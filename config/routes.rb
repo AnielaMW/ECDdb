@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :dances
+  resources :dance_comments
   resources :formations
   resources :meters
   resources :comment_types

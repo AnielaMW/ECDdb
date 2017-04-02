@@ -13,9 +13,9 @@ feature 'view comment_types#index', %Q{
   # The list should be sorted alphabetically by Title
   # The list should include the Name
 
-  let!(:type1) { FactoryGirl.create(:comment_type, name: "Variation") }
-  let!(:type2) { FactoryGirl.create(:comment_type, name: "Comment") }
-  let!(:type3) { FactoryGirl.create(:comment_type, name: "Style Point") }
+  let!(:type1) { FactoryGirl.create(:variation) }
+  let!(:type2) { FactoryGirl.create(:comment_type) }
+  let!(:type3) { FactoryGirl.create(:style_point) }
 
   scenario 'sucessfully view the comment_types#index' do
     visit comment_types_path
