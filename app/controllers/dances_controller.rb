@@ -1,5 +1,6 @@
 class DancesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :admin_user?
   before_action :set_dance, only: [:show, :edit, :update, :destroy]
   before_action :collections, only: [:new, :create, :edit, :update]
 
@@ -47,6 +48,10 @@ class DancesController < ApplicationController
   end
 
   private
+
+  def admin_user?
+    current_user && current_user.admin == true
+  end
 
   def set_dance
     @dance = Dance.find(params[:id])

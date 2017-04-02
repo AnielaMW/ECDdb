@@ -1,5 +1,5 @@
 class MetersController < ApplicationController
-  before_action :admin_user?, except: [:index]
+  before_action :admin_user?
   before_action :set_meter, only: [:show, :edit, :update, :destroy]
 
   def index

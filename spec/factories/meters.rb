@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :meter do
-    name "3/4"
-    description "any dance in 3/4 time"
+    sequence(:name) { |n| "#{n}/16" }
+    sequence(:description) { |n| "#{n}/16th speed" }
   end
 end

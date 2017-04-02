@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'view meters#show', %Q{
   As a Guest
   I want to view the meters#show
-  So I can get all inmeter about a meter.
+  So I can get all information about a meter.
   } do
   # Acceptance
   # When a guest visits a meter#show_path,
