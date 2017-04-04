@@ -1,0 +1,7 @@
+<div id="meterlist">
+  <ul>
+    <% @meters.each do |meter| %>
+      <li><%= link_to meter.name, meter_path(meter) %></li>
+    <% end %>
+  </ul>
+</div>

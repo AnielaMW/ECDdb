@@ -14,7 +14,7 @@ feature 'create a meter', %Q{
   let!(:dance) { FactoryGirl.create(:dance) }
   new_meter = { name: "1/2", description: "I have no idea" }
 
-  pending 'authenticated user successfully create meter
+  scenario 'authenticated user successfully create meter
     with valid information' do
     sign_in anne
     visit new_dance_path
@@ -30,7 +30,7 @@ feature 'create a meter', %Q{
     expect(page).to have_content(new_meter[:name])
   end
 
-  pending 'authenticated user fail to create meter
+  scenario 'authenticated user fail to create meter
     with invalid information' do
     sign_in anne
     visit new_dance_path
@@ -53,7 +53,7 @@ feature 'create a meter', %Q{
     expect(page).to have_current_path(new_user_session_path)
   end
 
-  pending 'meter form should open in a new window, close, and new meter
+  scenario 'meter form should open in a new window, close, and new meter
   should be in the meter select box of the new dance form'
   # expect the form to open in new window?
   # expect the form to close and be able to select the new meter from the

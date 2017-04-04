@@ -17,7 +17,7 @@ feature 'update a meter', %Q{
   changes = { name: "3/7",
               description: "Now I'm just making these up." }
 
-  pending 'admin user sucessfully update meter with valid information' do
+  scenario 'admin user sucessfully update meter with valid information' do
     sign_in admin
     visit meter_path(meter.id)
     click_link "Edit"
@@ -33,7 +33,7 @@ feature 'update a meter', %Q{
     expect(page).to have_content(changes[:description])
   end
 
-  pending 'admin user fail to update meter with invalid information' do
+  scenario 'admin user fail to update meter with invalid information' do
     sign_in admin
     visit meter_path(meter.id)
     click_link "Edit"
@@ -45,7 +45,7 @@ feature 'update a meter', %Q{
     Description can't be blank")
   end
 
-  pending 'fail to see "Edit" button with non-admin user' do
+  scenario 'fail to see "Edit" button with non-admin user' do
     visit meter_path(meter.id)
 
     expect(page).not_to have_content("Edit")
