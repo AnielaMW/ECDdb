@@ -24,7 +24,8 @@ feature 'delete a dance', %{
     expect(page).not_to have_content(dance1.title)
   end
 
-  scenario 'fail to see "Delete" button with unauthenticated or not creator user' do
+  scenario 'fail to see "Delete" button with unauthenticated or not creator
+  user' do
     visit dance_path(dance1.id)
     expect(page).not_to have_content("Delete")
 

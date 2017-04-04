@@ -12,10 +12,12 @@ feature 'delete a dance_comment', %{
   # If user is not the creator, they cannot see the 'Delete' button
 
   let!(:comment1) { FactoryGirl.create(:dance_comment) }
-  let!(:comment2) { FactoryGirl.create(:dance_comment, dance_id: comment1.dance_id) }
+  let!(:comment2) { FactoryGirl.create(:dance_comment,
+    dance_id: comment1.dance_id) }
   let!(:comment3) { FactoryGirl.create(:dance_comment) }
 
-  scenario 'creator sucessfully delete a dance_comment from dance_comment_path' do
+  scenario 'creator sucessfully delete a dance_comment from
+  dance_comment_path' do
     sign_in comment1.user
     visit dance_comment_path(comment1.id)
     click_link "Delete"
@@ -33,7 +35,8 @@ feature 'delete a dance_comment', %{
     expect(page).not_to have_content(comment2.comment)
   end
 
-  pending 'creator sucessfully delete a dance_comment from the dance_comments path' do
+  pending 'creator sucessfully delete a dance_comment from the dance_comments
+  path' do
     sign_in comment3.user
     visit dance_comments_path
     click_link "Delete"

@@ -23,7 +23,8 @@ feature 'update a dance', %{
               direction: "2nd couple right hand turn" }
   let!(:clay) { FactoryGirl.create(:anne) }
 
-  scenario 'authenticated user sucessfully update dance with valid information' do
+  scenario 'authenticated user sucessfully update dance with valid
+  information' do
     sign_in anne
     visit dance_path(dance1.id)
     click_link "Edit"
@@ -83,10 +84,14 @@ feature 'update a dance', %{
     fill_in 'Direction', with: ""
     click_button "Update"
 
-    expect(page).to have_content("Title can't be blank, Direction can't be blank")
+    expect(page).to have_content(
+      "Title can't be blank,
+      Direction can't be blank"
+    )
   end
 
-  scenario 'fail to see "Edit" button with unauthenticated or not creator user' do
+  scenario 'fail to see "Edit" button with unauthenticated or non-creator
+  user' do
     visit dance_path(dance1.id)
 
     expect(page).not_to have_content("Edit")

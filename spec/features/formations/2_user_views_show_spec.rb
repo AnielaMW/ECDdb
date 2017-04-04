@@ -22,7 +22,8 @@ feature 'view formations#show', %{
     expect(page).to have_content(formation.description)
   end
 
-  scenario 'sucessfully view a formation#show from formations#index_path or dance_path' do
+  scenario 'sucessfully view a formation#show from formations#index_path or
+  dance_path' do
     visit formations_path
     click_link formation.name.to_s
 
@@ -33,6 +34,6 @@ feature 'view formations#show', %{
 
     expect(page).to have_current_path(formation_path(formation.id))
 
-    #IN A POPUP WINDOW MAYBE WHEN ? ICON IS CLICKED"
+    # IN A POPUP WINDOW MAYBE WHEN ? ICON IS CLICKED"
   end
 end

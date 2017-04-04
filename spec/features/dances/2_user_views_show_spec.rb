@@ -36,7 +36,8 @@ feature 'view dances#show', %{
     expect(page).to have_content(dance2.year)
   end
 
-  scenario 'sucessfully view a dance#show from dances#index_path and root_path' do
+  scenario 'sucessfully view a dance#show from dances#index_path and
+  root_path' do
     visit dances_path
     click_link dance1.title.to_s
 
@@ -47,6 +48,7 @@ feature 'view dances#show', %{
 
     expect(page).to have_current_path(dance_path(dance1.id))
 
-    # MAYBE IT SHOULD OPEN IN A NEW TAB SO THE USER DOENS'T LOSE THEIR SPOT IN THE INDEX LIST
+    # MAYBE IT SHOULD OPEN IN A NEW TAB SO THE USER DOENS'T LOSE THEIR SPOT
+    # IN THE INDEX LIST
   end
 end
