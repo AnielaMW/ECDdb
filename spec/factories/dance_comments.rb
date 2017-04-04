@@ -6,15 +6,15 @@ FactoryGirl.define do
     comment_type
 
     factory :dcom_comment do
-      # comment_type
+      comment_type
     end
 
     factory :dvar_comment do
-      # variation
+      association :comment_type, factory: :variation
     end
 
     factory :dstyle_comment do
-      # style_point
+      association :comment_type, factory: :style_point
     end
   end
 end

@@ -2,6 +2,7 @@ class DancesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_dance, only: [:show, :edit, :update, :destroy]
   before_action :collections, only: [:new, :create, :edit, :update]
+  before_action :comments?, only: [:show]
 
   def index
     @dances = dances.sort_by { |d| d.title }
@@ -61,7 +62,8 @@ class DancesController < ApplicationController
   end
 
   def comments?
-    @dance.dance_comments
+    @dance_comments = @dance.dance_comments.sort_by { |d| d.comment_type.name }
+    @dance_comments
   end
 
   def collections

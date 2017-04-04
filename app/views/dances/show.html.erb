@@ -42,7 +42,7 @@
     <%= link_to 'Create Comment', new_dance_dance_comment_path(@dance) %>
 
     <ul>
-      <% @dance.dance_comments.each do |dc| %>
+      <% @dance_comments.each do |dc| %>
         <li id="comment_box">
           <h3><%= link_to dc.comment_type.name, comment_type_path(dc.comment_type_id) %></h3>
           <h4><%= link_to dc.user.first_name, dance_comment_path(dc.user.id) %></h4>

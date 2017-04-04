@@ -1,12 +1,12 @@
 class CommentTypesController < ApplicationController
   before_action :set_comment_type, only: [:show, :edit, :update, :destroy]
+  before_action :admin_user?, only: [:show]
 
   def index
     @comment_types = comment_types.sort_by { |f| f.name }
   end
 
   def show
-    @admin = admin_user?
   end
 
   def new
