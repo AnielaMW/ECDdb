@@ -47,10 +47,6 @@ class MetersController < ApplicationController
 
   private
 
-  def admin_user?
-    current_user && current_user.admin == true
-  end
-
   def meters
     Meter.all
   end

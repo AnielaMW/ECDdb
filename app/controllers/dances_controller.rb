@@ -78,6 +78,6 @@ class DancesController < ApplicationController
   end
 
   def dances
-    Dance.all
+    @dances ||= Dance.all
   end
 end

@@ -47,10 +47,6 @@ class FormationsController < ApplicationController
 
   private
 
-  def admin_user?
-    current_user && current_user.admin == true
-  end
-
   def formations
     Formation.all
   end
