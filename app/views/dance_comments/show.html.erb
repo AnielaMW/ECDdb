@@ -2,7 +2,7 @@
   <% if @creator %>
     <li><%= link_to 'Edit', edit_dance_comment_path(@dance_comment) %></li>
   <% end %>
-  <% if @creator || @admin_user %>
+  <% if current_user && (@creator || @admin_user || current_user.id == @dance_comment.dance.user_id) %>
     <li><%= link_to 'Delete', @dance_comment, method: :delete, data: { confirm: 'Are you sure?' } %></li>
   <% end %>
 </ul>

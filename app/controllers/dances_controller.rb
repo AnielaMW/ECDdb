@@ -39,7 +39,7 @@ class DancesController < ApplicationController
   end
 
   def destroy
-    if @dance.dance_comments
+    if comments?
       @dance.dance_comments.destroy
     end
     @dance.destroy
@@ -59,7 +59,11 @@ class DancesController < ApplicationController
   def dances
     @dances ||= Dance.all
   end
-  
+
+  def comments?
+    @dance.dance_comments
+  end
+
   def collections
     @formation_collection = Formation.all
     @meter_collection = Meter.all

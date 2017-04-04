@@ -25,7 +25,7 @@ feature 'delete a dance_comment', %{
     expect(page).not_to have_content(com1.comment)
   end
 
-  pending 'creator sucessfully delete a dance_comment from the dance path' do
+  scenario 'creator sucessfully delete a dance_comment from the dance path' do
     sign_in com2.user
     visit dance_path(com2.dance)
     click_link "Delete"
@@ -34,7 +34,7 @@ feature 'delete a dance_comment', %{
     expect(page).not_to have_content(com2.comment)
   end
 
-  pending 'creator sucessfully delete a dance_comment from the dance_comments
+  scenario 'creator sucessfully delete a dance_comment from the dance_comments
   path' do
     sign_in com3.user
     visit dance_comments_path

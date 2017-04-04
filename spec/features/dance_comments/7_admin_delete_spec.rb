@@ -23,19 +23,23 @@ feature 'delete a dance_comment', %{
     expect(page).not_to have_content(com1.comment)
   end
 
-  pending 'admin sucessfully delete a dance_comment from the dance path' do
+  scenario 'admin sucessfully delete a dance_comment from the dance path' do
     sign_in lady_r
     visit dance_path(com2.dance)
-    click_link "Delete"
 
-    expect(page).to have_current_path(edit_dance_comment_path(com2))
+    comment_boxes = page.all("li#comment_box")
+
+    expect(comment_boxes[0]).to have_content("Delete")
+    expect(comment_boxes[1]).to have_content("Delete")
   end
 
-  pending 'admin sucessfully delete a dance_comment from the dance_comments path' do
+  scenario 'admin sucessfully delete a dance_comment from the dance_comments path' do
     sign_in lady_r
     visit dance_comments_path
-    click_link "Delete"
+    
+    comment_boxes = page.all("li#comment_box")
 
-    expect(page).to have_current_path(edit_dance_comment_path(com3))
+    expect(comment_boxes[0]).to have_content("Delete")
+    expect(comment_boxes[1]).to have_content("Delete")
   end
 end

@@ -45,7 +45,7 @@ feature 'view dance comments', %{
   scenario 'sucessfully view the dance_comments for all dances on
   dance_comment#index' do
     visit dance_comments_path
-
+    
     comments = page.all("div#dance_commentlist ul li")
 
     expect(comments[0]).to have_content(com1.dance.title)

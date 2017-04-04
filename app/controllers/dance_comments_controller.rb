@@ -6,6 +6,7 @@ class DanceCommentsController < ApplicationController
 
   def index
     @dance_comments = dance_comments.sort_by { |d| d.comment }
+    @admin_user = admin_user?
   end
 
   def show
