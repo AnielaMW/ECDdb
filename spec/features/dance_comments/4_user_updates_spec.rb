@@ -53,7 +53,6 @@ feature 'update a dance_comment', %{
     visit dance_comments_path
 
     comment_boxes = page.all("li#comment_box")
-    binding.pry
 
     expect(comment_boxes[2]).to have_content("Edit")
   end

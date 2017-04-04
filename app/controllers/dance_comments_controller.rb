@@ -18,9 +18,12 @@ class DanceCommentsController < ApplicationController
   end
 
   def create
-    @dance_comment = DanceComment.new(dance_comment_params.merge(
-    { user_id: current_user.id, dance_id: @dance.id }
-    ))
+    @dance_comment = DanceComment.new(
+      dance_comment_params.merge(
+        user_id: current_user.id,
+        dance_id: @dance.id
+      )
+    )
     if @dance_comment.save
       redirect_to dance_comment_path(@dance_comment)
     else
