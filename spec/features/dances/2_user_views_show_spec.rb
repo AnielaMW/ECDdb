@@ -27,42 +27,26 @@ feature 'view dances#show', %Q{
     expect(page).to have_content(dance1.formation.name)
     expect(page).to have_content(dance1.meter.name)
     expect(page).to have_content(dance1.direction)
-  end
 
-  scenario 'sucessfully view dance#show with all available information' do
     visit dance_path(dance2.id)
 
     expect(page).to have_content(dance2.title)
-    expect(page).to have_content(dance2.user.first_name)
-    expect(page).to have_content(dance2.formation.name)
-    expect(page).to have_content(dance2.meter.name)
     expect(page).to have_content(dance2.author)
     expect(page).to have_content(dance2.publication)
     expect(page).to have_content(dance2.year)
-    expect(page).to have_content(dance2.direction)
   end
 
-  scenario 'sucessfully view a dance#show from dances#index_path' do
+  scenario 'sucessfully view a dance#show from dances#index_path and root_path' do
     visit dances_path
     click_link dance1.title.to_s
 
     expect(page).to have_current_path(dance_path(dance1.id))
-    expect(page).to have_content(dance1.title)
-    expect(page).to have_content(dance1.user.first_name)
-    expect(page).to have_content(dance1.formation.name)
-    expect(page).to have_content(dance1.meter.name)
-    expect(page).to have_content(dance1.direction)
-  end
 
-  scenario 'sucessfully view a dance#show from root_path' do
     visit root_path
     click_link dance1.title.to_s
 
     expect(page).to have_current_path(dance_path(dance1.id))
-    expect(page).to have_content(dance1.title)
-    expect(page).to have_content(dance1.user.first_name)
-    expect(page).to have_content(dance1.formation.name)
-    expect(page).to have_content(dance1.meter.name)
-    expect(page).to have_content(dance1.direction)
+
+    # MAYBE IT SHOULD OPEN IN A NEW TAB SO THE USER DOENS'T LOSE THEIR SPOT IN THE INDEX LIST
   end
 end

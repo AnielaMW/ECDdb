@@ -1,6 +1,5 @@
 class DancesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :admin_user?
   before_action :set_dance, only: [:show, :edit, :update, :destroy]
   before_action :collections, only: [:new, :create, :edit, :update]
 
@@ -10,6 +9,7 @@ class DancesController < ApplicationController
 
   def show
     @creator = creator?
+    @admin_user = admin_user?
   end
 
   def new
@@ -39,18 +39,21 @@ class DancesController < ApplicationController
   end
 
   def destroy
-    if creator?
-      @dance.destroy
-      redirect_to root_path
-    else
-      redirect_to dance_path(@dance)
+    if @dance.dance_comments
+      @dance.dance_comments.destroy
     end
+    @dance.destroy
+    redirect_to root_path
   end
 
   private
 
   def admin_user?
     current_user && current_user.admin == true
+  end
+
+  def creator?
+    current_user && current_user.id == @dance.user_id
   end
 
   def set_dance
@@ -76,9 +79,5 @@ class DancesController < ApplicationController
 
   def dances
     Dance.all
-  end
-
-  def creator?
-    current_user && current_user.id == @dance.user_id
   end
 end

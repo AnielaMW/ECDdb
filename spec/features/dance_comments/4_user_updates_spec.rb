@@ -14,11 +14,15 @@ feature 'update a dance_comment', %Q{
   # If user is not the creator, they cannot see the 'Edit' button
 
   let!(:comment1) { FactoryGirl.create(:dstyle_comment) }
+  let!(:comment2) { FactoryGirl.create(:dstyle_comment,
+    dance_id: comment1.dance_id) }
+  let!(:comment3) { FactoryGirl.create(:dstyle_comment) }
   let!(:type) { FactoryGirl.create(:comment_type) }
   changes = { comment: "My New Fav Dance" }
   let!(:clay) { FactoryGirl.create(:anne) }
 
-  pending 'authenticated user sucessfully update dance_comment with valid information' do
+  scenario 'creator sucessfully update dance_comment with valid
+  information from dance_path' do
     sign_in comment1.user
     visit dance_comment_path(comment1.id)
     click_link "Edit"
@@ -35,24 +39,40 @@ feature 'update a dance_comment', %Q{
     expect(page).to have_content(type.name)
   end
 
-  pending 'authenticated user fail to update dance_comment with invalid information' do
+  pending 'creator sucessfully select edit button from the dance path' do
+    sign_in comment2.user
+    visit dance_path(comment2.dance)
+    click_link "Edit"
+
+    expect(page).to have_current_path(edit_dance_comment_path(comment2))
+  end
+
+  pending 'creator sucessfully select edit button from the dance_comments path' do
+    sign_in comment3.user
+    visit dance_comments_path
+    click_link "Edit"
+
+    expect(page).to have_current_path(edit_dance_comment_path(comment3))
+  end
+
+  scenario 'authenticated user fail to update dance_comment with invalid information' do
     sign_in comment1.user
     visit dance_comment_path(comment1.id)
     click_link "Edit"
     fill_in 'Comment', with: ""
-    select "", from: 'Type'
+    # select "", from: 'Type'
     click_button "Update"
 
-    expect(page).to have_content("Name can't be blank, Type can't be blank")
+    expect(page).to have_content("Comment can't be blank")
   end
 
-  pending 'fail to see "Edit" button with unauthenticated user' do
+  scenario 'fail to see "Edit" button with unauthenticated user' do
     visit dance_comment_path(comment1.id)
 
     expect(page).not_to have_content("Edit")
   end
 
-  pending 'fail to see "Edit" button if authenticated user is not the creator' do
+  scenario 'fail to see "Edit" button if authenticated user is not the creator' do
     sign_in clay
     visit dance_comment_path(comment1.id)
 

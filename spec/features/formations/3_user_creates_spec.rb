@@ -53,9 +53,9 @@ feature 'create a formation', %Q{
     expect(page).to have_current_path(new_user_session_path)
   end
 
-  pending 'formation form should open in a new window, close, and new formation
-  should be in the formation select box of the new dance form'
-  # expect the form to open in new window?
+  pending 'formation form should open in a new window or popup, close, and new
+  formation should be in the formation select box of the new dance form'
+  # expect the form to open in new window or popup?
   # expect the form to close and be able to select the new formation from the
   # select box?
 end

@@ -27,7 +27,5 @@ feature 'view comment_types#show', %Q{
     click_link comment_type.name.to_s
 
     expect(page).to have_current_path(comment_type_path(comment_type.id))
-    expect(page).to have_content(comment_type.name)
-    expect(page).to have_content(comment_type.description)
   end
 end

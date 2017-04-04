@@ -1,0 +1,12 @@
+<div id="dance_commentlist">
+  <ul>
+    <% @dance_comments.each do |dc| %>
+      <li>
+        <h3>
+          <%= dc.user.first_name %> posted a <%= dc.comment_type.name %> for <%= dc.dance.title %>
+        </h3>
+        <p><%= link_to dc.comment, dance_comment_path(dc) %></p>
+      </li>
+    <% end %>
+  </ul>
+</div>

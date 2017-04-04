@@ -1,15 +1,15 @@
 FactoryGirl.define do
   factory :dance do
     user
-    sequence(:title) { |n| "#{n}" }
-    sequence(:direction) { |n| "#{n}" }
+    sequence(:title) { |n| "Dance Title #{n}" }
+    sequence(:direction) { |n| "Dance Direction #{n}" }
     meter
     formation
 
     factory :authored_dance, aliases: [:authored] do
-      sequence(:author) { |n| "#{n}" }
-      sequence(:year) { |n| "#{n}" }
-      sequence(:publication) { |n| "#{n}" }
+      sequence(:author) { |n| "Author #{n}" }
+      sequence(:year) { |n| "177#{n}" }
+      sequence(:publication) { |n| "Publication #{n}" }
     end
   end
 end

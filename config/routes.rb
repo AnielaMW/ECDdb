@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   root 'dances#index'
 
   resources :users
-  resources :dances
-  resources :dance_comments
+  resources :dances do
+    resources :dance_comments, only: [:new, :create]
+  end
+  resources :dance_comments, except: [:new, :create]
   resources :formations
   resources :meters
   resources :comment_types

@@ -44,20 +44,15 @@ feature 'update a dance', %Q{
     sign_in anne
     visit dance_path(dance1.id)
     click_link "Edit"
-    fill_in 'Title', with: changes[:title].to_s
     fill_in 'Author', with: changes[:author].to_s
     fill_in 'Year', with: changes[:year].to_s
     fill_in 'Publication', with: changes[:publication].to_s
-    fill_in 'Direction', with: changes[:direction].to_s
     click_button "Update"
 
     expect(page).to have_current_path(dance_path(dance1.id))
-    expect(page).to have_content(changes[:title])
-    expect(page).to have_content(anne.first_name)
     expect(page).to have_content(changes[:author])
     expect(page).to have_content(changes[:publication])
     expect(page).to have_content(changes[:year])
-    expect(page).to have_content(changes[:direction])
   end
 
   scenario 'authenticated user sucessfully update dance with all information' do
@@ -91,13 +86,11 @@ feature 'update a dance', %Q{
     expect(page).to have_content("Title can't be blank, Direction can't be blank")
   end
 
-  scenario 'fail to see "Edit" button with unauthenticated user' do
+  scenario 'fail to see "Edit" button with unauthenticated or not creator user' do
     visit dance_path(dance1.id)
 
     expect(page).not_to have_content("Edit")
-  end
 
-  scenario 'fail to see "Edit" button if authenticated user is not the creator' do
     sign_in clay
     visit dance_path(dance1.id)
 
