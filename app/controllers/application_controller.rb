@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
  before_filter :configure_permitted_parameters, if: :devise_controller?
 
+ def admin_user?
+   current_user && current_user.admin == true
+ end
+
  protected
 
  def configure_permitted_parameters
