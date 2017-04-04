@@ -15,13 +15,13 @@ feature 'view meters#index', %Q{
   let!(:meter2) { FactoryGirl.create(:meter, name: "3/4") }
   let!(:meter3) { FactoryGirl.create(:meter, name: "8/16") }
 
-  pending 'sucessfully view the meters#index' do
+  scenario 'sucessfully view the meters#index' do
     visit meters_path
 
     meters = page.all("div#meterlist ul li")
 
-    expect(meters[0]).to have_content(meter1.name)
-    expect(meters[1]).to have_content(meter3.name)
-    expect(meters[2]).to have_content(meter2.name)
+    expect(meters[0]).to have_content(meter2.name)
+    expect(meters[1]).to have_content(meter1.name)
+    expect(meters[2]).to have_content(meter3.name)
   end
 end
