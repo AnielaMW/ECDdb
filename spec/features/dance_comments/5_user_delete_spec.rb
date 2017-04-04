@@ -12,8 +12,7 @@ feature 'delete a dance_comment', %{
   # If user is not the creator, they cannot see the 'Delete' button
 
   let!(:com1) { FactoryGirl.create(:dance_comment) }
-  let!(:com2) { FactoryGirl.create(:dance_comment,
-    dance_id: com1.dance_id) }
+  let!(:com2) { FactoryGirl.create(:dance_comment, dance_id: com1.dance_id) }
   let!(:com3) { FactoryGirl.create(:dance_comment) }
 
   scenario 'creator sucessfully delete a dance_comment from

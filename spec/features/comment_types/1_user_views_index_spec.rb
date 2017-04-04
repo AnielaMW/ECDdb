@@ -35,6 +35,7 @@ feature 'view comment_types#index', %{
 
     expect(page).to have_current_path(comment_types_path)
 
-    #IN A POPUP WINDOW MAYBE WHEN ? ICON IS CLICKED INSTEAD OF "VIEW COMMENT TYPES"
+    # IN A POPUP WINDOW MAYBE WHEN ? ICON IS CLICKED INSTEAD OF
+    # "VIEW COMMENT TYPES"
   end
 end

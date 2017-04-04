@@ -56,6 +56,15 @@ class DancesController < ApplicationController
     @dance = Dance.find(params[:id])
   end
 
+  def dances
+    @dances ||= Dance.all
+  end
+  
+  def collections
+    @formation_collection = Formation.all
+    @meter_collection = Meter.all
+  end
+
   def dance_params
     params.require(:dance).permit(
       :title,
@@ -66,14 +75,5 @@ class DancesController < ApplicationController
       :year,
       :direction
     )
-  end
-
-  def collections
-    @formation_collection = Formation.all
-    @meter_collection = Meter.all
-  end
-
-  def dances
-    @dances ||= Dance.all
   end
 end

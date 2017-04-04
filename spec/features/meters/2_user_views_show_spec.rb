@@ -22,7 +22,8 @@ feature 'view meters#show', %{
     expect(page).to have_content(meter.description)
   end
 
-  scenario 'sucessfully view a meter#show from meters#index_path or dance_path' do
+  scenario 'sucessfully view a meter#show from meters#index_path or
+  dance_path' do
     visit meters_path
     click_link meter.name.to_s
 
@@ -32,6 +33,6 @@ feature 'view meters#show', %{
     click_link meter.name.to_s
 
     expect(page).to have_current_path(meter_path(meter.id))
-    #IN A POPUP WINDOW MAYBE WHEN ? ICON IS CLICKED"
+    # IN A POPUP WINDOW MAYBE WHEN ? ICON IS CLICKED"
   end
 end

@@ -18,7 +18,9 @@ class DanceCommentsController < ApplicationController
   end
 
   def create
-    @dance_comment = DanceComment.new(dance_comment_params.merge({user_id: current_user.id, dance_id: @dance.id}))
+    @dance_comment = DanceComment.new(dance_comment_params.merge(
+    { user_id: current_user.id, dance_id: @dance.id }
+    ))
     if @dance_comment.save
       redirect_to dance_comment_path(@dance_comment)
     else
@@ -54,15 +56,6 @@ class DanceCommentsController < ApplicationController
     @dance = Dance.find(params[:dance_id])
   end
 
-  def dance_comment_params
-    params.require(:dance_comment).permit(
-      :comment,
-      :user_id,
-      :comment_type_id,
-      :dance_id
-    )
-  end
-
   def collections
     @comment_type_collection = CommentType.all
   end
@@ -73,5 +66,14 @@ class DanceCommentsController < ApplicationController
 
   def creator?
     current_user && current_user.id == @dance_comment.user_id
+  end
+
+  def dance_comment_params
+    params.require(:dance_comment).permit(
+      :comment,
+      :user_id,
+      :comment_type_id,
+      :dance_id
+    )
   end
 end

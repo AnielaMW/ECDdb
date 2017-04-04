@@ -25,7 +25,8 @@ feature 'view dance comments', %{
 
     comments = page.all("div#dance_commentlist ul li")
 
-# Can't get the factories to creat the three different kinds of comment types.
+    # Can't get the factories to creat the three different kinds of comment
+    # types.
     # expect(comments[0]).to have_content(com1.comment)
     # expect(comments[1]).to have_content(com3.comment)
     # expect(comments[2]).to have_content(com2.comment)
