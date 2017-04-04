@@ -12,9 +12,9 @@ feature 'create a formation', %Q{
 
   let!(:anne) { FactoryGirl.create(:anne) }
   let!(:dance) { FactoryGirl.create(:dance) }
-  new_formation = { name: "", description: "" }
+  new_formation = { name: "6 Couple", description: "3 next to 3" }
 
-  pending 'authenticated user successfully create formation
+  scenario 'authenticated user successfully create formation
     with valid information' do
     sign_in anne
     visit new_dance_path
@@ -25,25 +25,37 @@ feature 'create a formation', %Q{
     fill_in 'Name', with: new_formation[:name].to_s
     fill_in 'Description', with: new_formation[:description].to_s
     click_button "Create Formation"
+    visit formations_path
 
-
+    expect(page).to have_content(new_formation[:name])
   end
 
-  pending 'authenticated user fail to create formation
+  scenario 'authenticated user fail to create formation
     with invalid information' do
+    sign_in anne
+    visit new_dance_path
+    click_link "New Formation"
+    fill_in 'Name', with: ""
+    fill_in 'Description', with: ""
+    click_button "Create Formation"
 
     expect(page).to have_content(
       "Name can't be blank, Description can't be blank"
     )
   end
 
-  pending 'fail to create a formation with unauthenticated user' do
-    visit root_path
-    click_link "Create Dance"
+  scenario 'fail to create a formation with unauthenticated user' do
+    visit new_dance_path
 
     expect(page).to have_content(
       "You need to sign in or sign up before continuing."
     )
     expect(page).to have_current_path(new_user_session_path)
   end
+
+  pending 'formation form should open in a new window, close, and new formation
+  should be in the formation select box of the new dance form'
+  # expect the form to open in new window?
+  # expect the form to close and be able to select the new formation from the
+  # select box?
 end
