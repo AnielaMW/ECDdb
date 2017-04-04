@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'deletes account', %Q{
+feature 'deletes account', %{
   As an authenticated user
   I want to delete my account
   So that my profile is no longer retained

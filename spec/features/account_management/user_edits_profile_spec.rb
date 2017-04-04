@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'edits account', %Q{
+feature 'edits account', %{
   As an authenticated user
   I want to edit my account
   So that I can update my profile

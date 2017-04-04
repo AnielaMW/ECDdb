@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'views account', %Q{
+feature 'views account', %{
   As a user
   I want to view accounts
   So that I can see public profiles of users

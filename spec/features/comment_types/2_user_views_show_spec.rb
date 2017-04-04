@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'view comment_types#show', %Q{
+feature 'view comment_types#show', %{
   As a Guest
   I want to view the comment_types#show
   So I can get all information about a comment_type.

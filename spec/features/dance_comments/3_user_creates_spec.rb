@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'create a dance_comment', %Q{
+feature 'create a dance_comment', %{
   As an Authenticated User
   I want to create new dance_comments
   So I can share dance_comments with other users.

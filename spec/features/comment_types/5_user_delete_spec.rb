@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'delete a comment_type', %Q{
+feature 'delete a comment_type', %{
   As an Admin User
   I want to delete comment_types
   So I can delete comment_types.

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'view dances#show', %Q{
+feature 'view dances#show', %{
   As a Guest
   I want to view the dances#show
   So I can get all information about a dance.

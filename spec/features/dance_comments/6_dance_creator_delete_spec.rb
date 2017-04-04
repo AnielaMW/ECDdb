@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'delete a dance_comment', %Q{
+feature 'delete a dance_comment', %{
   As an Dance Creator
   I want to delete dance_comments posted to my dance
   So I can delete dance_comments I don't want posted to my dance.

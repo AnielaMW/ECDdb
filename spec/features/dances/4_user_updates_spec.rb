@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'update a dance', %Q{
+feature 'update a dance', %{
   As an Authenticated User
   I want to update my dances
   So I can edit dances I have created.

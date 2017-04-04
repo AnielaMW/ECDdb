@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'view formations#show', %Q{
+feature 'view formations#show', %{
   As a Guest
   I want to view the formations#show
   So I can get all information about a formation.

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'update a dance_comment', %Q{
+feature 'update a dance_comment', %{
   As an Authenticated User
   I want to update my dance_comments
   So I can edit dance_comments I have created.

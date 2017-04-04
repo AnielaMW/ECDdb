@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'delete a dance', %Q{
+feature 'delete a dance', %{
   As an Authenticated User
   I want to delete my dances
   So I can delete dances I have created.

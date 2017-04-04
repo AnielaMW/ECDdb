@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'view meters#show', %Q{
+feature 'view meters#show', %{
   As a Guest
   I want to view the meters#show
   So I can get all information about a meter.

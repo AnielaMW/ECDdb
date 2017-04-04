@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'view meters#index', %Q{
+feature 'view meters#index', %{
   As a Guest
   I want to view the meters#index
   So I can pick from all meters.

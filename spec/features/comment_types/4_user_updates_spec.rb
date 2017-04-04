@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'update a comment_type', %Q{
+feature 'update a comment_type', %{
   As an Admin User
   I want to update comment_types
   So I can edit comment_types that have been created.

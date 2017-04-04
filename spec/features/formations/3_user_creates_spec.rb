@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'create a formation', %Q{
+feature 'create a formation', %{
   As an Authenticated User
   I want to create a new formation
   So I can select that formation for new dances.

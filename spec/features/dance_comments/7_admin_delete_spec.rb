@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'delete a dance_comment', %Q{
+feature 'delete a dance_comment', %{
   As a Admin
   I want to delete dance_comments
   So I can delete dance_comments.

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'view dance comments', %Q{
+feature 'view dance comments', %{
   As a Guest
   I want to view the dance page and see it's comments
   So I can see from all dance_comments for a dance.

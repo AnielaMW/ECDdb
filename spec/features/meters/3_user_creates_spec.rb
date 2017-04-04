@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'create a meter', %Q{
+feature 'create a meter', %{
   As an Authenticated User
   I want to create a new meter
   So I can select that meter for new dances.

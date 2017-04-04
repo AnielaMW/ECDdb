@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'create account', %Q{
+feature 'create account', %{
   As a User
   I want to create an account
   So that I can login

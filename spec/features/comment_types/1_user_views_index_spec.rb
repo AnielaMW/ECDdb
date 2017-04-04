@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'view comment_types#index', %Q{
+feature 'view comment_types#index', %{
   As a Guest
   I want to view the comment_types#index
   So I can pick from all comment_types.

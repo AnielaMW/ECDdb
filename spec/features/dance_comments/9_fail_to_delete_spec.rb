@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'fail to delete a dance_comment', %Q{
+feature 'fail to delete a dance_comment', %{
   As an Unauthenticated User
   I want to delete my dance_comments
   So I can delete dance_comments I have created.
