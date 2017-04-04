@@ -16,6 +16,7 @@ feature 'view comment_types#index', %Q{
   let!(:type1) { FactoryGirl.create(:variation) }
   let!(:type2) { FactoryGirl.create(:comment_type) }
   let!(:type3) { FactoryGirl.create(:style_point) }
+  let!(:dance) { FactoryGirl.create(:dance) }
 
   scenario 'sucessfully view the comment_types#index' do
     visit comment_types_path
@@ -27,10 +28,10 @@ feature 'view comment_types#index', %Q{
     expect(comment_types[2]).to have_content(type1.name)
   end
 
-  scenario 'sucessfully view the comment_types#index after click on
+  pending 'sucessfully view the comment_types#index after click on
   the comment form view button' do
-    visit new_comment_path
-    click "View Comment Types"
+    visit new_dance_dance_comment_path(dance)
+    click "View Types"
 
     expect(page).to have_current_path(comment_types_path)
 

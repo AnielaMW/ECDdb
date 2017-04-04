@@ -48,10 +48,6 @@ class DancesController < ApplicationController
 
   private
 
-  def admin_user?
-    current_user && current_user.admin == true
-  end
-
   def creator?
     current_user && current_user.id == @dance.user_id
   end
@@ -78,6 +74,6 @@ class DancesController < ApplicationController
   end
 
   def dances
-    Dance.all
+    @dances ||= Dance.all
   end
 end

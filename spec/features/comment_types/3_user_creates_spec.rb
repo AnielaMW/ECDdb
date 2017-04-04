@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'create a comment_type', %Q{
-  As an Authenticated User
+  As a admin
   I want to create a new comment_type
   So I can select that comment_type for new dances.
   } do
@@ -15,7 +15,7 @@ feature 'create a comment_type', %Q{
   new_type = { name: "Caller's Tip", description: "Tips for Callers" }
   let!(:anne) { FactoryGirl.create(:anne) }
 
-  scenario 'admin user successfully create comment_type
+  pending 'admin user successfully create comment_type
     with valid information' do
     sign_in admin
     visit root_path
@@ -31,7 +31,7 @@ feature 'create a comment_type', %Q{
     expect(page).to have_content(new_type[:description])
   end
 
-  scenario 'admin user fail to create comment_type
+  pending 'admin user fail to create comment_type
     with invalid information' do
     sign_in admin
     visit root_path

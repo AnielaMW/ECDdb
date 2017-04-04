@@ -1,5 +1,4 @@
 class MetersController < ApplicationController
-  before_action :admin_user?
   before_action :set_meter, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -46,10 +45,6 @@ class MetersController < ApplicationController
   end
 
   private
-
-  def admin_user?
-    current_user && current_user.admin == true
-  end
 
   def meters
     Meter.all

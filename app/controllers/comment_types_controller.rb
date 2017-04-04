@@ -1,5 +1,4 @@
 class CommentTypesController < ApplicationController
-  before_action :admin_user?
   before_action :set_comment_type, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -46,10 +45,6 @@ class CommentTypesController < ApplicationController
   end
 
   private
-
-  def admin_user?
-    current_user && current_user.admin == true
-  end
 
   def comment_types
     CommentType.all

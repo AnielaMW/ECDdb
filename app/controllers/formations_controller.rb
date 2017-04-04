@@ -1,5 +1,4 @@
 class FormationsController < ApplicationController
-  before_action :admin_user?
   before_action :set_formation, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -46,10 +45,6 @@ class FormationsController < ApplicationController
   end
 
   private
-
-  def admin_user?
-    current_user && current_user.admin == true
-  end
 
   def formations
     Formation.all
