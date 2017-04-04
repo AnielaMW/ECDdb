@@ -13,22 +13,22 @@ feature 'view dance_comments#show', %{
   # Details must include Creator(User),
   #   Comment, Dance.name, Comment_Type
 
-  let!(:comment1) { FactoryGirl.create(:dance_comment) }
+  let!(:com1) { FactoryGirl.create(:dance_comment) }
 
   scenario 'sucessfully view a dance_comment#show when entered directly' do
-    visit dance_comment_path(comment1.id)
+    visit dance_comment_path(com1.id)
 
-    expect(page).to have_content(comment1.comment)
-    expect(page).to have_content(comment1.user.first_name)
-    expect(page).to have_content(comment1.dance.title)
-    expect(page).to have_content(comment1.comment_type.name)
+    expect(page).to have_content(com1.comment)
+    expect(page).to have_content(com1.user.first_name)
+    expect(page).to have_content(com1.dance.title)
+    expect(page).to have_content(com1.comment_type.name)
   end
 
   scenario 'sucessfully view a dance_comments#show from dance_path' do
-    visit dance_path(comment1.dance_id)
-    click_link comment1.comment.to_s
+    visit dance_path(com1.dance_id)
+    click_link com1.comment.to_s
 
-    expect(page).to have_current_path(dance_comment_path(comment1.id))
-    #IN A POPUP WINDOW MAYBE
+    expect(page).to have_current_path(dance_comment_path(com1.id))
+    # IN A POPUP WINDOW MAYBE
   end
 end

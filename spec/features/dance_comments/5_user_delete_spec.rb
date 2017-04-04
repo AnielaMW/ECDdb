@@ -11,37 +11,37 @@ feature 'delete a dance_comment', %{
   # If user is not signed-in, they cannot see the 'Delete' button
   # If user is not the creator, they cannot see the 'Delete' button
 
-  let!(:comment1) { FactoryGirl.create(:dance_comment) }
-  let!(:comment2) { FactoryGirl.create(:dance_comment,
-    dance_id: comment1.dance_id) }
-  let!(:comment3) { FactoryGirl.create(:dance_comment) }
+  let!(:com1) { FactoryGirl.create(:dance_comment) }
+  let!(:com2) { FactoryGirl.create(:dance_comment,
+    dance_id: com1.dance_id) }
+  let!(:com3) { FactoryGirl.create(:dance_comment) }
 
   scenario 'creator sucessfully delete a dance_comment from
   dance_comment_path' do
-    sign_in comment1.user
-    visit dance_comment_path(comment1.id)
+    sign_in com1.user
+    visit dance_comment_path(com1.id)
     click_link "Delete"
 
-    expect(page).to have_current_path(dance_path(comment1.dance))
-    expect(page).not_to have_content(comment1.comment)
+    expect(page).to have_current_path(dance_path(com1.dance))
+    expect(page).not_to have_content(com1.comment)
   end
 
   pending 'creator sucessfully delete a dance_comment from the dance path' do
-    sign_in comment2.user
-    visit dance_path(comment2.dance)
+    sign_in com2.user
+    visit dance_path(com2.dance)
     click_link "Delete"
 
-    expect(page).to have_current_path(dance_path(comment2.dance))
-    expect(page).not_to have_content(comment2.comment)
+    expect(page).to have_current_path(dance_path(com2.dance))
+    expect(page).not_to have_content(com2.comment)
   end
 
   pending 'creator sucessfully delete a dance_comment from the dance_comments
   path' do
-    sign_in comment3.user
+    sign_in com3.user
     visit dance_comments_path
     click_link "Delete"
 
-    expect(page).to have_current_path(dance_path(comment3.dance))
-    expect(page).not_to have_content(comment3.comment)
+    expect(page).to have_current_path(dance_path(com3.dance))
+    expect(page).not_to have_content(com3.comment)
   end
 end
