@@ -33,10 +33,11 @@ feature 'delete a dance_comment', %{
     expect(comment_boxes[1]).to have_content("Delete")
   end
 
-  scenario 'admin sucessfully delete a dance_comment from the dance_comments path' do
+  scenario 'admin sucessfully delete a dance_comment from the dance_comments
+  path' do
     sign_in lady_r
     visit dance_comments_path
-    
+
     comment_boxes = page.all("li#comment_box")
 
     expect(comment_boxes[0]).to have_content("Delete")
