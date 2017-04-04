@@ -1,11 +1,14 @@
 <div id="dance_commentlist">
   <ul>
     <% @dance_comments.each do |dc| %>
-      <li>
+      <li id="comment_box">
         <h3>
           <%= dc.user.first_name %> posted a <%= dc.comment_type.name %> for <%= dc.dance.title %>
         </h3>
         <p><%= link_to dc.comment, dance_comment_path(dc) %></p>
+        <% if dc.user_id == current_user.id %>
+          <%= link_to "Edit", edit_dance_comment_path(dc) %>
+        <% end %>
       </li>
     <% end %>
   </ul>

@@ -38,21 +38,24 @@ feature 'update a dance_comment', %{
     expect(page).to have_content(type.name)
   end
 
-  pending 'creator sucessfully select edit button from the dance path' do
+  scenario 'creator sucessfully select edit button from the dance path' do
     sign_in com2.user
     visit dance_path(com2.dance)
-    click_link "Edit"
 
-    expect(page).to have_current_path(edit_dance_comment_path(com2))
+    comment_boxes = page.all("li#comment_box")
+
+    expect(comment_boxes[1]).to have_content("Edit")
   end
 
-  pending 'creator sucessfully select edit button from the dance_comments
+  scenario 'creator sucessfully select edit button from the dance_comments
   path' do
     sign_in com3.user
     visit dance_comments_path
-    click_link "Edit"
 
-    expect(page).to have_current_path(edit_dance_comment_path(com3))
+    comment_boxes = page.all("li#comment_box")
+    binding.pry
+
+    expect(comment_boxes[2]).to have_content("Edit")
   end
 
   scenario 'authenticated user fail to update dance_comment with invalid
