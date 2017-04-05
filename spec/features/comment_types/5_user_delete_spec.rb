@@ -26,7 +26,7 @@ feature 'delete a comment_type', %{
 
   scenario 'fail to see "Delete" button with non-admin user' do
     visit comment_type_path(comment_type.id)
-    
+
     expect(page).not_to have_content("Delete")
 
     sign_in anne
