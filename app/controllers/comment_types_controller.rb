@@ -47,11 +47,6 @@ class CommentTypesController < ApplicationController
 
   private
 
-
-  def admin_user?
-    current_user && current_user.admin == true
-  end
-
   def comment_types
     CommentType.all
   end

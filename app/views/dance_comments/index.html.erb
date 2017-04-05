@@ -10,7 +10,7 @@
         <% if current_user && dc.user_id == current_user.id %>
           <%= link_to "Edit", edit_dance_comment_path(dc) %>
         <% end %>
-        <% if current_user && (dc.user_id == current_user.id || current_user.id == dc.dance.user_id || @admin_user) %>
+        <% if current_user && (dc.creator?(current_user) || current_user.id == dc.dance.user_id || @admin_user) %>
           <%= link_to 'Delete', dc, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
       </li>

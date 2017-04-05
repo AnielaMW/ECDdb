@@ -10,7 +10,6 @@ class DanceCommentsController < ApplicationController
   end
 
   def show
-    @creator = creator?
   end
 
   def new
@@ -65,10 +64,6 @@ class DanceCommentsController < ApplicationController
 
   def dance_comments
     DanceComment.all
-  end
-
-  def creator?
-    current_user && current_user.id == @dance_comment.user_id
   end
 
   def dance_comment_params

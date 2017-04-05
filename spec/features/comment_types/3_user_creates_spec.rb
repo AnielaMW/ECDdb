@@ -15,7 +15,7 @@ feature 'create a comment_type', %{
   new_type = { name: "Caller's Tip", description: "Tips for Callers" }
   let!(:anne) { FactoryGirl.create(:anne) }
 
-  pending 'admin user successfully create comment_type
+  scenario 'admin user successfully create comment_type
     with valid information' do
     sign_in admin
     visit root_path
@@ -31,7 +31,7 @@ feature 'create a comment_type', %{
     expect(page).to have_content(new_type[:description])
   end
 
-  pending 'admin user fail to create comment_type
+  scenario 'admin user fail to create comment_type
     with invalid information' do
     sign_in admin
     visit root_path

@@ -7,4 +7,8 @@ class DanceComment < ApplicationRecord
   validates :comment_type_id, presence: true
   validates :dance_id, presence: true
   validates :user_id, presence: true
+
+  def creator?(cu)
+    cu && cu.id == user_id
+  end
 end
