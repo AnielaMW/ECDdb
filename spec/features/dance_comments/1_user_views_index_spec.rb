@@ -28,9 +28,11 @@ feature 'view dance comments', %{
     expect(comments[0]).to have_content(com3.comment)
     expect(comments[0]).to have_content(com3.user.first_name)
     expect(comments[0]).to have_content(com3.comment_type.name)
+
     expect(comments[1]).to have_content(com2.comment)
     expect(comments[1]).to have_content(com2.user.first_name)
     expect(comments[1]).to have_content(com2.comment_type.name)
+
     expect(comments[2]).to have_content(com1.comment)
     expect(comments[2]).to have_content(com1.user.first_name)
     expect(comments[2]).to have_content(com1.comment_type.name)
@@ -46,21 +48,22 @@ feature 'view dance comments', %{
     expect(comments[0]).to have_content(com4.comment)
     expect(comments[0]).to have_content(com4.user.first_name)
     expect(comments[0]).to have_content(com4.comment_type.name)
+
     expect(comments[1]).to have_content(com3.dance.title)
     expect(comments[1]).to have_content(com3.comment)
     expect(comments[1]).to have_content(com3.user.first_name)
     expect(comments[1]).to have_content(com3.comment_type.name)
+
     expect(comments[2]).to have_content(com2.dance.title)
     expect(comments[2]).to have_content(com2.comment)
     expect(comments[2]).to have_content(com2.user.first_name)
     expect(comments[2]).to have_content(com2.comment_type.name)
+
     expect(comments[3]).to have_content(com1.dance.title)
     expect(comments[3]).to have_content(com1.comment)
     expect(comments[3]).to have_content(com1.user.first_name)
     expect(comments[3]).to have_content(com1.comment_type.name)
 
-    # NEED TO ADD DATE TIME TO THE TABLE AND THEN SORT BY DATE TIME INSTEAD OF
-    # BY THE comment_type.name
     # EVENTUALLY, TYPES WILL BE SORTED INTO DIFFERNET VIEWS
   end
 end
