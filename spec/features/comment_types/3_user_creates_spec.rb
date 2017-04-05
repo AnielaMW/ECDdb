@@ -18,14 +18,14 @@ feature 'create a comment_type', %{
   scenario 'admin user successfully create comment_type
     with valid information' do
     sign_in admin
-    visit root_path
-    click_link "New Comment Type"
+    visit comment_types_path
+    click_link "Create New Type"
 
     expect(page).to have_current_path(new_comment_type_path)
 
     fill_in 'Name', with: new_type[:name].to_s
     fill_in 'Description', with: new_type[:description].to_s
-    click_button "Create Comment Type"
+    click_button "Create Comment type"
 
     expect(page).to have_content(new_type[:name])
     expect(page).to have_content(new_type[:description])
@@ -34,11 +34,11 @@ feature 'create a comment_type', %{
   scenario 'admin user fail to create comment_type
     with invalid information' do
     sign_in admin
-    visit root_path
-    click_link "New Comment Type"
+    visit comment_types_path
+    click_link "Create New Type"
     fill_in 'Name', with: ""
     fill_in 'Description', with: ""
-    click_button "Create Comment Type"
+    click_button "Create Comment type"
 
     expect(page).to have_content(
       "Name can't be blank, Description can't be blank"
@@ -46,12 +46,12 @@ feature 'create a comment_type', %{
   end
 
   scenario 'fail to see Create Comment Type button with unadmin user' do
-    visit root_path
+    visit comment_types_path
 
     expect(page).not_to have_content("Create Comment Type")
 
     sign_in anne
-    visit root_path
+    visit comment_types_path
 
     expect(page).not_to have_content("Create Comment Type")
   end
