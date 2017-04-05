@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'deletes account', %Q{
+feature 'deletes account', %{
   As an authenticated user
   I want to delete my account
   So that my profile is no longer retained
@@ -14,7 +14,7 @@ feature 'deletes account', %Q{
   scenario 'sucessfully delete account' do
     sign_in anne
     visit root_path
-    click_link 'Update Profile'
+    click_link 'Profile'
     click_button 'Cancel My Account'
 
     expect(page).to have_content(

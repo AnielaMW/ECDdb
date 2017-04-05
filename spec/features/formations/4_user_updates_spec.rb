@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'update a formation', %Q{
+feature 'update a formation', %{
   As an Admin User
   I want to update formations
   So I can edit formations that have been created.

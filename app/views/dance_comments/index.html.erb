@@ -1,0 +1,19 @@
+<div id="dance_commentlist">
+  <ul>
+    <% @dance_comments.each do |dc| %>
+      <li id="comment_box">
+        <h3>
+          <%= dc.user.first_name %> posted a <%= dc.comment_type.name %> for <%= dc.dance.title %>
+        </h3>
+        <p><%= link_to dc.comment, dance_comment_path(dc) %></p>
+
+        <% if current_user && dc.user_id == current_user.id %>
+          <%= link_to "Edit", edit_dance_comment_path(dc) %>
+        <% end %>
+        <% if current_user && (dc.user_id == current_user.id || current_user.id == dc.dance.user_id || @admin_user) %>
+          <%= link_to 'Delete', dc, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

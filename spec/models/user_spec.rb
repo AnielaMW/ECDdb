@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   it { should have_many(:dances) }
+  it { should have_many(:dance_comments) }
 
   it { should validate_presence_of(:first_name) }
   it { should_not have_valid(:first_name).when('') }

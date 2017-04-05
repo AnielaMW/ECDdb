@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :meter do
-    name "3/4"
-    description "any dance in 3/4 time"
+    name "1/16"
+    description "1/16th speed"
   end
 end

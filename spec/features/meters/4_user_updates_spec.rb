@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'update a meter', %Q{
+feature 'update a meter', %{
   As an Admin User
   I want to update meters
   So I can edit meters that have been created.

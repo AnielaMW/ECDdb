@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'delete a dance', %Q{
+feature 'delete a dance', %{
   As an Authenticated User
   I want to delete my dances
   So I can delete dances I have created.
@@ -24,13 +24,11 @@ feature 'delete a dance', %Q{
     expect(page).not_to have_content(dance1.title)
   end
 
-  scenario 'fail to see "Delete" button with unauthenticated user' do
+  scenario 'fail to see "Delete" button with unauthenticated or not creator
+  user' do
     visit dance_path(dance1.id)
     expect(page).not_to have_content("Delete")
-  end
 
-  scenario 'fail to see "Delete" button
-    if authenticated user is not the creator' do
     sign_in clay
     visit dance_path(dance1.id)
     expect(page).not_to have_content("Delete")

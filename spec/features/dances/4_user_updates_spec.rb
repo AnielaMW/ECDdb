@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'update a dance', %Q{
+feature 'update a dance', %{
   As an Authenticated User
   I want to update my dances
   So I can edit dances I have created.
@@ -23,7 +23,8 @@ feature 'update a dance', %Q{
               direction: "2nd couple right hand turn" }
   let!(:clay) { FactoryGirl.create(:anne) }
 
-  scenario 'authenticated user sucessfully update dance with valid information' do
+  scenario 'authenticated user sucessfully update dance with valid
+  information' do
     sign_in anne
     visit dance_path(dance1.id)
     click_link "Edit"
@@ -44,20 +45,15 @@ feature 'update a dance', %Q{
     sign_in anne
     visit dance_path(dance1.id)
     click_link "Edit"
-    fill_in 'Title', with: changes[:title].to_s
     fill_in 'Author', with: changes[:author].to_s
     fill_in 'Year', with: changes[:year].to_s
     fill_in 'Publication', with: changes[:publication].to_s
-    fill_in 'Direction', with: changes[:direction].to_s
     click_button "Update"
 
     expect(page).to have_current_path(dance_path(dance1.id))
-    expect(page).to have_content(changes[:title])
-    expect(page).to have_content(anne.first_name)
     expect(page).to have_content(changes[:author])
     expect(page).to have_content(changes[:publication])
     expect(page).to have_content(changes[:year])
-    expect(page).to have_content(changes[:direction])
   end
 
   scenario 'authenticated user sucessfully update dance with all information' do
@@ -88,16 +84,18 @@ feature 'update a dance', %Q{
     fill_in 'Direction', with: ""
     click_button "Update"
 
-    expect(page).to have_content("Title can't be blank, Direction can't be blank")
+    expect(page).to have_content(
+      "Title can't be blank,
+      Direction can't be blank"
+    )
   end
 
-  scenario 'fail to see "Edit" button with unauthenticated user' do
+  scenario 'fail to see "Edit" button with unauthenticated or non-creator
+  user' do
     visit dance_path(dance1.id)
 
     expect(page).not_to have_content("Edit")
-  end
 
-  scenario 'fail to see "Edit" button if authenticated user is not the creator' do
     sign_in clay
     visit dance_path(dance1.id)
 
