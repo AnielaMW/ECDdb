@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'create a meter', %Q{
+feature 'create a meter', %{
   As an Authenticated User
   I want to create a new meter
   So I can select that meter for new dances.
@@ -53,9 +53,9 @@ feature 'create a meter', %Q{
     expect(page).to have_current_path(new_user_session_path)
   end
 
-  scenario 'meter form should open in a new window, close, and new meter
-  should be in the meter select box of the new dance form'
-  # expect the form to open in new window?
+  scenario 'meter form should open in a new window or popup, close, and new
+  meter should be in the meter select box of the new dance form'
+  # expect the form to open in new window or popup?
   # expect the form to close and be able to select the new meter from the
   # select box?
 end

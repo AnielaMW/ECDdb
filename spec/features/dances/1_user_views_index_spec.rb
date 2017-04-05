@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'view dances#index', %Q{
+feature 'view dances#index', %{
   As a Guest
   I want to view the dances#index
   So I can pick from all dances from the genre.

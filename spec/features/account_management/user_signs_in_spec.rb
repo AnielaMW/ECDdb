@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'sign_in to account', %Q{
+feature 'sign_in to account', %{
   As a user
   I want to sign in to my account
   So that I can be signed-in

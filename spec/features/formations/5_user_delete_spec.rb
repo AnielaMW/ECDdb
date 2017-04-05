@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'delete a formation', %Q{
+feature 'delete a formation', %{
   As an Admin User
   I want to delete formations
   So I can delete formations.

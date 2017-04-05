@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'edits account', %Q{
+feature 'edits account', %{
   As an authenticated user
   I want to edit my account
   So that I can update my profile
@@ -22,7 +22,7 @@ feature 'edits account', %Q{
 
     sign_in anne
     visit root_path
-    click_link 'Update Profile'
+    click_link 'Profile'
     fill_in 'First Name', with: anne[:first_name].to_s
     fill_in 'Last Name', with: anne[:last_name].to_s
     fill_in 'Email', with: anne[:email].to_s
@@ -36,7 +36,7 @@ feature 'edits account', %Q{
 
     sign_in anne
     visit root_path
-    click_link 'Update Profile'
+    click_link 'Profile'
     fill_in 'First Name', with: ''
     fill_in 'Last Name', with: ''
     fill_in 'Email', with: ''

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'create a dance', %Q{
+feature 'create a dance', %{
   As an Authenticated User
   I want to create new dances
   So I can share dances with other users.

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'delete a meter', %Q{
+feature 'delete a meter', %{
   As an Admin User
   I want to delete meters
   So I can delete meters.

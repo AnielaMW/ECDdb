@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'view meters#show', %Q{
+feature 'view meters#show', %{
   As a Guest
   I want to view the meters#show
   So I can get all information about a meter.
@@ -22,21 +22,17 @@ feature 'view meters#show', %Q{
     expect(page).to have_content(meter.description)
   end
 
-  scenario 'sucessfully view a meter#show from meters#index_path' do
+  scenario 'sucessfully view a meter#show from meters#index_path or
+  dance_path' do
     visit meters_path
     click_link meter.name.to_s
 
     expect(page).to have_current_path(meter_path(meter.id))
-    expect(page).to have_content(meter.name)
-    expect(page).to have_content(meter.description)
-  end
 
-  scenario 'sucessfully view a meter#show from a dance_path' do
     visit dance_path(dance)
     click_link meter.name.to_s
 
     expect(page).to have_current_path(meter_path(meter.id))
-    expect(page).to have_content(meter.name)
-    expect(page).to have_content(meter.description)
+    # IN A POPUP WINDOW MAYBE WHEN ? ICON IS CLICKED"
   end
 end

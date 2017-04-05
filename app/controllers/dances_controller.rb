@@ -10,6 +10,7 @@ class DancesController < ApplicationController
 
   def show
     @creator = creator?
+    @admin_user = admin_user?
   end
 
   def new
@@ -39,22 +40,33 @@ class DancesController < ApplicationController
   end
 
   def destroy
-    if creator?
-      @dance.destroy
-      redirect_to root_path
-    else
-      redirect_to dance_path(@dance)
+    if comments?
+      @dance.dance_comments.destroy
     end
+    @dance.destroy
+    redirect_to root_path
   end
 
   private
-
-  def admin_user?
-    current_user && current_user.admin == true
+  def creator?
+    current_user && current_user.id == @dance.user_id
   end
 
   def set_dance
     @dance = Dance.find(params[:id])
+  end
+
+  def dances
+    @dances ||= Dance.all
+  end
+
+  def comments?
+    @dance.dance_comments
+  end
+
+  def collections
+    @formation_collection = Formation.all
+    @meter_collection = Meter.all
   end
 
   def dance_params
@@ -67,18 +79,5 @@ class DancesController < ApplicationController
       :year,
       :direction
     )
-  end
-
-  def collections
-    @formation_collection = Formation.all
-    @meter_collection = Meter.all
-  end
-
-  def dances
-    @dances ||= Dance.all
-  end
-
-  def creator?
-    current_user && current_user.id == @dance.user_id
   end
 end

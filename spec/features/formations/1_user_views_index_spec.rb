@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'view formations#index', %Q{
+feature 'view formations#index', %{
   As a Guest
   I want to view the formations#index
   So I can pick from all formations.

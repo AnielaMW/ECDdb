@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'sign_out of account', %Q{
+feature 'sign_out of account', %{
   As an authenticated user
   I want to sign out of my account
   So I am no longer logged into the site

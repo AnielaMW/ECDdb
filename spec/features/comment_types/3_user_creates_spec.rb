@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-feature 'create a comment_type', %Q{
-  As an Authenticated User
+feature 'create a comment_type', %{
+  As a admin
   I want to create a new comment_type
   So I can select that comment_type for new dances.
   } do
