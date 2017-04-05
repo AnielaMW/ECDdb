@@ -2,16 +2,14 @@ class DancesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :admin_user?
   before_action :set_dance, only: [:show, :edit, :update, :destroy]
-  before_action :collections, only: [:new, :create, :edit, :update]
   before_action :comments?, only: [:show]
+  before_action :collections, only: [:new, :create, :edit, :update]
 
   def index
     @dances = dances.sort_by { |d| d.title }
   end
 
   def show
-    @creator = creator?
-    @admin_user = admin_user?
   end
 
   def new
@@ -49,9 +47,6 @@ class DancesController < ApplicationController
   end
 
   private
-  def creator?
-    current_user && current_user.id == @dance.user_id
-  end
 
   def set_dance
     @dance = Dance.find(params[:id])

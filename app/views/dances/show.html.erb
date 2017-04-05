@@ -1,4 +1,4 @@
-<% if @creator || @admin_user %>
+<% if @dance.creator?(current_user) || @admin_user %>
   <ul class="user_bar">
     <li><%= link_to 'Edit', edit_dance_path(@dance) %></li>
     <li><%= link_to 'Delete', @dance, method: :delete, data: { confirm: 'Are you sure?' } %></li>
@@ -51,7 +51,7 @@
           <% if current_user && dc.creator?(current_user) %>
             <%= link_to "Edit", edit_dance_comment_path(dc) %>
           <% end %>
-          <% if current_user && (dc.creator?(current_user) || @creator || @admin_user) %>
+          <% if current_user && (dc.creator?(current_user) || @dance.creator?(current_user) || @admin_user) %>
             <%= link_to 'Delete', dc, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
         </li>
