@@ -6,7 +6,7 @@ class DanceCommentsController < ApplicationController
   before_action :collections, only: [:new, :create, :edit, :update]
 
   def index
-    @dance_comments = dance_comments.sort_by { |d| d.comment_type.name }
+    @dance_comments = dance_comments.sort_by { |d| d.created_at }.reverse
   end
 
   def show

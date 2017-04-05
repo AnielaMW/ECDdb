@@ -57,7 +57,7 @@ class DancesController < ApplicationController
   end
 
   def comments?
-    @dance_comments = @dance.dance_comments.sort_by { |d| d.comment_type.name }
+    @dance_comments = @dance.dance_comments.sort_by { |d| d.created_at }.reverse
     @dance_comments
   end
 
