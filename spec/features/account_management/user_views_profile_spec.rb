@@ -7,13 +7,14 @@ feature 'views account', %{
   } do
 
   # ACCEPTANCE CRITERIA
+  # * Clicking on a users name sitewide navigates to that users profile.
   # * User can view the first_name of users
   # * User cannot view the last_name, password, email of users
   # * click a link to thier comments and dances
 
   let!(:anne) { FactoryGirl.create(:anne) }
 
-  pending 'sucessfully view profile' do
+  scenario 'sucessfully view profile' do
     visit user_path(anne)
 
     expect(page).to have_content(anne.first_name)
