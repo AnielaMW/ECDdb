@@ -13,13 +13,31 @@ feature 'views account', %{
   # * click a link to thier comments and dances
 
   let!(:anne) { FactoryGirl.create(:anne) }
+  let!(:fred) { FactoryGirl.create(:anne) }
+  let!(:dance1) { FactoryGirl.create(:dance, user_id: fred.id) }
+  let!(:com1) { FactoryGirl.create(:dvar_comment, user_id: fred.id, dance_id: fred.id) }
+  let!(:com1) { FactoryGirl.create(:dstyle_comment, user_id: fred.id) }
 
-  scenario 'sucessfully view profile' do
+  scenario 'sucessfully view profile without dances or comments' do
     visit user_path(anne)
 
     expect(page).to have_content(anne.first_name)
     expect(page).not_to have_content(anne.last_name)
     expect(page).not_to have_content(anne.email)
     expect(page).not_to have_content(anne.password)
+    expect(page).not_to have_content(anne.dances)
+    expect(page).not_to have_content(anne.dance_comments)
+  end
+
+  scenario 'sucessfully view profile with dances or comments' do
+    visit user_path(fred)
+
+    expect(page).to have_content(fred.first_name)
+    expect(page).not_to have_content(fred.last_name)
+    expect(page).not_to have_content(fred.email)
+    expect(page).not_to have_content(fred.password)
+    expect(page).to have_content(dance1.title)
+    expect(page).to have_content(com1.comment)
+    expect(page).to have_content(com2.comment)
   end
 end
