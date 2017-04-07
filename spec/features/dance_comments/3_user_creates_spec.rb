@@ -41,9 +41,8 @@ feature 'create a dance_comment', %{
     click_link "Create Comment"
     click_button "Create Dance comment"
 
-    expect(page).to have_content(
-      "Comment can't be blank"
-    )
+    expect(page).to have_content("Comment can't be blank")
+    
     # CANNOT SEEM TO TEST FOR TYPE CAN'T BE BLANK.
   end
 
