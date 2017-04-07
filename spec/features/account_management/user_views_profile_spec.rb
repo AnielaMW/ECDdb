@@ -15,8 +15,8 @@ feature 'views account', %{
   let!(:anne) { FactoryGirl.create(:anne) }
   let!(:fred) { FactoryGirl.create(:anne) }
   let!(:dance1) { FactoryGirl.create(:dance, user_id: fred.id) }
-  let!(:com1) { FactoryGirl.create(:dvar_comment, user_id: fred.id, dance_id: fred.id) }
-  let!(:com1) { FactoryGirl.create(:dstyle_comment, user_id: fred.id) }
+  let!(:com1) { FactoryGirl.create(:dvar_comment, user_id: fred.id, dance_id: dance1.id) }
+  let!(:com2) { FactoryGirl.create(:dstyle_comment, user_id: fred.id) }
 
   scenario 'sucessfully view profile without dances or comments' do
     visit user_path(anne)
@@ -25,8 +25,8 @@ feature 'views account', %{
     expect(page).not_to have_content(anne.last_name)
     expect(page).not_to have_content(anne.email)
     expect(page).not_to have_content(anne.password)
-    expect(page).not_to have_content(anne.dances)
-    expect(page).not_to have_content(anne.dance_comments)
+    expect(page).not_to have_content("Dances")
+    expect(page).not_to have_content("Comments")
   end
 
   scenario 'sucessfully view profile with dances or comments' do

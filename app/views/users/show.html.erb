@@ -1,1 +1,35 @@
 <h1> <%= @user.first_name %> </h1>
+
+<% if @user.dances? %>
+  <h2>Dances</h2>
+  <div id="dancelist">
+    <ul>
+      <% @dances.each do |d| %>
+        <li><%= link_to d.title, dance_path(d) %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<% if @user.dance_comments? %>
+  <h2>Comments</h2>
+  <div id="dance_commentlist">
+    <ul>
+      <% @dance_comments.each do |dc| %>
+        <li id="comment_box">
+          <h3>
+            Posted a <%= dc.comment_type.name %> for <%= dc.dance.title %>
+          </h3>
+          <p><%= link_to dc.comment, dance_comment_path(dc) %></p>
+
+          <% if current_user && dc.creator?(current_user) %>
+            <%= link_to "Edit", edit_dance_comment_path(dc) %>
+          <% end %>
+          <% if current_user && (dc.creator?(current_user) || current_user.id == dc.dance.user_id || @admin_user) %>
+            <%= link_to 'Delete', dc, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
