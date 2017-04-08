@@ -8,8 +8,8 @@ feature 'view dance comments', %{
   # Acceptance
   # When a guest visits a dance
   # they should expect to see a list of all dance_comments
-  # The list should be sorted alphabetically by comment_type
-  # The dance_comments#index shoul list all comments from all dance_comments
+  # The list should be sorted soonest to oldest
+  # The dance_comments#index should list all comments from all dance_comments
   # The list should be sorted by soonest to oldest
   # The both lists should include the comment_type, user, and comment
   # The indexes list should include the dance.title
@@ -25,47 +25,45 @@ feature 'view dance comments', %{
 
     comments = page.all("div#dance_commentlist ul li")
 
-    # Can't get the factories to creat the three different kinds of comment
-    # types.
-    # expect(comments[0]).to have_content(com1.comment)
-    # expect(comments[1]).to have_content(com3.comment)
-    # expect(comments[2]).to have_content(com2.comment)
+    expect(comments[0]).to have_content(com3.comment)
+    expect(comments[0]).to have_content(com3.user.first_name)
+    expect(comments[0]).to have_content(com3.comment_type.name)
 
-    expect(comments[0]).to have_content(com1.comment)
-    expect(comments[0]).to have_content(com1.user.first_name)
-    expect(comments[0]).to have_content(com1.comment_type.name)
     expect(comments[1]).to have_content(com2.comment)
     expect(comments[1]).to have_content(com2.user.first_name)
     expect(comments[1]).to have_content(com2.comment_type.name)
-    expect(comments[2]).to have_content(com3.comment)
-    expect(comments[2]).to have_content(com3.user.first_name)
-    expect(comments[2]).to have_content(com3.comment_type.name)
+
+    expect(comments[2]).to have_content(com1.comment)
+    expect(comments[2]).to have_content(com1.user.first_name)
+    expect(comments[2]).to have_content(com1.comment_type.name)
   end
 
   scenario 'sucessfully view the dance_comments for all dances on
   dance_comment#index' do
     visit dance_comments_path
-    
+
     comments = page.all("div#dance_commentlist ul li")
 
-    expect(comments[0]).to have_content(com1.dance.title)
-    expect(comments[0]).to have_content(com1.comment)
-    expect(comments[0]).to have_content(com1.user.first_name)
-    expect(comments[0]).to have_content(com1.comment_type.name)
-    expect(comments[1]).to have_content(com2.dance.title)
-    expect(comments[1]).to have_content(com2.comment)
-    expect(comments[1]).to have_content(com2.user.first_name)
-    expect(comments[1]).to have_content(com2.comment_type.name)
-    expect(comments[2]).to have_content(com3.dance.title)
-    expect(comments[2]).to have_content(com3.comment)
-    expect(comments[2]).to have_content(com3.user.first_name)
-    expect(comments[2]).to have_content(com3.comment_type.name)
-    expect(comments[3]).to have_content(com4.dance.title)
-    expect(comments[3]).to have_content(com4.comment)
-    expect(comments[3]).to have_content(com4.user.first_name)
-    expect(comments[3]).to have_content(com4.comment_type.name)
+    expect(comments[0]).to have_content(com4.dance.title)
+    expect(comments[0]).to have_content(com4.comment)
+    expect(comments[0]).to have_content(com4.user.first_name)
+    expect(comments[0]).to have_content(com4.comment_type.name)
 
-    # NEED TO ADD DATE TIME TO THE TABLE AND THEN SORT BY DATE TIME
+    expect(comments[1]).to have_content(com3.dance.title)
+    expect(comments[1]).to have_content(com3.comment)
+    expect(comments[1]).to have_content(com3.user.first_name)
+    expect(comments[1]).to have_content(com3.comment_type.name)
+
+    expect(comments[2]).to have_content(com2.dance.title)
+    expect(comments[2]).to have_content(com2.comment)
+    expect(comments[2]).to have_content(com2.user.first_name)
+    expect(comments[2]).to have_content(com2.comment_type.name)
+
+    expect(comments[3]).to have_content(com1.dance.title)
+    expect(comments[3]).to have_content(com1.comment)
+    expect(comments[3]).to have_content(com1.user.first_name)
+    expect(comments[3]).to have_content(com1.comment_type.name)
+
     # EVENTUALLY, TYPES WILL BE SORTED INTO DIFFERNET VIEWS
   end
 end

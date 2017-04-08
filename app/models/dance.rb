@@ -10,6 +10,6 @@ class Dance < ApplicationRecord
   validates :direction, presence: true
 
   def creator?(cu)
-    cu && user_id == cu.id
+    cu && cu.id == user_id
   end
 end

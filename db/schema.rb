@@ -10,42 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170401231817) do
+ActiveRecord::Schema.define(version: 20170405181354) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comment_types", force: :cascade do |t|
-    t.string "name",        null: false
-    t.string "description", null: false
+    t.string   "name",        null: false
+    t.string   "description", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "dance_comments", force: :cascade do |t|
-    t.string  "comment",         null: false
-    t.integer "comment_type_id", null: false
-    t.integer "dance_id",        null: false
-    t.integer "user_id",         null: false
+    t.string   "comment",         null: false
+    t.integer  "comment_type_id", null: false
+    t.integer  "dance_id",        null: false
+    t.integer  "user_id",         null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "dances", force: :cascade do |t|
-    t.integer "user_id",      null: false
-    t.string  "title",        null: false
-    t.string  "author"
-    t.integer "year"
-    t.string  "publication"
-    t.integer "formation_id", null: false
-    t.integer "meter_id",     null: false
-    t.string  "direction",    null: false
+    t.integer  "user_id",      null: false
+    t.string   "title",        null: false
+    t.string   "author"
+    t.integer  "year"
+    t.string   "publication"
+    t.integer  "formation_id", null: false
+    t.integer  "meter_id",     null: false
+    t.string   "direction",    null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "formations", force: :cascade do |t|
-    t.string "name",        null: false
-    t.string "description", null: false
+    t.string   "name",        null: false
+    t.string   "description", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "meters", force: :cascade do |t|
-    t.string "name",        null: false
-    t.string "description", null: false
+    t.string   "name",        null: false
+    t.string   "description", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

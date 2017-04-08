@@ -1,12 +1,13 @@
 class CommentTypesController < ApplicationController
+  before_action :admin_user?
   before_action :set_comment_type, only: [:show, :edit, :update, :destroy]
+  before_action :admin_user?
 
   def index
     @comment_types = comment_types.sort_by { |f| f.name }
   end
 
   def show
-    @admin = admin_user?
   end
 
   def new
@@ -16,7 +17,7 @@ class CommentTypesController < ApplicationController
   def create
     @comment_type = CommentType.new(comment_type_params)
     if @comment_type.save
-      redirect_to new_dance_path
+      redirect_to comment_type_path(@comment_type)
     else
       flash[:alert] = @comment_type.errors.full_messages.join(", ")
       render new_comment_type_path

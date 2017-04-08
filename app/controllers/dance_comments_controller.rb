@@ -6,13 +6,10 @@ class DanceCommentsController < ApplicationController
   before_action :collections, only: [:new, :create, :edit, :update]
 
   def index
-    @dance_comments = dance_comments.sort_by { |d| d.comment }
-    @admin_user = admin_user?
+    @dance_comments = dance_comments.sort_by { |d| d.created_at }.reverse
   end
 
   def show
-    @creator = creator?
-    @admin_user = admin_user?
   end
 
   def new
@@ -67,10 +64,6 @@ class DanceCommentsController < ApplicationController
 
   def dance_comments
     DanceComment.all
-  end
-
-  def creator?
-    current_user && current_user.id == @dance_comment.user_id
   end
 
   def dance_comment_params

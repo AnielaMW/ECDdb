@@ -9,6 +9,6 @@ class DanceComment < ApplicationRecord
   validates :user_id, presence: true
 
   def creator?(cu)
-    cu && user_id == cu.id
+    cu && cu.id == user_id
   end
 end

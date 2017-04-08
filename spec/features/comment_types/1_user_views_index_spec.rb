@@ -30,12 +30,14 @@ feature 'view comment_types#index', %{
 
   pending 'sucessfully view the comment_types#index after click on
   the comment form view button' do
+    sign_in dance.user
     visit new_dance_dance_comment_path(dance)
-    click "View Types"
+    click_link "?"
 
     expect(page).to have_current_path(comment_types_path)
 
     # IN A POPUP WINDOW MAYBE WHEN ? ICON IS CLICKED INSTEAD OF
-    # "VIEW COMMENT TYPES"
+    # "VIEW TYPES"
   end
+
 end
