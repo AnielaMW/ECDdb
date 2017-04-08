@@ -1,4 +1,4 @@
-<% if @admin %>
+<% if @admin_user %>
   <ul class="user_bar">
     <li><%= link_to 'Edit', edit_comment_type_path(@comment_type) %></li>
     <li><%= link_to 'Delete', @comment_type, method: :delete, data: { confirm: 'Are you sure?' } %></li>

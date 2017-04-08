@@ -44,7 +44,7 @@ feature 'update a dance_comment', %{
 
     comment_boxes = page.all("li#comment_box")
 
-    expect(comment_boxes[1]).to have_content("Edit")
+    expect(comment_boxes[0]).to have_content("Edit")
   end
 
   scenario 'creator sucessfully select edit button from the dance_comments
@@ -54,7 +54,7 @@ feature 'update a dance_comment', %{
 
     comment_boxes = page.all("li#comment_box")
 
-    expect(comment_boxes[2]).to have_content("Edit")
+    expect(comment_boxes[0]).to have_content("Edit")
   end
 
   scenario 'authenticated user fail to update dance_comment with invalid

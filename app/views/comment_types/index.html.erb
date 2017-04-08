@@ -1,3 +1,7 @@
+<% if @admin_user %>
+  <%= link_to 'Create New Type', new_comment_type_path %>
+<% end %>
+
 <div id="comment_typelist">
   <ul>
     <% @comment_types.each do |ct| %>
