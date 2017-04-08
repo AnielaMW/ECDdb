@@ -8,4 +8,8 @@ class Dance < ApplicationRecord
   validates :formation_id, presence: true
   validates :meter_id, presence: true
   validates :direction, presence: true
+
+  def creator?(cu)
+    cu && user_id == cu.id
+  end
 end

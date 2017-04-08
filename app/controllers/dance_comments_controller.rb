@@ -1,5 +1,6 @@
 class DanceCommentsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :admin_user?
   before_action :set_dance_comment, only: [:show, :edit, :update, :destroy]
   before_action :set_dance, only: [:new, :create]
   before_action :collections, only: [:new, :create, :edit, :update]

@@ -1,4 +1,5 @@
 class MetersController < ApplicationController
+  before_action :admin_user?
   before_action :set_meter, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -6,7 +7,6 @@ class MetersController < ApplicationController
   end
 
   def show
-    @admin = admin_user?
   end
 
   def new
@@ -36,7 +36,7 @@ class MetersController < ApplicationController
   end
 
   def destroy
-    if admin_user?
+    if @admin_user
       @meter.destroy
       redirect_to meters_path
     else
