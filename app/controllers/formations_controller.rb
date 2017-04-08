@@ -7,7 +7,6 @@ class FormationsController < ApplicationController
   end
 
   def show
-    @admin = admin_user?
   end
 
   def new
@@ -37,7 +36,7 @@ class FormationsController < ApplicationController
   end
 
   def destroy
-    if admin_user?
+    if @admin_user
       @formation.destroy
       redirect_to formations_path
     else
