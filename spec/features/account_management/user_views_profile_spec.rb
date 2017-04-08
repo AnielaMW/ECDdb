@@ -15,7 +15,8 @@ feature 'views account', %{
   let!(:anne) { FactoryGirl.create(:anne) }
   let!(:fred) { FactoryGirl.create(:anne) }
   let!(:dance1) { FactoryGirl.create(:dance, user_id: fred.id) }
-  let!(:com1) { FactoryGirl.create(:dvar_comment, user_id: fred.id, dance_id: dance1.id) }
+  let!(:com1) { FactoryGirl.create(:dvar_comment,
+                user_id: fred.id, dance_id: dance1.id) }
   let!(:com2) { FactoryGirl.create(:dstyle_comment, user_id: fred.id) }
 
   scenario 'sucessfully view profile without dances or comments' do

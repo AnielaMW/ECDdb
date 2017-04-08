@@ -11,10 +11,10 @@ class User < ApplicationRecord
   validates :last_name, presence: true
 
   def dances?
-    self.dances != []
+    dances != []
   end
 
   def dance_comments?
-    self.dance_comments != []
+    dance_comments != []
   end
 end
