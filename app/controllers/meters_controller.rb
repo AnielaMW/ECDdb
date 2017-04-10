@@ -3,7 +3,7 @@ class MetersController < ApplicationController
   before_action :set_meter, only: [:show, :edit, :update, :destroy]
 
   def index
-    @meters = meters.sort_by { |f| f.name }
+    @meters = meters
   end
 
   def show
@@ -47,7 +47,7 @@ class MetersController < ApplicationController
   private
 
   def meters
-    Meter.all
+    Meter.all.order(:name)
   end
 
   def set_meter
