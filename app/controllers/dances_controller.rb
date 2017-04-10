@@ -1,12 +1,12 @@
 class DancesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :admin_user?
+  before_action :dances, only: [:index]
   before_action :set_dance, only: [:show, :edit, :update, :destroy]
   before_action :comments?, only: [:show]
   before_action :collections, only: [:new, :create, :edit, :update]
 
   def index
-    @dances = dances.sort_by { |d| d.title }
   end
 
   def show
@@ -53,17 +53,16 @@ class DancesController < ApplicationController
   end
 
   def dances
-    @dances ||= Dance.all
+    @dances ||= Dance.all.order(:title)
   end
 
   def comments?
-    @dance_comments = @dance.dance_comments.sort_by { |d| d.created_at }.reverse
-    @dance_comments
+    @dance_comments ||= @dance.dance_comments.order(created_at: :desc)
   end
 
   def collections
-    @formation_collection = Formation.all
-    @meter_collection = Meter.all
+    @formation_collection ||= Formation.all.order(:name)
+    @meter_collection ||= Meter.all.order(:name)
   end
 
   def dance_params

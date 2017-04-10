@@ -3,7 +3,7 @@ class FormationsController < ApplicationController
   before_action :set_formation, only: [:show, :edit, :update, :destroy]
 
   def index
-    @formations = formations.sort_by { |f| f.name }
+    @formations = formations
   end
 
   def show
@@ -48,7 +48,7 @@ class FormationsController < ApplicationController
   private
 
   def formations
-    Formation.all
+    Formation.all.order(:name)
   end
 
   def set_formation

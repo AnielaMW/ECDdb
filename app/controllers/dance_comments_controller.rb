@@ -1,12 +1,12 @@
 class DanceCommentsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :admin_user?, only: [:index, :show]
+  before_action :dance_comments, only: [:index]
   before_action :set_dance_comment, only: [:show, :edit, :update, :destroy]
   before_action :set_dance, only: [:new, :create]
   before_action :collections, only: [:new, :create, :edit, :update]
 
   def index
-    @dance_comments = dance_comments.sort_by { |d| d.created_at }.reverse
   end
 
   def show
@@ -51,19 +51,19 @@ class DanceCommentsController < ApplicationController
   private
 
   def set_dance_comment
-    @dance_comment = DanceComment.find(params[:id])
+    @dance_comment ||= DanceComment.find(params[:id])
   end
 
   def set_dance
-    @dance = Dance.find(params[:dance_id])
+    @dance ||= Dance.find(params[:dance_id])
   end
 
   def collections
-    @comment_type_collection = CommentType.all
+    @comment_type_collection ||= CommentType.all.order(:name)
   end
 
   def dance_comments
-    DanceComment.all
+    @dance_comments ||= DanceComment.all.order(created_at: :desc)
   end
 
   def dance_comment_params

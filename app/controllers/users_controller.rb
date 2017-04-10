@@ -2,8 +2,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show]
 
   def show
-    @dances = list_dances.sort_by { |d| d.title }
-    @dance_comments = list_dcomments.sort_by { |d| d.created_at }.reverse
+    @dances = list_dances
+    @dance_comments = list_dcomments
   end
 
   private
@@ -13,10 +13,10 @@ class UsersController < ApplicationController
   end
 
   def list_dances
-    @user.dances
+    @user.dances.order(:title)
   end
 
   def list_dcomments
-    @user.dance_comments
+    @user.dance_comments.order(created_at: :desc)
   end
 end
