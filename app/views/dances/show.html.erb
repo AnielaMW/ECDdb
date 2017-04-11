@@ -1,61 +1,72 @@
-<% if @dance.creator?(current_user) || @admin_user %>
-  <ul class="user_bar">
-    <li><%= link_to 'Edit', edit_dance_path(@dance) %></li>
-    <li><%= link_to 'Delete', @dance, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-  </ul>
-<% end %>
-
-<h2><%= @dance.title %></h2>
-<p>Created by: <%= @dance.user.first_name %></p>
-
-<div class="dance_info">
-
-  <h3>Formation:</h3>
-  <p><%= link_to @dance.formation.name, formation_path(@dance.formation) %></p>
-
-  <h3>Meter:</h3>
-  <p><%= link_to @dance.meter.name, meter_path(@dance.meter) %></p>
-
-  <% if @dance.author %>
-    <h3>Author</h3>
-    <p><%= @dance.author %>
-  <% end %>
-
-  <% if @dance.publication %>
-    <h3>Publication</h3>
-    <p><%= @dance.publication %></p>
-  <% end %>
-
-  <% if @dance.year %>
-    (<%= @dance.year %>)</p>
-  <% end %>
-</div>
-
-<div class="dance_directions">
-  <h3>Direction</h3>
-  <p><%= @dance.direction %></p>
-</div>
-
-<% if @dance.dance_comments %>
-  <div class="comments" id="dance_commentlist">
-    <h3>Comments</h3>
-    <%= link_to 'Create Comment', new_dance_dance_comment_path(@dance) %>
-
-    <ul>
-      <% @dance_comments.each do |dc| %>
-        <li id="comment_box">
-          <h3><%= link_to dc.comment_type.name, comment_type_path(dc.comment_type_id) %></h3>
-          <h4><%= link_to dc.user.first_name, dance_comment_path(dc.user.id) %></h4>
-          <p><%= link_to dc.comment, dance_comment_path(dc) %></p>
-
-          <% if dc.creator?(current_user) %>
-            <%= link_to "Edit", edit_dance_comment_path(dc) %>
-          <% end %>
-          <% if dc.creator?(current_user) || @dance.creator?(current_user) || @admin_user %>
-            <%= link_to 'Delete', dc, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
-        </li>
-      <% end %>
+<nav class="user-bar">
+  <% if @dance.creator?(current_user) || @admin_user %>
+    <ul class="user_bar">
+      <li><%= link_to 'Edit', edit_dance_path(@dance) %></li>
+      <li><%= link_to 'Delete', @dance, method: :delete, data: { confirm: 'Are you sure?' } %></li>
     </ul>
-  </div>
-<% end %>
+  <% end %>
+</nav>
+
+<main>
+  <h1><%= @dance.title %></h1>
+  <p>Created by: <%= @dance.user.first_name %></p>
+
+  <section class="dance_info">
+
+    <h2>Formation:</h2>
+    <p><%= link_to @dance.formation.name, formation_path(@dance.formation) %></p>
+
+    <h2>Meter:</h2>
+    <p><%= link_to @dance.meter.name, meter_path(@dance.meter) %></p>
+
+    <% if @dance.author %>
+      <h2>Author</h2>
+      <p><%= @dance.author %>
+    <% end %>
+
+    <% if @dance.publication %>
+      <h2>Publication</h2>
+      <p><%= @dance.publication %></p>
+    <% end %>
+
+    <% if @dance.year %>
+      (<%= @dance.year %>)</p>
+    <% end %>
+  </section>
+
+  <section class="dance_directions">
+    <h2>Direction</h2>
+    <p><%= @dance.direction %></p>
+  </section>
+
+  <% if @dance.dance_comments %>
+    <section class="comments" id="dance_commentlist">
+      <h2>Comments</h2>
+      <%= link_to 'Create Comment', new_dance_dance_comment_path(@dance) %>
+
+      <ul>
+        <% @dance_comments.each do |dc| %>
+          <li>
+            <article id="comment_box">
+              <h1>
+                <%= link_to dc.user.first_name, user_path(dc.user) %> posted a <%= link_to dc.comment_type.name, comment_type_path(dc.comment_type) %> for <%= link_to dc.dance.title, dance_path(dc.dance) %>
+              </h1>
+              <p><%= link_to dc.comment, dance_comment_path(dc) %></p>
+
+              <nav>
+                <ul>
+                  <% if dc.creator?(current_user) %>
+                    <li><%= link_to "Edit", edit_dance_comment_path(dc) %></li>
+                  <% end %>
+                  <% if dc.creator?(current_user) || @dance.creator?(current_user) || @admin_user %>
+                    <li><%= link_to 'Delete', dc, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                  <% end %>
+                </ul>
+              </nav>
+            </article>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+  <% end %>
+</main>

@@ -9,22 +9,21 @@
   </head>
   <body>
     <!-- nav bar -->
-    <nav class="user-bar" data-topbar>
+    <header class="user-bar" data-topbar>
       <h1><%= link_to "ECD db", root_path %></h1>
 
-      <section class="top-bar-section">
+      <nav class="top-bar">
         <% if user_signed_in? %>
           <ul class="left">
-            <li><%= current_user.first_name %></li>
-            <li><%= link_to "Profile", edit_user_registration_path(@user) %></li>
+            <li><%= link_to current_user.first_name, user_path(current_user.id) %></li>
             <li><%= link_to('Sign Out', destroy_user_session_path, :method => :delete) %></li>
           <% else %>
             <li><%= link_to "Sign Up", new_user_registration_path %></li>
             <li><%= link_to "Sign In", new_user_session_path %></li>
           </ul>
         <% end %>
-      </section>
-    </nav>
+      </nav>
+    </header>
 
     <!-- flash messages -->
     <p class="notice"><%= notice %></p>

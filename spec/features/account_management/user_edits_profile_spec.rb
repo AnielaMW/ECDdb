@@ -22,7 +22,8 @@ feature 'edits account', %{
 
     sign_in anne
     visit root_path
-    click_link 'Profile'
+    click_link anne.first_name.to_s
+    click_link 'Edit Profile'
     fill_in 'First Name', with: anne[:first_name].to_s
     fill_in 'Last Name', with: anne[:last_name].to_s
     fill_in 'Email', with: anne[:email].to_s
@@ -36,7 +37,8 @@ feature 'edits account', %{
 
     sign_in anne
     visit root_path
-    click_link 'Profile'
+    click_link anne.first_name.to_s
+    click_link 'Edit Profile'
     fill_in 'First Name', with: ''
     fill_in 'Last Name', with: ''
     fill_in 'Email', with: ''

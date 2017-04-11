@@ -1,9 +1,15 @@
-<%= link_to "Create Dance", new_dance_path %>
+<nav class="user-bar">
+  <%= link_to "Create Dance", new_dance_path %>
+</nav>
 
-<div id="dancelist">
+<main id="dancelist">
   <ul>
     <% @dances.each do |dance| %>
-      <li><%= link_to dance.title, dance_path(dance) %></li>
+    <li>
+      <article id="dance_box">
+          <p><%= link_to dance.title, dance_path(dance) %><p>
+      </article>
+    </li>
     <% end %>
   </ul>
-</div>
+</main>

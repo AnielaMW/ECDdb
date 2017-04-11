@@ -1,11 +1,13 @@
-<% if @admin_user %>
+<nav class="user-bar">
+  <% if @admin_user %>
   <ul class="user_bar">
     <li><%= link_to 'Edit', edit_meter_path(@meter) %></li>
     <li><%= link_to 'Delete', @meter, method: :delete, data: { confirm: 'Are you sure?' } %></li>
   </ul>
-<% end %>
+  <% end %>
+</nav>
 
-<h2><%= @meter.name %></h2>
-
-<h3>Description</h3>
-<p><%= @meter.description %></p>
+<main>
+  <h1><%= @meter.name %></h1>
+  <p><%= @meter.description %></p>
+</main>

@@ -18,7 +18,7 @@ feature 'view meters#index', %{
   scenario 'sucessfully view the meters#index' do
     visit meters_path
 
-    meters = page.all("div#meterlist ul li")
+    meters = page.all("article#meterlist ul li")
 
     expect(meters[0]).to have_content(meter2.name)
     expect(meters[1]).to have_content(meter1.name)

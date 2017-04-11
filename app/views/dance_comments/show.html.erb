@@ -1,15 +1,17 @@
-<ul class="user_bar">
-  <% if @dance_comment.creator?(current_user) %>
-    <li><%= link_to 'Edit', edit_dance_comment_path(@dance_comment) %></li>
-  <% end %>
-  <% if (@dance_comment.creator?(current_user) || @dance_comment.dance.creator?(current_user) || @admin_user) %>
-    <li><%= link_to 'Delete', @dance_comment, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-  <% end %>
-</ul>
+<main id="comment_box">
+  <h1>
+    <%= link_to @dance_comment.user.first_name, user_path(@dance_comment.user) %> posted a <%= link_to @dance_comment.comment_type.name, comment_type_path(@dance_comment.comment_type) %> for <%= link_to @dance_comment.dance.title, dance_path(@dance_comment.dance) %>
+  </h1>
+  <p><%= link_to @dance_comment.comment, dance_comment_path(@dance_comment) %></p>
 
-<div class="comments" id="dance_commentlist">
-  <h2><%= @dance_comment.dance.title %></h2>
-  <h3><%= @dance_comment.comment_type.name %></h3>
-  <h4><%= @dance_comment.user.first_name %></h4>
-  <p><%= @dance_comment.comment %></p>
-</div>
+  <nav>
+    <ul>
+      <% if @dance_comment.creator?(current_user) %>
+        <li><%= link_to "Edit", edit_dance_comment_path(@dance_comment) %></li>
+      <% end %>
+      <% if @dance_comment.creator?(current_user) || @dance_comment.dance.creator?(current_user) || @admin_user %>
+        <li><%= link_to 'Delete', @dance_comment, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      <% end %>
+    </ul>
+  </nav>
+</main>
