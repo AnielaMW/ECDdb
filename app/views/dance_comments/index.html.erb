@@ -1,5 +1,5 @@
 <main>
-  <ul id="dance_commentlist">
+  <ul id="dance_comment_list">
     <% @dance_comments.each do |dc| %>
       <li>
         <article id="comment_box">
@@ -8,7 +8,7 @@
           </h1>
           <p><%= link_to dc.comment, dance_comment_path(dc) %></p>
 
-          <nav>
+          <footer>
             <ul>
               <% if dc.creator?(current_user) %>
                 <li><%= link_to "Edit", edit_dance_comment_path(dc) %></li>
@@ -17,7 +17,7 @@
                 <li><%= link_to 'Delete', dc, method: :delete, data: { confirm: 'Are you sure?' } %></li>
               <% end %>
             </ul>
-          </nav>
+          </footer>
         </article>
       </li>
     <% end %>

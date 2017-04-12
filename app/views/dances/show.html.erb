@@ -1,15 +1,15 @@
-<nav class="user-bar">
-  <% if @dance.creator?(current_user) || @admin_user %>
-    <ul class="user_bar">
-      <li><%= link_to 'Edit', edit_dance_path(@dance) %></li>
-      <li><%= link_to 'Delete', @dance, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-    </ul>
-  <% end %>
-</nav>
-
 <main>
-  <h1><%= @dance.title %></h1>
-  <p>Created by: <%= @dance.user.first_name %></p>
+  <header>
+    <h1><%= @dance.title %></h1>
+
+    <ul>
+      <li>Created by: <%= @dance.user.first_name %></li>
+      <% if @dance.creator?(current_user) || @admin_user %>
+          <li><%= link_to 'Edit', edit_dance_path(@dance) %></li>
+          <li><%= link_to 'Delete', @dance, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      <% end %>
+    </ul>
+  </header>
 
   <section class="dance_info">
 
@@ -39,12 +39,14 @@
     <p><%= @dance.direction %></p>
   </section>
 
-  <% if @dance.dance_comments %>
-    <section class="comments" id="dance_commentlist">
+  <section class="comments">
+    <header>
       <h2>Comments</h2>
       <%= link_to 'Create Comment', new_dance_dance_comment_path(@dance) %>
+    </header>
 
-      <ul>
+    <% if @dance.dance_comments %>
+      <ul id="dance_comment_list">
         <% @dance_comments.each do |dc| %>
           <li>
             <article id="comment_box">
@@ -53,20 +55,20 @@
               </h1>
               <p><%= link_to dc.comment, dance_comment_path(dc) %></p>
 
-              <nav>
+              <footer>
                 <ul>
                   <% if dc.creator?(current_user) %>
                     <li><%= link_to "Edit", edit_dance_comment_path(dc) %></li>
                   <% end %>
-                  <% if dc.creator?(current_user) || @dance.creator?(current_user) || @admin_user %>
+                  <% if dc.creator?(current_user) || dc.dance.creator?(current_user) || @admin_user %>
                     <li><%= link_to 'Delete', dc, method: :delete, data: { confirm: 'Are you sure?' } %></li>
                   <% end %>
                 </ul>
-              </nav>
+              </footer>
             </article>
           </li>
         <% end %>
       </ul>
-    </section>
-  <% end %>
+    <% end %>
+  </section>
 </main>

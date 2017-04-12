@@ -1,36 +1,50 @@
-<h1> <%= @user.first_name %> </h1>
-<%= link_to "Edit Profile", edit_user_registration_path(@user) %>
+<main>
+  <header>
+    <h1><%= @user.first_name %></h1>
+    <%= link_to "Edit Profile", edit_user_registration_path(@user) %>
+  </header>
 
-<% if @user.dances? %>
-  <h2>Dances</h2>
-  <div id="dancelist">
-    <ul>
-      <% @dances.each do |d| %>
-        <li><%= link_to d.title, dance_path(d) %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
-<% if @user.dance_comments? %>
-  <h2>Comments</h2>
-  <div id="dance_commentlist">
-    <ul>
-      <% @dance_comments.each do |dc| %>
-        <li id="comment_box">
-          <h3>
-            Posted a <%= dc.comment_type.name %> for <%= dc.dance.title %>
-          </h3>
-          <p><%= link_to dc.comment, dance_comment_path(dc) %></p>
-
-          <% if current_user && dc.creator?(current_user) %>
-            <%= link_to "Edit", edit_dance_comment_path(dc) %>
-          <% end %>
-          <% if current_user && (dc.creator?(current_user) || current_user.id == dc.dance.user_id || @admin_user) %>
-            <%= link_to 'Delete', dc, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
+  <% if @user.dances? %>
+    <section id="dances">
+      <h2>Dances</h2>
+      <ul id="dance_list">
+        <% @dances.each do |dance| %>
+        <li>
+          <article id="dance_box">
+              <p><%= link_to dance.title, dance_path(dance) %><p>
+          </article>
         </li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+        <% end %>
+      </ul>
+    </section>
+  <% end %>
+
+  <% if @user.dance_comments? %>
+    <section id="dance_comments">
+      <h2>Comments</h2>
+      <ul id="dance_comment_list">
+        <% @dance_comments.each do |dc| %>
+          <li>
+            <article id="comment_box">
+              <h1>
+                <%= link_to dc.user.first_name, user_path(dc.user) %> posted a <%= link_to dc.comment_type.name, comment_type_path(dc.comment_type) %> for <%= link_to dc.dance.title, dance_path(dc.dance) %>
+              </h1>
+              <p><%= link_to dc.comment, dance_comment_path(dc) %></p>
+
+              <footer>
+                <ul>
+                  <% if dc.creator?(current_user) %>
+                    <li><%= link_to "Edit", edit_dance_comment_path(dc) %></li>
+                  <% end %>
+                  <% if dc.creator?(current_user) || dc.dance.creator?(current_user) || @admin_user %>
+                    <li><%= link_to 'Delete', dc, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                  <% end %>
+                </ul>
+              </footer>
+            </article>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+  <% end %>
+</main>

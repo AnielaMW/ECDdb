@@ -1,9 +1,9 @@
-<nav class="user-bar">
+<aside class="user-bar">
   <%= link_to "Create Dance", new_dance_path %>
-</nav>
+</aside>
 
-<main id="dancelist">
-  <ul>
+<main>
+  <ul id="dance_list">
     <% @dances.each do |dance| %>
     <li>
       <article id="dance_box">
