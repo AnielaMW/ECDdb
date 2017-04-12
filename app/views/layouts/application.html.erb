@@ -12,7 +12,7 @@
     <header class="user-bar" data-topbar>
       <h1><%= link_to "ECD db", root_path %></h1>
 
-      <nav class="top-bar">
+      <aside class="top-bar">
         <% if user_signed_in? %>
           <ul class="left">
             <li><%= link_to current_user.first_name, user_path(current_user.id) %></li>
@@ -22,7 +22,7 @@
             <li><%= link_to "Sign In", new_user_session_path %></li>
           </ul>
         <% end %>
-      </nav>
+      </aside>
     </header>
 
     <!-- flash messages -->
