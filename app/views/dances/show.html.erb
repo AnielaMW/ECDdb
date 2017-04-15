@@ -1,47 +1,56 @@
 <main>
   <header>
-    <h1><%= @dance.title %></h1>
-
-    <ul>
-      <li>Created by: <%= @dance.user.first_name %></li>
+    <ul class="user-bar">
       <% if @dance.creator?(current_user) || @admin_user %>
-          <li><%= link_to 'Edit', edit_dance_path(@dance) %></li>
-          <li><%= link_to 'Delete', @dance, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        <li><%= link_to 'Delete', @dance, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        <li><%= link_to 'Edit', edit_dance_path(@dance) %></li>
       <% end %>
+      <li>Created by: <%= @dance.user.first_name %></li>
     </ul>
+
+    <h2><%= @dance.title %></h2>
   </header>
 
   <section class="dance_info">
 
-    <h2>Formation:</h2>
-    <p><%= link_to @dance.formation.name, formation_path(@dance.formation) %></p>
+    <div>
+      <h3>Formation:</h3>
+      <p><%= link_to @dance.formation.name, formation_path(@dance.formation) %></p>
+    </div>
 
-    <h2>Meter:</h2>
-    <p><%= link_to @dance.meter.name, meter_path(@dance.meter) %></p>
+    <div>
+      <h3>Meter:</h3>
+      <p><%= link_to @dance.meter.name, meter_path(@dance.meter) %></p>
+    </div>
 
     <% if @dance.author %>
-      <h2>Author</h2>
-      <p><%= @dance.author %>
+      <div>
+        <h3>Author</h3>
+        <p><%= @dance.author %></p>
+      </div>
     <% end %>
 
     <% if @dance.publication %>
-      <h2>Publication</h2>
-      <p><%= @dance.publication %></p>
+      <div>
+        <h3>Publication</h3>
+        <p><%= @dance.publication %>
     <% end %>
 
     <% if @dance.year %>
-      (<%= @dance.year %>)</p>
+        (<%= @dance.year %>)</p>
+      </div>
     <% end %>
   </section>
 
   <section class="dance_directions">
-    <h2>Direction</h2>
-    <p><%= @dance.direction %></p>
+    <div>
+      <h3>Direction</h3>
+      <p><%= @dance.direction %></p>
   </section>
 
   <section class="comments">
     <header>
-      <h2>Comments</h2>
+      <h3>Comments</h3>
       <%= link_to 'Create Comment', new_dance_dance_comment_path(@dance) %>
     </header>
 
@@ -50,9 +59,9 @@
         <% @dance_comments.each do |dc| %>
           <li>
             <article id="comment_box">
-              <h1>
+              <h5>
                 <%= link_to dc.user.first_name, user_path(dc.user) %> posted a <%= link_to dc.comment_type.name, comment_type_path(dc.comment_type) %> for <%= link_to dc.dance.title, dance_path(dc.dance) %>
-              </h1>
+              </h5>
               <p><%= link_to dc.comment, dance_comment_path(dc) %></p>
 
               <footer>
