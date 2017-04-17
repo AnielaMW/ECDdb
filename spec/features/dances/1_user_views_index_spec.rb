@@ -9,7 +9,8 @@ feature 'view dances#index', %{
   # When a guest visits the dances#index_path,
   # they should expect to see a list of all dances
   # The list should be sorted alphabetically by Title
-  # The list should include the Dance Title, Creator, Author(if any), year(if any)
+  # The list should include the Dance Title, Creator, Author(if any),
+  # year(if any)
 
   let!(:dance1) { FactoryGirl.create(:dance, title: "Zelda's Waltz") }
   let!(:dance2) { FactoryGirl.create(:dance, title: "Link's Jig") }
