@@ -10,9 +10,7 @@
       <ul id="dance_list">
         <% @dances.each do |dance| %>
         <li>
-          <article id="dance_box">
-              <p><%= link_to dance.title, dance_path(dance) %><p>
-          </article>
+          <%= render 'dances/dance_box', dance: dance %>
         </li>
         <% end %>
       </ul>

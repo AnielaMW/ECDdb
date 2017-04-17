@@ -1,0 +1,22 @@
+<article id="dance_box">
+    <h5><%= link_to dance.title, dance_path(dance) %>
+      <% if dance.year %>
+        (<%= dance.year %>)
+      <% end %>
+    </h5>
+      <p>Created by: <%= link_to dance.user.first_name, user_path(dance.user_id) %></p>
+      <% if dance.author %>
+        <p>Authored by: <%= dance.author %></p>
+      <% end %>
+
+      <footer>
+        <ul>
+          <% if dance.creator?(current_user) %>
+            <li><%= link_to "Edit", edit_dance_path(dance) %></li>
+          <% end %>
+          <% if dance.creator?(current_user) || @admin_user %>
+            <li><%= link_to 'Delete', dance, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          <% end %>
+        </ul>
+      </footer>
+</article>
