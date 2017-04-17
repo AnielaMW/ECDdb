@@ -1,9 +1,19 @@
-  <ul id="formation_list">
-    <% @formations.each do |formation| %>
+<main>
+  <header>
+    <ul class="user-bar">
+      <li><%= link_to 'Create New Formation', new_formation_path %></li>
+    </ul>
+    <h1>Formations</h1>
+  </header>
+
+  <ul id="info_list">
+    <% @formations.each do |forma| %>
       <li>
         <article id="formation_box">
-          <%= link_to formation.name, formation_path(formation) %>
+          <h6><%= link_to forma.name, formation_path(forma) %></h6>
+          <p><%= forma.description %></p>
         </article>
       </li>
     <% end %>
   </ul>
+</main>

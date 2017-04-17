@@ -1,8 +1,11 @@
-<aside class="user-bar">
-  <%= link_to "Create Dance", new_dance_path %>
-</aside>
-
 <main>
+  <header class="user-bar">
+    <ul class="user-bar">
+      <li><%= link_to "Create Dance", new_dance_path %></li>
+    </ul>
+    <h1>Dance List</h1>
+  </header>
+
   <ul id="dance_list">
     <% @dances.each do |dance| %>
     <li>
