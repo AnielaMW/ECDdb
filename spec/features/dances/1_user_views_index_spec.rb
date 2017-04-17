@@ -22,11 +22,13 @@ feature 'view dances#index', %{
 
     expect(dances[0]).to have_content(dance2.title)
     expect(dances[0]).to have_content(dance2.user.first_name)
+    expect(dances[0]).not_to have_content("Authored by: ")
     expect(dances[1]).to have_content(dance3.title)
-    expect(dances[0]).to have_content(dance3.user.first_name)
-    expect(dances[0]).to have_content(dance3.author)
-    expect(dances[0]).to have_content(dance3.year)
+    expect(dances[1]).to have_content(dance3.user.first_name)
+    expect(dances[1]).to have_content(dance3.author)
+    expect(dances[1]).to have_content(dance3.year)
     expect(dances[2]).to have_content(dance1.title)
-    expect(dances[0]).to have_content(dance1.user.first_name)
+    expect(dances[2]).to have_content(dance1.user.first_name)
+    expect(dances[2]).not_to have_content("Authored by: ")
   end
 end
