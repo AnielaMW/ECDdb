@@ -10,14 +10,18 @@
   background: white;
 }
 
-.dance_box h5 div {
+.dance_box h5 bdi {
   font-size: 14px;
-  display: inline;
+  font-weight: normal;
 }
 
-.dance_box p {
+.dance_box section p {
   display: inline;
   padding: 20px 8px;
+}
+
+.dance_box section bdi {
+  font-size: 14px;
 }
 
 .dance_box footer ul {
@@ -31,6 +35,8 @@
   font-size: 12px;
   padding: 20px 8px;
 }
+
+// forms css
 
 .ref_button {
   padding: 0 4px;

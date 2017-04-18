@@ -1,17 +1,16 @@
 <article class="dance_box">
   <h5><%= link_to dance.title, dance_path(dance) %>
-    <div>
-      <% if dance.year %>
-        (<%= dance.year %>)
-      <% end %>
-    </div>
-  </h5>
-  <aside>
-    <% if dance.author %>
-    <p>Authored by: <%= dance.author %></p>
+    <% if dance.year %>
+      <bdi>(<%= dance.year %>)</bdi>
     <% end %>
-    <p>Created by: <%= link_to dance.user.first_name, user_path(dance.user_id) %></p>
-  </aside>
+  </h5>
+
+  <section>
+    <% if dance.author %>
+    <p><bdi>Authored by:</bdi> <%= dance.author %></p>
+    <% end %>
+    <p><bdi>Created by:</bdi> <%= link_to dance.user.first_name, user_path(dance.user_id) %></p>
+  </section>
 
   <footer>
     <ul>
