@@ -1,13 +1,13 @@
 <%= form_for(@meter) do |f| %>
 
-  <div class="field required">
+  <div class="field">
     <%= f.label :name, "Name" %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, required: true %>
   </div>
 
-  <div class="field required">
+  <div class="field">
     <%= f.label :description, "Description" %>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, required: true %>
   </div>
 
   <div class="actions">
