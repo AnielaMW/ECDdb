@@ -19,7 +19,7 @@ feature 'view dances#index', %{
   scenario 'sucessfully view the dances#index' do
     visit dances_path
 
-    dances = page.all("article#dance_box")
+    dances = page.all("article.dance_box")
 
     expect(dances[0]).to have_content(dance2.title)
     expect(dances[0]).to have_content(dance2.user.first_name)

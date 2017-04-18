@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :show]
+  before_action :users, only: [:index]
   before_action :set_user, only: [:show]
+
+  def index
+  end
 
   def show
     @dances = list_dances
@@ -7,6 +12,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def users
+    @users ||= User.all.order(:first_name)
+  end
 
   def set_user
     @user = User.find(params[:id])

@@ -1,0 +1,31 @@
+<main class="user_index">
+  <header>
+    <h1>Members</h1>
+  </header>
+
+  <% if @user.dances? %>
+    <section class="dances">
+      <h2>Dances</h2>
+      <ul class="dance_list">
+        <% @dances.each do |dance| %>
+        <li>
+          <%= render 'dances/dance_box', dance: dance %>
+        </li>
+        <% end %>
+      </ul>
+    </section>
+  <% end %>
+
+  <% if @user.dance_comments? %>
+    <section class="dance_comments">
+      <h2>Comments</h2>
+      <ul class="dance_comment_list">
+        <% @dance_comments.each do |dc| %>
+          <li>
+            <%= render 'dance_comments/dance_comment_box', dc: dc %>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+  <% end %>
+</main>
