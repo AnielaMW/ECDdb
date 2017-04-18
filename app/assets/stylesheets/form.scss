@@ -28,7 +28,9 @@
     width: 100%;
   }
 
-  .ref-button, .new-button, .actions input {
+  .ref-button,
+  .new-button,
+  .actions input {
     border: 2px solid $color-black;
     box-shadow: 5px 5px 3px $color-dark-grey;
     display: inline;
@@ -37,11 +39,15 @@
     width: auto;
   }
 
-  .ref-button:hover, .new-button:hover, .actions input:hover {
+  .ref-button:hover,
+  .new-button:hover,
+  .actions input:hover {
     border: 2px solid $color-red;
   }
 
-  .ref-button a:hover, .new-button a:hover, .actions input:hover {
+  .ref-button a:hover,
+  .new-button a:hover,
+  .actions input:hover {
     color: $color-red;
     text-decoration: none;
   }
