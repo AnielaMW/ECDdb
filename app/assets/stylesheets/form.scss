@@ -1,3 +1,5 @@
+@import 'colors';
+
 .forms label {
   font-size: 18px;
   margin: 15px 0 0 0;
@@ -32,18 +34,18 @@ textarea {
 
 .ref_button, .new_button, .actions input {
   padding: 0 4px;
-  border: 2px solid black;
+  border: 2px solid $color-black;
   display: inline;
   font-size: 12px;
-  box-shadow: 5px 5px 3px #888888;
+  box-shadow: 5px 5px 3px $color-dark_grey;
   width: auto;
 }
 
 .ref_button:hover, .new_button:hover, .actions input:hover {
-  border: 2px solid darkred;
+  border: 2px solid $color-red;
 }
 
 .ref_button a:hover, .new_button a:hover, .actions input:hover{
   text-decoration: none;
-  color: darkred;
+  color: $color-red;
 }
