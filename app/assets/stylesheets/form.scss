@@ -2,7 +2,7 @@
 
 .forms label {
   font-size: 18px;
-  margin: 15px 0 0 0;
+  margin: 10px 10px 10px 0;
 }
 
 input {
@@ -48,4 +48,9 @@ textarea {
 .ref_button a:hover, .new_button a:hover, .actions input:hover{
   text-decoration: none;
   color: $color-red;
+}
+
+.ref_button {
+  border-radius: 50%;
+  margin: 0 5px;
 }
