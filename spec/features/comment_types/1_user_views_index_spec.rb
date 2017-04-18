@@ -21,7 +21,7 @@ feature 'view comment_types#index', %{
   scenario 'sucessfully view the comment_types#index' do
     visit comment_types_path
 
-    comment_types = page.all("#info_list article")
+    comment_types = page.all(".info-list article")
 
     expect(comment_types[0]).to have_content(type2.name)
     expect(comment_types[1]).to have_content(type3.name)
