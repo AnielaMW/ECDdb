@@ -3,14 +3,14 @@
     <ul class="user-bar">
       <li><%= link_to "Create Dance", new_dance_path %></li>
     </ul>
-    <h1>Dance List</h1>
+    <h2>Dance List</h2>
   </header>
 
   <ul class="dance_list">
     <% @dances.each do |dance| %>
-    <li>
-      <%= render 'dance_box', dance: dance %>
-    </li>
+      <li>
+        <%= render 'dance_box', dance: dance %>
+      </li>
     <% end %>
   </ul>
 </main>

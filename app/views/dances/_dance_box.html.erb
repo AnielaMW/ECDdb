@@ -1,9 +1,9 @@
 <article class="dance_box">
-  <h5><%= link_to dance.title, dance_path(dance) %>
+  <h2><%= link_to dance.title, dance_path(dance) %>
     <% if dance.year %>
       <bdi>(<%= dance.year %>)</bdi>
     <% end %>
-  </h5>
+  </h2>
 
   <section>
     <% if dance.author %>
