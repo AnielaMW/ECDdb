@@ -1,16 +1,17 @@
 <%= form_for(@comment_type) do |f| %>
+  <div class="forms">
+    <div class="field required">
+      <h2><%= f.label :name, "Name" %></h2>
+      <%= f.text_field :name %>
+    </div>
 
-  <div class="field">
-    <%= f.label :name, "Name" %><br />
-    <%= f.text_field :name %>
-  </div>
+    <div class="field required">
+      <h2><%= f.label :description, "Description" %></h2>
+      <%= f.text_field :description %>
+    </div>
 
-  <div class="field">
-    <%= f.label :description, "Description" %><br />
-    <%= f.text_field :description %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
   </div>
 <% end %>

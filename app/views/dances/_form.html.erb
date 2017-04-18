@@ -1,47 +1,48 @@
 <%= form_for(@dance) do |f| %>
-
-  <div class="field required">
-    <h3><%= f.label :title, "Title" %></h3>
-    <%= f.text_field :title %>
-  </div>
-
-  <div class="field">
-    <h3><%= f.label :author, "Author" %></h3>
-    <%= f.text_field :author %>
-  </div>
-
-  <div class="field">
-    <h3><%= f.label :publication, "Publication" %></h3>
-    <%= f.text_field :publication %>
-  </div>
-
-  <div class="field">
-    <h3><%= f.label :year, "Year" %></h3>
-    <%= f.text_field :year %>
-  </div>
-
-  <div class="field required">
-    <h3><%= f.label :formation_id, "Formation" %></h3>
-    <%= f.collection_select :formation_id, @formation_collection, :id, :name %>
-    <div class="new_button">
-      <%= link_to "New Formation", new_formation_path, target: '_blank' %>
+  <div class="forms">
+    <div class="field required">
+      <h2><%= f.label :title, "Title" %></h2>
+      <%= f.text_field :title %>
     </div>
-  </div>
 
-  <div class="field required">
-    <h3><%= f.label :meter_id, "Meter" %></h3>
-    <%= f.collection_select :meter_id, @meter_collection, :id, :name %>
-    <div class="new_button">
-      <%= link_to "New Meter", new_meter_path, target: '_blank' %>
+    <div class="field">
+      <h2><%= f.label :author, "Author" %></h2>
+      <%= f.text_field :author %>
     </div>
-  </div>
 
-  <div class="field required">
-    <h3><%= f.label :direction, "Direction" %></h3>
-    <%= f.text_field :direction %>
-  </div>
+    <div class="field">
+      <h2><%= f.label :publication, "Publication" %></h2>
+      <%= f.text_field :publication %>
+    </div>
 
-  <div class="actions">
-    <p><%= f.submit %></p>
+    <div class="field">
+      <h2><%= f.label :year, "Year" %></h2>
+      <%= f.text_field :year %>
+    </div>
+
+    <div class="field required">
+      <h2><%= f.label :formation_id, "Formation" %></h2>
+      <%= f.collection_select :formation_id, @formation_collection, :id, :name %>
+      <div class="new_button">
+        <%= link_to "New Formation", new_formation_path, target: '_blank' %>
+      </div>
+    </div>
+
+    <div class="field required">
+      <h2><%= f.label :meter_id, "Meter" %></h2>
+      <%= f.collection_select :meter_id, @meter_collection, :id, :name %>
+      <div class="new_button">
+        <%= link_to "New Meter", new_meter_path, target: '_blank' %>
+      </div>
+    </div>
+
+    <div class="field required">
+      <h2><%= f.label :direction, "Direction" %></h2>
+      <%= f.text_field :direction %>
+    </div>
+
+    <div class="actions">
+      <p><%= f.submit %></p>
+    </div>
   </div>
 <% end %>
