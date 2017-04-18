@@ -24,6 +24,7 @@ feature 'create a dance_comment', %{
 
     expect(page).to have_current_path(new_dance_dance_comment_path(dance))
 
+    # How to fill_in in a test if I get rid of the Comment label
     fill_in 'Comment', with: new_dance_comment[:comment].to_s
     select comment_type.name.to_s, from: 'Type'
     click_button "Create Dance comment"
