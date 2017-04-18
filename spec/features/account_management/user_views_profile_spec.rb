@@ -21,6 +21,7 @@ feature 'views account', %{
   let!(:com2) { FactoryGirl.create(:dstyle_comment, user_id: fred.id) }
 
   scenario 'sucessfully view profile without dances or comments' do
+    sign_in fred
     visit user_path(anne)
 
     expect(page).to have_content(anne.first_name)
@@ -32,6 +33,7 @@ feature 'views account', %{
   end
 
   scenario 'sucessfully view profile with dances or comments' do
+    sign_in anne
     visit user_path(fred)
 
     expect(page).to have_content(fred.first_name)

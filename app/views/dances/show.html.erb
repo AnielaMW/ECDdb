@@ -1,4 +1,4 @@
-<main>
+<main class="dance_show">
   <header>
     <ul class="user-bar">
       <% if @dance.creator?(current_user) || @admin_user %>
@@ -55,26 +55,10 @@
     </header>
 
     <% if @dance.dance_comments %>
-      <ul id="dance_comment_list">
+      <ul class="dance_comment_list">
         <% @dance_comments.each do |dc| %>
           <li>
-            <article id="comment_box">
-              <h5>
-                <%= link_to dc.user.first_name, user_path(dc.user) %> posted a <%= link_to dc.comment_type.name, comment_type_path(dc.comment_type) %> for <%= link_to dc.dance.title, dance_path(dc.dance) %>
-              </h5>
-              <p><%= link_to dc.comment, dance_comment_path(dc) %></p>
-
-              <footer>
-                <ul>
-                  <% if dc.creator?(current_user) %>
-                    <li><%= link_to "Edit", edit_dance_comment_path(dc) %></li>
-                  <% end %>
-                  <% if dc.creator?(current_user) || dc.dance.creator?(current_user) || @admin_user %>
-                    <li><%= link_to 'Delete', dc, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-                  <% end %>
-                </ul>
-              </footer>
-            </article>
+            <%= render 'dance_comments/dance_comment_box', dc: dc %>
           </li>
         <% end %>
       </ul>

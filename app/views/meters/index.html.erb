@@ -1,9 +1,19 @@
-<ul id="meter_list">
-  <% @meters.each do |meter| %>
-    <li>
-      <article id="mater_box">
-        <%= link_to meter.name, meter_path(meter) %>
-      </article>
-    </li>
-  <% end %>
-</ul>
+<main class="meter_index">
+  <header>
+    <ul class="user-bar">
+      <li><%= link_to 'Create New Meter', new_meter_path %></li>
+    </ul>
+    <h1>Meters</h1>
+  </header>
+
+  <ul class="info_list">
+    <% @meters.each do |meter| %>
+      <li>
+        <article class="meter_box">
+          <h6><%= link_to meter.name, meter_path(meter) %></h6>
+          <p><%= meter.description %></p>
+        </article>
+      </li>
+    <% end %>
+  </ul>
+</main>

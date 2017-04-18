@@ -27,6 +27,8 @@ feature 'view dances#show', %{
     expect(page).to have_content(dance1.formation.name)
     expect(page).to have_content(dance1.meter.name)
     expect(page).to have_content(dance1.direction)
+    expect(page).not_to have_content("Author")
+    expect(page).not_to have_content("Publication")
 
     visit dance_path(dance2.id)
 

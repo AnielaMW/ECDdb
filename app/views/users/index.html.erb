@@ -1,9 +1,6 @@
-<main class="user_show">
+<main class="user_index">
   <header>
-    <ul class="user-bar">
-      <li><%= link_to "Edit Profile", edit_user_registration_path(@user) %></li>
-    </ul>
-    <h1><%= @user.first_name %></h1>
+    <h1>Members</h1>
   </header>
 
   <% if @user.dances? %>

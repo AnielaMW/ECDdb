@@ -42,7 +42,7 @@ feature 'update a dance_comment', %{
     sign_in com2.user
     visit dance_path(com2.dance)
 
-    comment_boxes = page.all("article#comment_box")
+    comment_boxes = page.all("article.comment_box")
 
     expect(comment_boxes[0]).to have_content("Edit")
   end
@@ -52,7 +52,7 @@ feature 'update a dance_comment', %{
     sign_in com3.user
     visit dance_comments_path
 
-    comment_boxes = page.all("article#comment_box")
+    comment_boxes = page.all("article.comment_box")
 
     expect(comment_boxes[0]).to have_content("Edit")
   end

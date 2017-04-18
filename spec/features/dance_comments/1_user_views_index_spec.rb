@@ -23,7 +23,7 @@ feature 'view dance comments', %{
   scenario 'sucessfully view the dance_comments for a given dance' do
     visit dance_path(dance)
 
-    comments = page.all("article#comment_box")
+    comments = page.all("article.comment_box")
 
     expect(comments[0]).to have_content(com3.comment)
     expect(comments[0]).to have_content(com3.user.first_name)
@@ -42,7 +42,7 @@ feature 'view dance comments', %{
   dance_comment#index' do
     visit dance_comments_path
 
-    comments = page.all("article#comment_box")
+    comments = page.all("article.comment_box")
 
     expect(comments[0]).to have_content(com4.dance.title)
     expect(comments[0]).to have_content(com4.comment)
