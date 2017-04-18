@@ -5,11 +5,11 @@
 }
 
 .dance_box {
+  background: $color-white;
   border: 3px solid $color-black;
   margin: 5px;
   padding-left: 20px;
   position: relative;
-  background: $color-white;
 
   h2 bdi {
     font-size: 14px;
@@ -29,9 +29,9 @@
 
   footer {
     ul {
+      bottom: 0;
       position: absolute;
       right: 5px;
-      bottom: 0;
     }
 
     li {

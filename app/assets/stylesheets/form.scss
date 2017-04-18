@@ -32,25 +32,25 @@ textarea {
 
 }
 
-.ref_button, .new_button, .actions input {
+.ref-button, .new-button, .actions input {
   padding: 0 4px;
   border: 2px solid $color-black;
   display: inline;
   font-size: 12px;
-  box-shadow: 5px 5px 3px $color-dark_grey;
+  box-shadow: 5px 5px 3px $color-dark-grey;
   width: auto;
 }
 
-.ref_button:hover, .new_button:hover, .actions input:hover {
+.ref-button:hover, .new-button:hover, .actions input:hover {
   border: 2px solid $color-red;
 }
 
-.ref_button a:hover, .new_button a:hover, .actions input:hover{
-  text-decoration: none;
+.ref-button a:hover, .new-button a:hover, .actions input:hover{
   color: $color-red;
+  text-decoration: none;
 }
 
-.ref_button {
+.ref-button {
   border-radius: 50%;
   margin: 0 5px;
 }

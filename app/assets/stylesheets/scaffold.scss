@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: $color-med_grey;
+  background-color: $color-med-grey;
   font-size: 18px;
 }
 
@@ -57,13 +57,10 @@ a:hover {
 
 .top-bar {
   background-color: $color-red;
-  color: $color-white;
-  padding: 10px 20px;
-  margin-bottom: 20px;
   border-bottom: 5px solid $color-black;
-}
-
-.logo {
+  color: $color-white;
+  margin-bottom: 20px;
+  padding: 10px 20px;
 }
 
 header aside li {
@@ -77,13 +74,13 @@ header aside li {
   display: inline;
   float: right;
   font-size: 14px;
-  padding-right: 8px;
   margin-top: 14px;
+  padding-right: 8px;
 }
 
 // list css
 
-#info_list {
+.info-list {
   padding-left: 25px;
 
   h3 {
