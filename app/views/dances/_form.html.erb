@@ -1,27 +1,27 @@
 <%= form_for(@dance) do |f| %>
   <div class="forms">
     <div class="field required">
-      <h2><%= f.label :title, "Title" %></h2>
+      <%= f.label :title, "Title" %>
       <%= f.text_field :title %>
     </div>
 
     <div class="field">
-      <h2><%= f.label :author, "Author" %></h2>
+      <%= f.label :author, "Author" %>
       <%= f.text_field :author %>
     </div>
 
     <div class="field">
-      <h2><%= f.label :publication, "Publication" %></h2>
+      <%= f.label :publication, "Publication" %>
       <%= f.text_field :publication %>
     </div>
 
     <div class="field">
-      <h2><%= f.label :year, "Year" %></h2>
+      <%= f.label :year, "Year" %>
       <%= f.text_field :year %>
     </div>
 
     <div class="field required">
-      <h2><%= f.label :formation_id, "Formation" %></h2>
+      <%= f.label :formation_id, "Formation" %>
       <%= f.collection_select :formation_id, @formation_collection, :id, :name %>
       <div class="new_button">
         <%= link_to "New Formation", new_formation_path, target: '_blank' %>
@@ -29,7 +29,7 @@
     </div>
 
     <div class="field required">
-      <h2><%= f.label :meter_id, "Meter" %></h2>
+      <%= f.label :meter_id, "Meter" %>
       <%= f.collection_select :meter_id, @meter_collection, :id, :name %>
       <div class="new_button">
         <%= link_to "New Meter", new_meter_path, target: '_blank' %>
@@ -37,8 +37,8 @@
     </div>
 
     <div class="field required">
-      <h2><%= f.label :direction, "Direction" %></h2>
-      <%= f.text_field :direction %>
+      <%= f.label :direction, "Direction" %>
+      <%= f.text_area :direction %>
     </div>
 
     <div class="actions">

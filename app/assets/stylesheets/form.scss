@@ -1,43 +1,43 @@
-.forms h2 {
+.forms label {
   font-size: 18px;
-  margin: 10px 0 0 0;
+  margin: 15px 0 0 0;
+}
+
+input {
+  font-size: 14px;
+  width: 33%;
+  font-size: 14px;
+  padding: 3px;
+  margin-bottom: 10px;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-size: 14px;
+  padding: 3px;
+  margin-bottom: 10px;
 }
 
 .required {
 
 }
 
-.ref_button {
+.ref_button, .new_button, .actions input {
   padding: 0 4px;
   border: 2px solid black;
   display: inline;
   font-size: 12px;
   box-shadow: 5px 5px 3px #888888;
+  width: auto;
 }
 
-.ref_button:hover {
+.ref_button:hover, .new_button:hover, .actions input:hover {
   border: 2px solid darkred;
 }
 
-.ref_button a:hover{
-  text-decoration: none;
-  color: darkred;
-}
-
-.new_button {
-  padding: 0 4px;
-  border: 2px solid black;
-  background-color: white;
-  display: inline;
-  font-size: 12px;
-  box-shadow: 5px 5px 3px #888888;
-}
-
-.new_button:hover {
-  border: 2px solid darkred;
-}
-
-.new_button a:hover {
+.ref_button a:hover, .new_button a:hover, .actions input:hover{
   text-decoration: none;
   color: darkred;
 }
