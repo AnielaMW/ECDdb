@@ -1,6 +1,53 @@
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  background-color: #163F6D;
+  background-color: #cecaca;
+  font-size: 18px;
+}
+
+h1 {
+  font-size: 30px;
+  margin: 5px 0;
+}
+
+h2 {
+  font-size: 28px;
+  margin: 5px 0;
+}
+
+h3 {
+  font-size: 26px;
+  margin: 4px 0;
+}
+
+h4 {
+  font-size: 24px;
+  margin: 3px 0;
+}
+
+h5 {
+  font-size: 22px;
+  margin: 2px 0;
+}
+
+h6 {
+  font-size: 20px;
+  margin: 5px 0;
+}
+
+#top-bar {
+  background-color: #660000;
   color: #eee;
+  padding: 10px 15px;
+  border-bottom: 5px solid #000000;
+}
+
+main {
+  padding: 0 20px;
 }
 
 a {
@@ -10,15 +57,23 @@ a {
 
 a:hover {
   text-decoration: underline;
-  color: darkred;
+  color: #00008b;
 }
 
-nav li {
- display: inline;
+header aside li {
+  display: inline;
+  float: right;
+  font-size: 12px;
+  padding: 16px 8px;
 }
+
 
 .logo {
 }
 
-.user_bar {
+.user-bar li {
+  display: inline;
+  float: right;
+  font-size: 14px;
+  padding: 20px 8px;
 }

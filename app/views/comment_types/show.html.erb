@@ -1,11 +1,13 @@
 <% if @admin_user %>
-  <ul class="user_bar">
-    <li><%= link_to 'Edit', edit_comment_type_path(@comment_type) %></li>
-    <li><%= link_to 'Delete', @comment_type, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-  </ul>
+  <aside>
+    <ul class="user_bar">
+      <li><%= link_to 'Edit', edit_comment_type_path(@comment_type) %></li>
+      <li><%= link_to 'Delete', @comment_type, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    </ul>
+  </aside>
 <% end %>
 
-<h2><%= @comment_type.name %></h2>
-
-<h3>Description</h3>
-<p><%= @comment_type.description %></p>
+<main>
+  <h1><%= @comment_type.name %></h1>
+  <p><%= @comment_type.description %></p>
+</main>

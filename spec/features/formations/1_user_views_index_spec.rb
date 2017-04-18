@@ -18,7 +18,7 @@ feature 'view formations#index', %{
   scenario 'sucessfully view the formations#index' do
     visit formations_path
 
-    formations = page.all("div#formationlist ul li")
+    formations = page.all("ul#formation_list article")
 
     expect(formations[0]).to have_content(form1.name)
     expect(formations[1]).to have_content(form3.name)

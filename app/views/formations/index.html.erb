@@ -1,7 +1,9 @@
-<div id="formationlist">
-  <ul>
+  <ul id="formation_list">
     <% @formations.each do |formation| %>
-      <li><%= link_to formation.name, formation_path(formation) %></li>
+      <li>
+        <article id="formation_box">
+          <%= link_to formation.name, formation_path(formation) %>
+        </article>
+      </li>
     <% end %>
   </ul>
-</div>
