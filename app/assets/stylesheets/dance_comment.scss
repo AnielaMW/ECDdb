@@ -1,8 +1,8 @@
-#dance_comment_list li {
+.dance_comment_list li {
   display: block;
 }
 
-#comment_box {
+.comment_box {
   border: 3px solid #000000;
   margin: 5px;
   padding: 20px;
@@ -10,17 +10,17 @@
   background: white;
 }
 
-#comment_box p {
+.comment_box p {
   padding-left: 5px;
 }
 
-#comment_box footer ul {
+.comment_box footer ul {
   position: absolute;
   right: 5px;
   bottom: 0;
 }
 
-#comment_box footer li {
+.comment_box footer li {
   display: inline;
   font-size: 12px;
   padding: 20px 8px;

@@ -1,4 +1,4 @@
-<main>
+<main class="user_show">
   <header>
     <ul class="user-bar">
       <li><%= link_to "Edit Profile", edit_user_registration_path(@user) %></li>
@@ -7,9 +7,9 @@
   </header>
 
   <% if @user.dances? %>
-    <section id="dances">
+    <section class="dances">
       <h2>Dances</h2>
-      <ul id="dance_list">
+      <ul class="dance_list">
         <% @dances.each do |dance| %>
         <li>
           <%= render 'dances/dance_box', dance: dance %>
@@ -20,9 +20,9 @@
   <% end %>
 
   <% if @user.dance_comments? %>
-    <section id="dance_comments">
+    <section class="dance_comments">
       <h2>Comments</h2>
-      <ul id="dance_comment_list">
+      <ul class="dance_comment_list">
         <% @dance_comments.each do |dc| %>
           <li>
             <%= render 'dance_comments/dance_comment_box', dc: dc %>

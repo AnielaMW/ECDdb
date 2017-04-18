@@ -1,4 +1,4 @@
-<main>
+<main class="dance_show">
   <header>
     <ul class="user-bar">
       <% if @dance.creator?(current_user) || @admin_user %>
@@ -55,7 +55,7 @@
     </header>
 
     <% if @dance.dance_comments %>
-      <ul id="dance_comment_list">
+      <ul class="dance_comment_list">
         <% @dance_comments.each do |dc| %>
           <li>
             <%= render 'dance_comments/dance_comment_box', dc: dc %>

@@ -1,4 +1,4 @@
-<main>
+<main class="formation_index">
   <header>
     <ul class="user-bar">
       <li><%= link_to 'Create New Formation', new_formation_path %></li>
@@ -6,10 +6,10 @@
     <h1>Formations</h1>
   </header>
 
-  <ul id="info_list">
+  <ul class="info_list">
     <% @formations.each do |forma| %>
       <li>
-        <article id="formation_box">
+        <article class="formation_box">
           <h6><%= link_to forma.name, formation_path(forma) %></h6>
           <p><%= forma.description %></p>
         </article>
