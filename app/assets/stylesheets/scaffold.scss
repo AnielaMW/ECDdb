@@ -1,5 +1,7 @@
 @import "colors";
 
+// Basic sitewide css styles
+
 * {
   border: 0;
   margin: 0;
@@ -55,6 +57,8 @@ a:hover {
   text-decoration: underline;
 }
 
+// sitewide top header
+
 .top-bar {
   background-color: $color-red;
   border-bottom: 5px solid $color-black;
@@ -70,25 +74,12 @@ header aside li {
   padding: 31px 8px;
 }
 
+// sitewide user bars
+
 .user-bar li {
   display: inline;
   float: right;
   font-size: 14px;
   margin-top: 14px;
   padding-right: 8px;
-}
-
-// list css
-
-.info-list {
-  padding-left: 25px;
-
-  h3 {
-    font-size: 18px;
-  }
-
-  bdi {
-    font-size: 16px;
-    font-weight: normal;
-  }
 }
