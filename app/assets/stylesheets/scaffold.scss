@@ -9,7 +9,7 @@
 }
 
 body {
-  background-color: $color-med-grey;
+  background: linear-gradient(to bottom, $color-med-grey, $color-white);
   font-size: 18px;
 }
 
@@ -57,7 +57,7 @@ a:hover {
   text-decoration: underline;
 }
 
-// sitewide top header
+// sitewide header
 
 .top-bar {
   background-color: $color-red;
@@ -65,6 +65,7 @@ a:hover {
   color: $color-white;
   margin-bottom: 20px;
   padding: 10px 20px;
+  text-shadow: 1px 3px 1px $color-black;
 }
 
 header aside li {
@@ -82,4 +83,22 @@ header aside li {
   font-size: 14px;
   margin-top: 14px;
   padding-right: 8px;
+}
+
+// sitewide footer
+
+.bottom-bar {
+  background-color: $color-red;
+  border-top: 3px solid $color-black;
+  color: $color-white;
+  margin-top: 20px;
+  padding: 10px 20px;
+  text-shadow: 1px 3px 1px $color-black;
+
+  h1 {
+    font-size: 18px;
+    font-style: italic;
+    font-weight: normal;
+    text-align: center;
+  }
 }
