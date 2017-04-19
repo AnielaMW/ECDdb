@@ -1,4 +1,4 @@
-<main class="comment_type_index">
+<main class="comment-type-index">
   <% if @admin_user %>
     <header>
       <ul class="user-bar">
@@ -11,7 +11,7 @@
   <ul class="info-list">
     <% @comment_types.each do |ct| %>
       <li>
-        <article id="comment_type_box">
+        <article class="comment-type-box">
           <h3><%= link_to ct.name, comment_type_path(ct) %> <bdi>- <%= ct.description %></bdi></h3>
         </article>
       </li>

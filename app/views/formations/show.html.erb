@@ -1,7 +1,7 @@
-<main class="formation_show">
+<main class="formation-show">
   <% if @admin_user %>
     <aside>
-      <ul class="user_bar">
+      <ul class="user-bar">
         <li><%= link_to 'Edit', edit_formation_path(@formation) %></li>
         <li><%= link_to 'Delete', @formation, method: :delete, data: { confirm: 'Are you sure?' } %></li>
       </ul>

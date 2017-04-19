@@ -1,17 +1,17 @@
 @import "colors";
 
 // dc show css
-.dance_comment_show .comment_box {
+.dance-comment-show .comment-box {
   background: $color-med-grey;
   box-shadow: 0 0 0 0;
 }
 
 // dc list css
-.dance_comment_list li {
+.dance-comment-list li {
   display: block;
 }
 
-.comment_box {
+.comment-box {
   background: $color-white;
   box-shadow: 10px 10px 5px $color-dark-grey;
   margin: 10px;
