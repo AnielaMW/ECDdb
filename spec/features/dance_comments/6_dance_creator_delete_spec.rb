@@ -29,7 +29,7 @@ feature 'delete a dance_comment', %{
     sign_in dance.user
     visit dance_path(com2.dance)
 
-    comment_boxes = page.all("article.comment_box")
+    comment_boxes = page.all("article.comment-box")
 
     expect(comment_boxes[0]).to have_content("Delete")
     expect(comment_boxes[1]).to have_content("Delete")
@@ -40,7 +40,7 @@ feature 'delete a dance_comment', %{
     sign_in dance.user
     visit dance_comments_path
 
-    comment_boxes = page.all("article.comment_box")
+    comment_boxes = page.all("article.comment-box")
 
     expect(comment_boxes[0]).to have_content("Delete")
     expect(comment_boxes[1]).to have_content("Delete")
