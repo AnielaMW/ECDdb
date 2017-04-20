@@ -4,12 +4,13 @@ class DancesController < ApplicationController
   before_action :dances, only: [:index]
   before_action :set_dance, only: [:show, :edit, :update, :destroy]
   before_action :comments?, only: [:show]
-  before_action :collections, only: [:new, :create, :edit, :update]
+  before_action :collections, only: [:show, :new, :create, :edit, :update]
 
   def index
   end
 
   def show
+    @dance_comment = DanceComment.new
   end
 
   def new
@@ -63,6 +64,7 @@ class DancesController < ApplicationController
   def collections
     @formation_collection ||= Formation.all.order(:name)
     @meter_collection ||= Meter.all.order(:name)
+    @comment_type_collection ||= CommentType.all.order(:name)
   end
 
   def dance_params
