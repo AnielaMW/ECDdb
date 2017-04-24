@@ -24,7 +24,7 @@ class DanceCommentsController < ApplicationController
       )
     )
     if @dance_comment.save
-      redirect_to dance_comment_path(@dance_comment)
+      redirect_to dance_path(@dance)
     else
       flash[:alert] = @dance_comment.errors.full_messages.join(", ")
       redirect_to new_dance_dance_comment_path(@dance)
