@@ -1,17 +1,20 @@
 <%= form_for [@dance, @dance_comment] do |f| %>
+  <div class="forms">
+    <div class="field">
+      <%= f.label :comment_type_id, "Type" %>
+      <%= f.collection_select :comment_type_id, @comment_type_collection, :id, :name, required: true %>
+      <div class="ref-button">
+        <%= link_to "?", comment_types_path, target: '_blank' %>
+      </div>
+    </div>
 
-  <div class="field">
-    <h4><%= f.label :comment_type_id, "Type" %></h4>
-    <%= f.collection_select :comment_type_id, @comment_type_collection, :id, :name %>
-    <%= link_to "View Types", comment_types_path, target: '_blank' %>
-  </div>
+    <div class="field">
+      <%= f.label :comment, "Comment" %>
+      <%= f.text_area :comment, required: true, placeholder: "Comment..." %>
+    </div>
 
-  <div class="field">
-    <h4><%= f.label :comment, "Comment" %></h4>
-    <%= f.text_field :comment %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
   </div>
 <% end %>

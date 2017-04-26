@@ -21,7 +21,7 @@ feature 'view comment_types#index', %{
   scenario 'sucessfully view the comment_types#index' do
     visit comment_types_path
 
-    comment_types = page.all("#info_list article")
+    comment_types = page.all(".info-list article")
 
     expect(comment_types[0]).to have_content(type2.name)
     expect(comment_types[1]).to have_content(type3.name)
@@ -29,15 +29,7 @@ feature 'view comment_types#index', %{
   end
 
   pending 'sucessfully view the comment_types#index after click on
-  the comment form view button' do
-    sign_in dance.user
-    visit new_dance_dance_comment_path(dance)
-    click_link "?"
-
-    expect(page).to have_current_path(comment_types_path)
-
+  the comment form view button'
     # IN A POPUP WINDOW MAYBE WHEN ? ICON IS CLICKED INSTEAD OF
     # "VIEW TYPES"
-  end
-
 end

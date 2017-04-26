@@ -1,9 +1,9 @@
-<main class="dance_comment_index">
+<main class="dance-comment-index">
   <header>
-    <h1>Dance Comments</h1>
+    <h2>Dance Comments</h2>
   </header>
 
-  <ul class="dance_comment_list">
+  <ul class="dance-comment-list">
     <% @dance_comments.each do |dc| %>
       <li>
         <%= render 'dance_comment_box', dc: dc %>

@@ -1,4 +1,4 @@
-<main class="dance_show">
+<main class="dance-show">
   <header>
     <ul class="user-bar">
       <% if @dance.creator?(current_user) || @admin_user %>
@@ -11,7 +11,7 @@
     <h2><%= @dance.title %></h2>
   </header>
 
-  <section class="dance_info">
+  <section class="dance-info">
 
     <div>
       <h3>Formation:</h3>
@@ -42,7 +42,7 @@
     <% end %>
   </section>
 
-  <section class="dance_directions">
+  <section class="dance-directions">
     <div>
       <h3>Direction</h3>
       <p><%= @dance.direction %></p>
@@ -55,7 +55,7 @@
     </header>
 
     <% if @dance.dance_comments %>
-      <ul class="dance_comment_list">
+      <ul class="dance-comment-list">
         <% @dance_comments.each do |dc| %>
           <li>
             <%= render 'dance_comments/dance_comment_box', dc: dc %>

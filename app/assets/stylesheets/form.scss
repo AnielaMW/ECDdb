@@ -1,3 +1,59 @@
-.required {
-  ;
+@import "colors";
+
+.forms {
+  label {
+    font-size: 18px;
+    margin: 10px 10px 10px 0;
+  }
+
+  input {
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding: 3px;
+    width: 33%;
+  }
+
+  select {
+    font-size: 14px;
+    margin: 0 10px 10px 0;
+    padding: 3px;
+  }
+
+  textarea {
+    display: block;
+    font-size: 14px;
+    height: auto;
+    margin-bottom: 10px;
+    padding: 3px;
+    width: 100%;
+  }
+
+  .ref-button,
+  .new-button,
+  .actions input {
+    border: 2px solid $color-black;
+    box-shadow: 5px 5px 3px $color-dark-grey;
+    display: inline;
+    font-size: 12px;
+    padding: 0 4px;
+    width: auto;
+  }
+
+  .ref-button:hover,
+  .new-button:hover,
+  .actions input:hover {
+    border: 2px solid $color-red;
+  }
+
+  .ref-button a:hover,
+  .new-button a:hover,
+  .actions input:hover {
+    color: $color-red;
+    text-decoration: none;
+  }
+
+  .ref-button {
+    border-radius: 50%;
+    margin: 0 5px;
+  }
 }

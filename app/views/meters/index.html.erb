@@ -1,17 +1,16 @@
-<main class="meter_index">
+<main class="meter-index">
   <header>
     <ul class="user-bar">
       <li><%= link_to 'Create New Meter', new_meter_path %></li>
     </ul>
-    <h1>Meters</h1>
+    <h2>Meters</h2>
   </header>
 
-  <ul class="info_list">
+  <ul class="info-list">
     <% @meters.each do |meter| %>
       <li>
-        <article class="meter_box">
-          <h6><%= link_to meter.name, meter_path(meter) %></h6>
-          <p><%= meter.description %></p>
+        <article class="meter-box">
+          <h3><%= link_to meter.name, meter_path(meter) %> <bdi>- <%= meter.description %></bdi></h3>
         </article>
       </li>
     <% end %>

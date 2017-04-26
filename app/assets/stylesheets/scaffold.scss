@@ -1,3 +1,7 @@
+@import "colors";
+
+// Basic sitewide css styles
+
 * {
   border: 0;
   margin: 0;
@@ -5,23 +9,23 @@
 }
 
 body {
-  background-color: #cecaca;
+  background-color: $color-med-grey;
   font-size: 18px;
 }
 
 h1 {
   font-size: 30px;
-  margin: 5px 0;
+  margin: 15px 0;
 }
 
 h2 {
   font-size: 28px;
-  margin: 5px 0;
+  margin: 10px 0;
 }
 
 h3 {
   font-size: 26px;
-  margin: 4px 0;
+  margin: 5px 0;
 }
 
 h4 {
@@ -39,40 +43,43 @@ h6 {
   margin: 5px 0;
 }
 
-.top-bar {
-  background-color: #660000;
-  color: #eee;
-  padding: 10px 15px;
-  border-bottom: 5px solid #000000;
-}
-
 main {
   padding: 0 20px;
 }
 
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline;
   color: #00008b;
+  text-decoration: underline;
+}
+
+// sitewide top header
+
+.top-bar {
+  background-color: $color-red;
+  border-bottom: 5px solid $color-black;
+  color: $color-white;
+  margin-bottom: 20px;
+  padding: 10px 20px;
 }
 
 header aside li {
   display: inline;
   float: right;
   font-size: 12px;
-  padding: 16px 8px;
+  padding: 31px 8px;
 }
 
-.logo {
-}
+// sitewide user bars
 
 .user-bar li {
   display: inline;
   float: right;
   font-size: 14px;
-  padding: 20px 8px;
+  margin-top: 14px;
+  padding-right: 8px;
 }

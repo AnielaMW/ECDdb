@@ -1,7 +1,7 @@
-<article class="comment_box">
-  <h5>
+<article class="comment-box">
+  <h3>
     <%= link_to dc.user.first_name, user_path(dc.user) %> posted a <%= link_to dc.comment_type.name, comment_type_path(dc.comment_type) %> for <%= link_to dc.dance.title, dance_path(dc.dance) %>
-  </h5>
+  </h3>
   <p><%= link_to dc.comment, dance_comment_path(dc) %></p>
 
   <footer>
