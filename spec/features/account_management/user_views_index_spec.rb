@@ -34,6 +34,6 @@ feature 'views users list', %{
   scenario 'fail to view member list with unauthenticated user' do
     visit users_path
 
-    expect(page).to have_content("You need to sign in or sign up before continuing.")
+    expect(page).to have_content("sign in or sign up before continuing.")
   end
 end

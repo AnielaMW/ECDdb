@@ -45,7 +45,8 @@ feature 'create a dance_comment from dance_comment#new', %{
     expect(page).to have_content("Comment can't be blank")
   end
 
-  scenario 'fail to create a dance_comment with unauthenticated user from dance_comment#new' do
+  scenario 'fail to create a dance_comment with unauthenticated user from
+    dance_comment#new' do
     visit dance_path(dance)
     click_link "Create Comment"
 
