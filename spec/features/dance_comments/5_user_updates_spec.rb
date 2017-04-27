@@ -67,8 +67,6 @@ feature 'update a dance_comment', %{
     click_button "Update"
 
     expect(page).to have_content("Comment can't be blank")
-
-    # CANNOT SEEM TO TEST FOR TYPE CAN'T BE BLANK.
   end
 
   scenario 'fail to see "Edit" button with unauthenticated user' do

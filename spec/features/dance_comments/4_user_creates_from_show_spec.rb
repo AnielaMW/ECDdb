@@ -17,7 +17,7 @@ feature 'create a dance_comment from dance#show', %{
   let!(:comment_type) { FactoryGirl.create(:comment_type) }
   new_dance_comment = { comment: "Really Great" }
 
-  pending 'authenticated user successfully create dance_comment
+  scenario 'authenticated user successfully create dance_comment
     with valid information from dance#show' do
     sign_in anne
     visit dance_path(dance)
@@ -26,28 +26,33 @@ feature 'create a dance_comment from dance#show', %{
     select comment_type.name.to_s, from: 'Type'
 
     # How do I test no page reload like it was done in the Phase 9 grocery list ajax challenge?????????????
-    expect_no_page_reload do
+    # expect_no_page_reload do
       click_button "Create Dance comment"
 
       expect(page).to have_content(new_dance_comment[:comment])
       expect(page).to have_content(anne.first_name)
       expect(page).to have_content(comment_type.name)
       expect(page).to have_content(dance.title)
-    end
+    # end
   end
 
-  pending 'authenticated user fail to create dance_comment
+  scenario 'authenticated user fail to create dance_comment
     with invalid information from dance#show' do
     sign_in anne
     visit dance_path(dance)
 
-    expect_no_page_reload do
-      click_button "Create Dance comment"
+    click_button "Create Dance comment"
 
-      expect(page).to have_content("Comment can't be blank")
-    end
-
+    expect(page).to have_content("Comment can't be blank")
   end
 
-  pending 'fail to create a dance_comment with unauthenticated user from dance#show'
+  scenario 'fail to create a dance_comment with unauthenticated user from dance#show' do
+    visit dance_path(dance)
+    click_button "Create Dance comment"
+
+    expect(page).to have_content(
+      "You need to sign in or sign up before continuing."
+    )
+    expect(page).to have_current_path(new_user_session_path)
+  end
 end

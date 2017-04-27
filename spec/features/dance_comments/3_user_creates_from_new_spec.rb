@@ -24,7 +24,7 @@ feature 'create a dance_comment from dance_comment#new', %{
 
     expect(page).to have_current_path(new_dance_dance_comment_path(dance))
 
-    # How to fill_in in a test if I get rid of the Comment label
+    # How to fill_in in a test if I get rid of the Comment label?
     fill_in 'Comment', with: new_dance_comment[:comment].to_s
     select comment_type.name.to_s, from: 'Type'
     click_button "Create Dance comment"
@@ -43,8 +43,6 @@ feature 'create a dance_comment from dance_comment#new', %{
     click_button "Create Dance comment"
 
     expect(page).to have_content("Comment can't be blank")
-
-    # CANNOT SEEM TO TEST FOR TYPE CAN'T BE BLANK.
   end
 
   scenario 'fail to create a dance_comment with unauthenticated user from dance_comment#new' do

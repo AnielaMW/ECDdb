@@ -32,4 +32,6 @@ feature 'view comment_types#index', %{
   the comment form view button'
     # IN A POPUP WINDOW MAYBE WHEN ? ICON IS CLICKED INSTEAD OF
     # "VIEW TYPES"
+    # OR
+    # AS A TOOLTIP OVER EACH COMMENT TYPE OPTION IN THE DROP DOWN
 end
