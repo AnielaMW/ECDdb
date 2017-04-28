@@ -4,4 +4,23 @@
 // 4. prepend the new comment onto the list of comments utilizing the existing format and structure
 // 5. post the new comment to the database.
 
-let findIt = document.getElementById('dance-show');
+$(document).ready(() => {
+  let sumbitClick = (event) => {
+  };
+  $('#dance-show #actions');
+});
+
+
+// STEP 4 Using the partial
+
+// submit form info to api and a new controller namespaced
+//routes
+
+// namespace :api do
+//   resources :dance_comments
+// end
+//
+// constrollers/api/dance_commments.rb
+// class API::DanceCommentsController < ApplicationController
+
+// render JSON render the partial as a string and return to javascript.
