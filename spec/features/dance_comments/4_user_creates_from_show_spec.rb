@@ -50,11 +50,7 @@ feature 'create a dance_comment from dance#show', %{
   scenario 'fail to create a dance_comment with unauthenticated user from
     dance#show' do
     visit dance_path(dance)
-    click_button "Create Dance comment"
 
-    expect(page).to have_content(
-      "You need to sign in or sign up before continuing."
-    )
-    expect(page).to have_current_path(new_user_session_path)
+    expect(page).not_to have_content("Create Dance comment")
   end
 end
