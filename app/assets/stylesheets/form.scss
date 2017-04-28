@@ -1,13 +1,17 @@
 @import "colors";
 
 .forms {
-  label {
-    font-size: 18px;
-    margin: 10px 10px 10px 0;
+  .hidden-all {
+    display: none
   }
 
   .hidden-label label {
     display: none
+  }
+
+  label {
+    font-size: 18px;
+    margin: 10px 10px 10px 0;
   }
 
   input {
