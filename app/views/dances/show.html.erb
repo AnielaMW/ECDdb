@@ -6,6 +6,7 @@
         <li><%= link_to 'Edit', edit_dance_path(@dance) %></li>
       <% end %>
       <li>Created by: <%= link_to @dance.user.first_name, user_path(@dance.user_id) %></li>
+      <li id='dance-id' class='hidden-all'>
     </ul>
 
     <h2><%= @dance.title %></h2>
