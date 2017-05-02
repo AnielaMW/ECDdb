@@ -13,16 +13,6 @@
       <%= f.text_area :comment, required: true, placeholder: "Comment..." %>
     </div>
 
-    <div class="field hidden-all">
-      <%= f.label :user_id, "User Id" %>
-      <%= f.text_field :user_id, required: true, value: current_user.id %>
-    </div>
-
-    <div class="field hidden-all">
-      <%= f.label :dance_id, "Dance Id" %>
-      <%= f.text_field :dance_id, required: true, value: @dance_comment.dance_id %>
-    </div>
-
     <div id="actions" class="actions">
       <%= f.submit %>
     </div>
