@@ -1,9 +1,15 @@
+class NewComment{
+
+}
+
 submitClick = (event) => {
   event.preventDefault();
 
   let errorMessage = () => {
     alert('Comment cannot be blank.');
   };
+
+  let newCom = new NewComment();
 
   console.log('hello');
 };
