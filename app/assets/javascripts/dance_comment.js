@@ -27,5 +27,5 @@ submitClick = (event) => {
 };
 
 $(document).ready(() => {
-  $('#dance-show #dc-form').on('submit', submitClick);
+  $('#dance-show #dc-form').submit(submitClick);
 });
