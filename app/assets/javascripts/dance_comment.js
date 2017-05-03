@@ -14,8 +14,15 @@ submitClick = (event) => {
   let uId = $('#user-id').text();
   let dId = $('#dance-id').text();
 
-  let saveComment = (tId, com, uId, dId) => {
+  let saveComment = () => {
     // AJAX post request
+    $.ajax({
+      method: 'POST',
+      url: '/api/dance_comments',
+      data: {comment: com, comment_type_id: tId, user_id: uId, dance_id: dId}
+    }).success();
+
+
   };
 
   let newCom = new NewComment(
@@ -23,7 +30,6 @@ submitClick = (event) => {
   );
 
   console.log(`${tId}, ${com}, ${uId}, ${dId}`);
-  console.log();
 };
 
 $(document).ready(() => {
