@@ -11,7 +11,6 @@ submitClick = (event) => {
 
   let tId = $('#dance_comment_comment_type_id').val();
   let com = $('#dance_comment_comment').val();
-  // How do I extract the value of the next two variables as right now all I get is the element?
   let uId = $('#user-id').text();
   let dId = $('#dance-id').text();
 
@@ -19,7 +18,9 @@ submitClick = (event) => {
     // AJAX post request
   };
 
-  let newCom = new NewComment();
+  let newCom = new NewComment(
+    // AJAX get request
+  );
 
   console.log(`${tId}, ${com}, ${uId}, ${dId}`);
 };
