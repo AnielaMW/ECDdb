@@ -15,21 +15,20 @@ submitClick = (event) => {
   let dId = $('#dance-id').text();
 
   let saveComment = () => {
-    // AJAX post request
     $.ajax({
       method: 'POST',
       url: '/api/dance_comments',
-      data: {comment: com, comment_type_id: tId, user_id: uId, dance_id: dId}
-    }).success();
-
+      data: {dance_comment: {comment: com, comment_type_id: tId, user_id: uId, dance_id: dId}}
+    }).done(console.log('yes'));
 
   };
 
+  saveComment();
   let newCom = new NewComment(
     // AJAX get request
   );
 
-  console.log(`${tId}, ${com}, ${uId}, ${dId}`);
+  // console.log(`${tId}, ${com}, ${uId}, ${dId}`);
 };
 
 $(document).ready(() => {
