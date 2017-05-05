@@ -2,6 +2,10 @@ class NewComment{
 
 }
 
+let prependTarget = (target, text) => {
+  target.prepend(text);
+};
+
 submitClick = (event) => {
   event.preventDefault();
 
@@ -14,21 +18,21 @@ submitClick = (event) => {
   let uId = $('#user-id').text();
   let dId = $('#dance-id').text();
 
+  let newCom = new NewComment(
+    // AJAX get request
+  );
+
   let saveComment = () => {
     $.ajax({
       method: 'POST',
       url: '/api/dance_comments',
       data: {dance_comment: {comment: com, comment_type_id: tId, user_id: uId, dance_id: dId}}
-    }).done(console.log('yes'));
-
+    });
+    // .done();
   };
 
   saveComment();
-  let newCom = new NewComment(
-    // AJAX get request
-  );
-
-  // console.log(`${tId}, ${com}, ${uId}, ${dId}`);
+  prependTarget($('#dance-comment-list'), 'yes');
 };
 
 $(document).ready(() => {
