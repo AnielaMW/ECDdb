@@ -20,6 +20,11 @@ submitClick = (event) => {
 
   let newCom = new NewComment(
     // AJAX get request
+    $.ajax({
+      method: 'GET',
+      url: '/api/dance_comments',
+      data: {dance_comment: {comment: com, comment_type_id: tId, user_id: uId, dance_id: dId}}
+    })
   );
 
   let saveComment = () => {
@@ -32,7 +37,7 @@ submitClick = (event) => {
   };
 
   saveComment();
-  prependTarget($('#dance-comment-list'), 'yes');
+  prependTarget($('#dance-comment-list'), newCom);
 };
 
 $(document).ready(() => {
