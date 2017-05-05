@@ -37,7 +37,7 @@ submitClick = (event) => {
   };
 
   saveComment();
-  prependTarget($('#dance-comment-list'), newCom);
+  prependTarget($('#dance-comment-list'), newCom.toHTML);
 };
 
 $(document).ready(() => {
