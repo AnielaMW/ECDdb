@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   resources :comment_types
 
   namespace :api do
-    resources :dance_comments, only: [:create, :index]
+    resources :dance_comments, only: [:create]
   end
 end
