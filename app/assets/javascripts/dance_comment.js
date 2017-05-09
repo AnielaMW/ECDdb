@@ -10,10 +10,16 @@ class NewComment{
     return `<li>
       <article class="comment-box">
         <h3>
-          <%= link_to ${this.user[1]}, user_path(${this.user[0]}) %> posted a <%= link_to ${this.comment_type[1]}, comment_type_path(${this.comment_type[0]}) %> for <%= link_to ${this.dance[1]}, dance_path(${this.dance[0]}) %>
+          <a href="/users/${this.user[0]}">${this.user[1]}</a> posted a <a href="/comment_types/${this.comment_type[0]}">${this.comment_type[1]}</a> for <a href="/dances/${this.dance[0]}">${this.dance[1]}</a>
         </h3>
-        <p><%= link_to ${this.comment[1]}, dance_comment_path(${this.comment[0]}) %></p>
+        <p><a href="/dance_comments/${this.comment[0]}">${this.comment[1]}</a></p>
 
+        <footer>
+          <ul>
+            <li><a href="/dance_comments/${this.comment[0]}/edit">Edit</a></li>
+            <li><a href="">Delete</a></li>
+          </ul>
+        </footer>
       </article>
     </li>`;
   }
