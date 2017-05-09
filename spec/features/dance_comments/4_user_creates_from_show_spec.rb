@@ -25,16 +25,16 @@ feature 'create a dance_comment from dance#show', %{
     fill_in 'Comment', with: new_dance_comment[:comment].to_s
     select comment_type.name.to_s, from: 'Type'
 
-    # How do I test no page reload like it was done in the Phase 9 grocery list
-    # ajax challenge?????????????
-    # expect_no_page_reload do
-      click_button "Create Dance comment"
+      # How do I test no page reload like it was done in the Phase 9 grocery list
+      # ajax challenge?????????????
+      # expect_no_page_reload do
+    click_button "Create Dance comment"
 
-      expect(page).to have_content(new_dance_comment[:comment])
-      expect(page).to have_content(anne.first_name)
-      expect(page).to have_content(comment_type.name)
-      expect(page).to have_content(dance.title)
-    # end
+    expect(page).to have_content(new_dance_comment[:comment])
+    expect(page).to have_content(anne.first_name)
+    expect(page).to have_content(comment_type.name)
+    expect(page).to have_content(dance.title)
+      # end
   end
 
   scenario 'authenticated user fail to create dance_comment
