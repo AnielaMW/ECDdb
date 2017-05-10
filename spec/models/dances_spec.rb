@@ -15,7 +15,4 @@ RSpec.describe Dance, type: :model do
 
   it { should validate_presence_of(:meter_id) }
   it { should_not have_valid(:meter_id).when('') }
-
-  it { should validate_presence_of(:direction) }
-  it { should_not have_valid(:direction).when('') }
 end

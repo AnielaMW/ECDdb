@@ -13,7 +13,7 @@ feature 'view dances#show', %{
   # When a guest clicks on a link from the dances#index_path,
   # they should expect to see all details of a dance
   # Details must include Creator(User),
-  #   Title, Formation, Meter, Dance_Instructions
+  #   Title, Formation, Meter
   # Details may include Author, Year, Publication
 
   let!(:dance1) { FactoryGirl.create(:dance) }
@@ -26,7 +26,6 @@ feature 'view dances#show', %{
     expect(page).to have_content(dance1.user.first_name)
     expect(page).to have_content(dance1.formation.name)
     expect(page).to have_content(dance1.meter.name)
-    expect(page).to have_content(dance1.direction)
     expect(page).not_to have_content("Author")
     expect(page).not_to have_content("Publication")
 

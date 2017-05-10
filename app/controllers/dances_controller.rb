@@ -74,8 +74,7 @@ class DancesController < ApplicationController
       :meter_id,
       :author,
       :publication,
-      :year,
-      :direction
+      :year
     )
   end
 end

@@ -7,7 +7,7 @@ feature 'create a dance', %{
   } do
   # Acceptance
   # User cannot create new dances unless user is signed-in
-  # User must povide Title, Formation, Meter, Dance_Instructions
+  # User must povide Title, Formation, Meter
   # User may provide Author, Year, Publication
   # If user is not signed-in and tries to create a new dance,
   # they are redirected and prompted to sign-in
@@ -18,8 +18,7 @@ feature 'create a dance', %{
   new_dance = { title: "My New Dance",
                 author: "Louisa M.",
                 publication: "Dance Books",
-                year: "2016",
-                direction: "2nd couple right hand turn" }
+                year: "2016" }
 
   scenario 'authenticated user successfully create dance
     with valid information' do
