@@ -8,8 +8,8 @@ feature 'update a dance_direction', %{
   # Acceptance
   # User cannot edit dance_directions unless user is signed-in
   # User cannot edit dance_directions unless they are the creator
-  # User must povide Title, Formation, Meter, Dance_Instructions
-  # User may provide Author, Year, Publication
+  # User must povide Direction, Sequence
+  # User may provide Mark, Measure, Position
   # If user is not signed-in, they cannot see the 'Edit' button
   # If user is not the creator, they cannot see the 'Edit' button
 

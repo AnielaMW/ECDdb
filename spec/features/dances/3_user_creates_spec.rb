@@ -31,14 +31,12 @@ feature 'create a dance', %{
     fill_in 'Title', with: new_dance[:title].to_s
     select form.name.to_s, from: 'Formation'
     select met.name.to_s, from: 'Meter'
-    fill_in 'Direction', with: new_dance[:direction].to_s
     click_button "Create Dance"
 
     expect(page).to have_content(new_dance[:title])
     expect(page).to have_content(anne.first_name)
     expect(page).to have_content(form.name)
     expect(page).to have_content(met.name)
-    expect(page).to have_content(new_dance[:direction])
   end
 
   scenario 'authenticated user successfully create dance
@@ -52,7 +50,6 @@ feature 'create a dance', %{
     fill_in 'Author', with: new_dance[:author].to_s
     fill_in 'Year', with: new_dance[:year].to_s
     fill_in 'Publication', with: new_dance[:publication].to_s
-    fill_in 'Direction', with: new_dance[:direction].to_s
     click_button "Create Dance"
 
     expect(page).to have_content(new_dance[:title])
@@ -62,7 +59,6 @@ feature 'create a dance', %{
     expect(page).to have_content(new_dance[:author])
     expect(page).to have_content(new_dance[:publication])
     expect(page).to have_content(new_dance[:year])
-    expect(page).to have_content(new_dance[:direction])
   end
 
   scenario 'authenticated user fail to create dance

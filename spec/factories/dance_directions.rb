@@ -7,7 +7,7 @@ FactoryGirl.define do
     factory :opt_direction, aliases: [:dod] do
       sequence(:mark) { |n| "#{n}"}
       sequence(:measure) { |n| "#{n}"}
-      sequence(:layout) { |n| "m#{n}-w#{n}"}
+      sequence(:position) { |n| "m#{n}-w#{n}"}
     end
   end
 end

@@ -12,7 +12,7 @@ feature 'view dance directions', %{
   # The dance_directions#index should list all directions for a given dance
   # The list should be sorted by sequence
   # The list should include the sequence and direction
-  # The list may include the mark, measure, and layout if provided
+  # The list may include the mark, measure, and position if provided
 
   let!(:dance) { FactoryGirl.create(:dance) }
   let!(:dir1) { FactoryGirl.create(:dod, dance_id: dance.id) }
@@ -20,33 +20,30 @@ feature 'view dance directions', %{
   let!(:dir3) { FactoryGirl.create(:dance_direction, dance_id: dance.id) }
   let!(:dir4) { FactoryGirl.create(:dance_direction) }
 
-  pending 'sucessfully view the dance_directions for a given dance' do
+  scenario 'sucessfully view the dance_directions for a given dance' do
     visit dance_path(dance)
 
-    dirT = page.all("direction-table")
+    dirT = page.all(".direction-row")
 
     expect(dirT[0]).to have_content(dir1.sequence)
     expect(dirT[0]).to have_content(dir1.direction)
-
     expect(dirT[1]).to have_content(dir2.sequence)
     expect(dirT[1]).to have_content(dir2.direction)
-
     expect(dirT[2]).to have_content(dir3.sequence)
     expect(dirT[2]).to have_content(dir3.direction)
-
     expect(dirT).not_to have_content(dir4.sequence)
     expect(dirT).not_to have_content(dir4.direction)
   end
 
-  pending 'sucessfully view the dance_directions with optional information' do
+  scenario 'sucessfully view the dance_directions with optional information' do
     visit dance_path(dir4.dance_id)
 
-    dirT = page.all("direction-table")
+    dirT = page.all(".direction-row")
 
     expect(dirT[0]).to have_content(dir4.sequence)
     expect(dirT[0]).to have_content(dir4.direction)
     expect(dirT[0]).to have_content(dir4.mark)
     expect(dirT[0]).to have_content(dir4.measure)
-    expect(dirT[0]).to have_content(dir4.layout)
+    expect(dirT[0]).to have_content(dir4.position)
   end
 end

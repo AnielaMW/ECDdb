@@ -6,8 +6,8 @@
         <li><%= link_to 'Edit', edit_dance_path(@dance) %></li>
       <% end %>
       <li>Created by: <%= link_to @dance.user.first_name, user_path(@dance.user_id) %></li>
-      <li id='dance-id' class='hidden-all'><%= @dance.id %></li>
     </ul>
+    <p id='dance-id' class='hidden-all'><%= @dance.id %></p>
 
     <h2><%= @dance.title %></h2>
   </header>
@@ -46,7 +46,9 @@
   <section class='dance-directions'>
     <div>
       <h3>Direction</h3>
-      <p><%= @dance.direction %></p>
+      <% if @dance.dance_directions %>
+        <%= render 'dance_directions/dance_direction_table', dds: @dance_directions %>
+      <% end %>
   </section>
 
   <section id='comments' class='comments'>

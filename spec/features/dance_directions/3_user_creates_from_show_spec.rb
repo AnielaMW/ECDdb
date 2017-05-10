@@ -27,7 +27,7 @@ feature 'create a dance_direction from dance_direction#new', %{
     expect(page).to have_content("Mark")
     expect(page).to have_content("Measure")
     expect(page).to have_content("Direction")
-    expect(page).to have_content("Layout")
+    expect(page).to have_content("Position")
     expect(page).to have_content("Done")
 
     # How to fill_in in a test if I get rid of the label?

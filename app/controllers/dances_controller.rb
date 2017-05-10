@@ -3,6 +3,7 @@ class DancesController < ApplicationController
   before_action :admin_user?
   before_action :dances, only: [:index]
   before_action :set_dance, only: [:show, :edit, :update, :destroy]
+  before_action :directions?, only: [:show]
   before_action :comments?, only: [:show]
   before_action :collections, only: [:show, :new, :create, :edit, :update]
 
@@ -55,6 +56,10 @@ class DancesController < ApplicationController
 
   def dances
     @dances ||= Dance.all.order(:title)
+  end
+
+  def directions?
+    @dance_directions ||= @dance.dance_directions.order(:sequence)
   end
 
   def comments?

@@ -11,7 +11,7 @@ feature 'view dance_directions#show', %{
   # When a guest clicks on a link from the dance_path,
   # they should expect to see all details of a dance_direction
   # Details must include Dance.title, sequence, direction
-  # Details may include mark, measure, layout, (possibly in  the future... Comments)
+  # Details may include mark, measure, position, (possibly in  the future... Comments)
 
   let!(:dir1) { FactoryGirl.create(:dd) }
   let!(:dir2) { FactoryGirl.create(:dod) }
@@ -32,7 +32,7 @@ feature 'view dance_directions#show', %{
     expect(page).to have_content(dir2.sequence)
     expect(page).to have_content(dir2.mark)
     expect(page).to have_content(dir2.meter)
-    expect(page).to have_content(dir2.layout)
+    expect(page).to have_content(dir2.position)
   end
 
   pending 'sucessfully view a dance_directions#show from dance_path' do

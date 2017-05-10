@@ -1,0 +1,10 @@
+<table id='dance-directions-table' class='dance-directions-table'>
+  <th class="sequence header"> </th>
+  <th class="mark header">Mark</th>
+  <th class="measure header">Measure</th>
+  <th class="direction header">Direction</th>
+  <th class="postion header">Postion</th>
+  <% dds.each do |dd| %>
+    <%= render 'dance_directions/dance_direction_row', dd: dd %>
+  <% end %>
+</table>
