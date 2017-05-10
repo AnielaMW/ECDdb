@@ -23,45 +23,30 @@ feature 'view dance directions', %{
   pending 'sucessfully view the dance_directions for a given dance' do
     visit dance_path(dance)
 
-    directions = page.all("article.direction-box")
+    dirT = page.all("direction-table")
 
-    expect(directions[0]).to have_content(dir3.direction)
-    expect(directions[0]).to have_content(dir3.user.first_name)
-    expect(directions[0]).to have_content(dir3.direction_type.name)
+    expect(dirT[0]).to have_content(dir1.sequence)
+    expect(dirT[0]).to have_content(dir1.direction)
 
-    expect(directions[1]).to have_content(dir2.direction)
-    expect(directions[1]).to have_content(dir2.user.first_name)
-    expect(directions[1]).to have_content(dir2.direction_type.name)
+    expect(dirT[1]).to have_content(dir2.sequence)
+    expect(dirT[1]).to have_content(dir2.direction)
 
-    expect(directions[2]).to have_content(dir1.direction)
-    expect(directions[2]).to have_content(dir1.user.first_name)
-    expect(directions[2]).to have_content(dir1.direction_type.name)
+    expect(dirT[2]).to have_content(dir3.sequence)
+    expect(dirT[2]).to have_content(dir3.direction)
+
+    expect(dirT).not_to have_content(dir4.sequence)
+    expect(dirT).not_to have_content(dir4.direction)
   end
 
-  pending 'sucessfully view the dance_directions for all dances on
-  dance_direction#index' do
-    visit dance_directions_path
+  pending 'sucessfully view the dance_directions with optional information' do
+    visit dance_path(dir4.dance_id)
 
-    directions = page.all("article.direction-box")
+    dirT = page.all("direction-table")
 
-    expect(directions[0]).to have_content(dir4.dance.title)
-    expect(directions[0]).to have_content(dir4.direction)
-    expect(directions[0]).to have_content(dir4.user.first_name)
-    expect(directions[0]).to have_content(dir4.direction_type.name)
-
-    expect(directions[1]).to have_content(dir3.dance.title)
-    expect(directions[1]).to have_content(dir3.direction)
-    expect(directions[1]).to have_content(dir3.user.first_name)
-    expect(directions[1]).to have_content(dir3.direction_type.name)
-
-    expect(directions[2]).to have_content(dir2.dance.title)
-    expect(directions[2]).to have_content(dir2.direction)
-    expect(directions[2]).to have_content(dir2.user.first_name)
-    expect(directions[2]).to have_content(dir2.direction_type.name)
-
-    expect(directions[3]).to have_content(dir1.dance.title)
-    expect(directions[3]).to have_content(dir1.direction)
-    expect(directions[3]).to have_content(dir1.user.first_name)
-    expect(directions[3]).to have_content(dir1.direction_type.name)
+    expect(dirT[0]).to have_content(dir4.sequence)
+    expect(dirT[0]).to have_content(dir4.direction)
+    expect(dirT[0]).to have_content(dir4.mark)
+    expect(dirT[0]).to have_content(dir4.measure)
+    expect(dirT[0]).to have_content(dir4.layout)
   end
 end
