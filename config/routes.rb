@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users
   resources :dances do
     resources :dance_comments, only: [:new, :create]
+    resources :dance_directions
   end
   resources :dance_comments, except: [:new, :create]
   resources :formations
