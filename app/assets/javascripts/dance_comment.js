@@ -49,9 +49,7 @@ submitClick = (event) => {
     let newCom = new NewComment(response);
     prependTarget($('#dance-comment-list'), newCom.toHTML());
 
-    // NEED TO GET THE FORM TO RESET AFTER SUBMIT.
-    // $('#dance_comment_comment_type_id').val("");
-    // $('#dance_comment_comment').val("");
+    // NEED TO GET THE FORM TO RESET SUBMIT BUTTON AFTER INITIAL SUBMIT.
     $('#dc-form')[0].reset();
   };
 
