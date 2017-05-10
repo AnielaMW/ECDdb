@@ -52,7 +52,7 @@ submitClick = (event) => {
     // NEED TO GET THE FORM TO RESET AFTER SUBMIT.
     // $('#dance_comment_comment_type_id').val("");
     // $('#dance_comment_comment').val("");
-    // $('#dc-form').reset();
+    $('#dc-form')[0].reset();
   };
 
   saveComment();
