@@ -49,8 +49,8 @@ submitClick = (event) => {
     let newCom = new NewComment(response);
     prependTarget($('#dance-comment-list'), newCom.toHTML());
 
-    // NEED TO GET THE FORM TO RESET SUBMIT BUTTON AFTER INITIAL SUBMIT.
     $('#dc-form')[0].reset();
+    $('#dc-form #actions>input').prop('disabled',false);
   };
 
   saveComment();
