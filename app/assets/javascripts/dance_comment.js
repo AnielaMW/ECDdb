@@ -17,7 +17,7 @@ class NewComment{
         <footer>
           <ul>
             <li><a href="/dance_comments/${this.comment[0]}/edit">Edit</a></li>
-            <li><a href="">Delete</a></li>
+            <li id="remove_item"><a href="">Delete</a></li>
           </ul>
         </footer>
       </article>
@@ -48,11 +48,25 @@ submitClick = (event) => {
   let createComment = (response) => {
     let newCom = new NewComment(response);
     prependTarget($('#dance-comment-list'), newCom.toHTML());
+
+    // NEED TO GET THE FORM TO RESET AFTER SUBMIT.
+    // $('#dance_comment_comment_type_id').val("");
+    // $('#dance_comment_comment').val("");
+    // $('#dc-form').reset();
   };
 
   saveComment();
 };
 
+deleteClick = (event) => {
+
+  // NEED TO GET THE PREVENT DEFAULT TO WORK.
+  // event.preventDefault();
+  //
+  // console.log("Got it");
+};
+
 $(document).ready(() => {
   $('#dance-show #dc-form').submit(submitClick);
+  // $('#dance-show').on('click', '#remove_comment', deleteClick);
 });
