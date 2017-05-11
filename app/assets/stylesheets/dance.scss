@@ -62,3 +62,21 @@
     font-size: 18px;
   }
 }
+
+// dance forms
+
+.no-bord {
+  border-collapse: collapse;
+  text-align: left;
+  vertical-align: top;
+  width: 100%;
+
+  th, td {
+    font-size: 16px;
+    padding: 2px;
+  }
+
+  label {
+    font-weight: bold;
+  }
+}
