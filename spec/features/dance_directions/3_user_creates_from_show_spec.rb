@@ -17,7 +17,7 @@ feature 'create a dance_direction from dance_direction#new', %{
   new_dd2 = { sequence: 2, mark: "B", measure: "1-4", direction: "1's cross and go below, 2's cross up to start a half double figure of 8" }
   new_dd3 = { sequence: 3, mark: "B", measure: "5-8", direction: "1's cast down and 2's meet and lead up" }
 
-  pending 'authorized user successfully create dance_direction
+  scenario 'authorized user successfully create dance_direction
     with valid information from dance#show' do
     sign_in anne
     visit dance_path(dance)

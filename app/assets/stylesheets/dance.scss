@@ -43,3 +43,22 @@
     }
   }
 }
+
+// dance#show
+
+.dance-info {
+  // border: 1px solid $color-black;
+  border-collapse: collapse;
+  text-align: left;
+  vertical-align: top;
+  width: 100%;
+
+  td {
+    padding: 2px;
+  }
+
+  h6, p {
+    display: inline;
+    font-size: 18px;
+  }
+}
