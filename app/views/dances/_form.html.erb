@@ -1,57 +1,112 @@
 <%= form_for @dance do |f| %>
-  <div class="forms">
-    <div class="field">
-      <%= f.label :title, "Title" %>
-      <%= f.text_field :title, required: true %>
-    </div>
+  <div class="forms" spellcheck="true">
+    <table>
 
-    <div class="field">
-      <%= f.label :author, "Author" %>
-      <%= f.text_field :author %>
-    </div>
-
-    <div class="field">
-      <%= f.label :publication, "Publication" %>
-      <%= f.text_field :publication %>
-    </div>
-
-    <div class="field">
-      <%= f.label :year, "Year" %>
-      <%= f.text_field :year %>
-    </div>
-
-    <div class="field">
-      <%= f.label :formation_id, "Formation" %>
-      <%= f.collection_select :formation_id, @formation_collection, :id, :name, required: true %>
-      <div class="new-button">
-        <%= link_to "New Formation", new_formation_path, target: '_blank' %>
-      </div>
-    </div>
-
-    <div class="field">
-      <%= f.label :meter_id, "Meter" %>
-      <%= f.collection_select :meter_id, @meter_collection, :id, :name, required: true %>
-      <div class="new-button">
-        <%= link_to "New Meter", new_meter_path, target: '_blank' %>
-      </div>
-    </div>
-
-    <div class="field">
-      <%= f.label :direction, "Direction" %>
-      <table>
-        <% unless @dance.direction %>
+      <tr>
+        <table>
           <tr>
-            <form id='dd-form'>
-              <%= render 'dance_directions/form', dance_direction: @dance_direction %>
-            </form>
+            <td>
+              <%= f.label :title, "Title" %>
+              <%= f.text_field :title, required: true %>
+            </td>
           </tr>
-        <% end %>
-      </table>
-      <%= f.text_field :direction, required: true %>
-    </div>
+        </table>
+      </tr>
 
-    <div class="actions">
-      <p><%= f.submit %></p>
-    </div>
+      <tr>
+        <table>
+          <tr>
+            <td>
+              <%= f.label :author, "Author" %>
+              <%= f.text_field :author %>
+            </td>
+            <td>
+              <%= f.label :publication, "Publication" %>
+              <%= f.text_field :publication %>
+            </td>
+            <td>
+              <%= f.label :year, "Year" %>
+              <%= f.text_field :year %>
+            </td>
+          </tr>
+        </table>
+      </tr>
+
+      <tr>
+        <table>
+          <tr>
+            <td>
+              <%= f.label :formation_id, "Formation" %>
+              <%= f.collection_select :formation_id, @formation_collection, :id, :name, required: true %>
+              <div class="new-button">
+                <%= link_to "New Formation", new_formation_path, target: '_blank' %>
+              </div>
+            </td>
+            <td>
+              <%= f.label :meter_id, "Meter" %>
+              <%= f.collection_select :meter_id, @meter_collection, :id, :name, required: true %>
+              <div class="new-button">
+                <%= link_to "New Meter", new_meter_path, target: '_blank' %>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </tr>
+
+      <tr>
+        <table>
+          <tr>
+            <td>
+              <label>Direction</label>
+            </td>
+          </tr>
+        </table>
+      </tr>
+
+      <tr id="dd=form" class="dd-form">
+        <table>
+          <tr>
+            <th class="hidden-label">
+              <label for="sequence">Sequence</label>
+            </th>
+            <th>
+              <label for="mark">Mark</label>
+            </th>
+            <th>
+              <label for="measure">Measure</label>
+            <th>
+              <label for="direction">Movement</label>
+            <th>
+              <label for="position">Position</label>
+            </th>
+          </tr>
+          <section id="dd-editable-list">
+            <% if @dance_directions %>
+              <% @dance_directions.each do |dd| %>
+                <tr id="dd-editable">
+                  <%= render 'dance_directions/form', dd: dd %>
+                </tr>
+              <% end %>
+            <% end %>
+          </section>
+          <section id="dd-new-list">
+            <tr id="dd-new">
+              <%= render 'dance_directions/form', dd: @dance_direction %>
+            </tr>
+          </section>
+        </table>
+      </tr>
+
+      <tr>
+        <table>
+          <tr>
+            <td class="actions">
+              <p><%= f.submit %></p>
+            </td>
+          </tr>
+        </table>
+      </tr>
+
+    </table>
   </div>
 <% end %>

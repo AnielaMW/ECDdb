@@ -6,6 +6,7 @@ class DancesController < ApplicationController
   before_action :directions?, only: [:show, :edit]
   before_action :comments?, only: [:show]
   before_action :collections, only: [:show, :new, :create, :edit, :update]
+  before_action :new_direction, only: [:new, :edit]
 
   def index
   end
@@ -70,6 +71,10 @@ class DancesController < ApplicationController
     @formation_collection ||= Formation.all.order(:name)
     @meter_collection ||= Meter.all.order(:name)
     @comment_type_collection ||= CommentType.all.order(:name)
+  end
+
+  def new_direction
+    @dance_direction = DanceDirection.new
   end
 
   def dance_params
