@@ -21,14 +21,12 @@ feature 'create a dance_direction from dance_direction#new', %{
     with valid information from dance#show' do
     sign_in anne
     visit dance_path(dance)
-    click_link "Create Dance Direction"
 
-    expect(page).to have_content("Sequence")
     expect(page).to have_content("Mark")
     expect(page).to have_content("Measure")
     expect(page).to have_content("Direction")
     expect(page).to have_content("Position")
-    expect(page).to have_content("Done")
+    expect(page).to have_content("Dance Completed")
 
     # How to fill_in in a test if I get rid of the label?
     fill_in 'Sequence', with: new_dd1[:sequence].to_s
