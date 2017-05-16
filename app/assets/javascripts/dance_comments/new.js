@@ -25,7 +25,7 @@ class NewComment{
   }
 }
 
-submitClick = (event) => {
+submitDCClick = (event) => {
   event.preventDefault();
 
   let comment = {
@@ -52,5 +52,5 @@ submitClick = (event) => {
 };
 
 $(document).ready(() => {
-  $('#dance-show #dc-form').submit(submitClick);
+  $('#dance-show #dc-form').submit(submitDCClick);
 });

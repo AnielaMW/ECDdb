@@ -87,10 +87,17 @@
               <% end %>
             </section>
             <section id="dd-new-list">
-              <tr id="dd-new">
+              <tr class="dd-new">
                 <%= render 'dance_directions/form', dd: @dance_direction %>
               </tr>
             </section>
+          </table>
+          <table>
+            <tr>
+              <td>
+                <button type="button" id="dd-add" class="ref-button">+</button>
+              </td>
+            </tr>
           </table>
         </tr>
 
