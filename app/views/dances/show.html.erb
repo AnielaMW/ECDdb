@@ -25,7 +25,7 @@
       </td>
     </tr>
 
-    <% if @dance.author %>
+    <% if @dance.author && @dance.author != "" %>
       <tr>
         <td>
           <h6>Author: </h6>
@@ -33,7 +33,7 @@
         </td>
     <% end %>
 
-      <% if @dance.publication %>
+      <% if @dance.publication && @dance.publication != "" %>
         <td>
           <h6>Publication: </h6>
           <p><%= @dance.publication %>

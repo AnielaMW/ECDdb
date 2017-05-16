@@ -9,7 +9,6 @@ class Api::DanceCommentsController < ApplicationController
       comment_type: @dance_comment.comment_type.name]
 
     render json: comment
-    # respond with all  the cretaed information.
   end
 
   private

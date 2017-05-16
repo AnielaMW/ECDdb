@@ -20,6 +20,7 @@ class DancesController < ApplicationController
   end
 
   def create
+    # NEED TO ACCOUNT FOR THE EMPTY "" STRINGS BEING ENTERED INTO THE DATABASE IN PLACE OF NIL
     @dance = Dance.new(dance_params.merge(user_id: current_user.id.to_s))
     if @dance.save
       redirect_to dance_path(@dance.id)

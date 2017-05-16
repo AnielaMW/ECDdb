@@ -66,15 +66,8 @@
 // dance forms
 
 .no-bord {
-  border-collapse: collapse;
-  text-align: left;
-  vertical-align: top;
+  border: none;
   width: 100%;
-
-  th, td {
-    font-size: 16px;
-    padding: 2px;
-  }
 
   label {
     font-weight: bold;

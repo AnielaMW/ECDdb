@@ -25,23 +25,21 @@ class NewComment{
   }
 }
 
-let prependTarget = (target, text) => {
-  target.prepend(text);
-};
-
 submitClick = (event) => {
   event.preventDefault();
 
-  let tId = $('#dance_comment_comment_type_id').val();
-  let com = $('#dance_comment_comment').val();
-  let uId = $('#user-id').text();
-  let dId = $('#dance-id').text();
+  let comment = {
+    comment: $('#dance_comment_comment').val(),
+    comment_type_id: $('#dance_comment_comment_type_id').val(),
+    user_id: $('#user-id').text(),
+    dance_id: $('#dance-id').text()
+  };
 
   let saveComment = () => {
     $.ajax({
       method: 'POST',
       url: '/api/dance_comments',
-      data: {dance_comment: {comment: com, comment_type_id: tId, user_id: uId, dance_id: dId}}
+      data: {dance_comment: comment}
     }).done((response) => { createComment(response);});
   };
 
