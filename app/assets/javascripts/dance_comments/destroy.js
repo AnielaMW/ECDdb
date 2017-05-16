@@ -1,9 +1,7 @@
 deleteClick = (event) => {
-
-  // NEED TO GET THE PREVENT DEFAULT TO WORK.
   event.preventDefault();
-  //
-  // console.log("Got it");
+
+  console.log("It stopped the Default?");
 };
 
 $(document).ready(() => {
