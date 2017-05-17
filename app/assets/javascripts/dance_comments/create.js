@@ -17,7 +17,7 @@ class NewComment{
         <footer>
           <ul>
             <li><a href="/dance_comments/${this.comment[0]}/edit">Edit</a></li>
-            <li><a href="">Delete</a></li>
+            <li id="remove_item"><a href="">Delete</a></li>
           </ul>
         </footer>
       </article>
@@ -48,6 +48,9 @@ submitClick = (event) => {
   let createComment = (response) => {
     let newCom = new NewComment(response);
     prependTarget($('#dance-comment-list'), newCom.toHTML());
+
+    $('#dc-form')[0].reset();
+    $('#dc-form #actions>input').prop('disabled',false);
   };
 
   saveComment();

@@ -39,7 +39,6 @@ feature 'create a dance', %{
     expect(page).to have_content(anne.first_name)
     expect(page).to have_content(form.name)
     expect(page).to have_content(met.name)
-    expect(page).to have_content(new_dance[:direction])
   end
 
   scenario 'authenticated user successfully create dance
@@ -63,7 +62,6 @@ feature 'create a dance', %{
     expect(page).to have_content(new_dance[:author])
     expect(page).to have_content(new_dance[:publication])
     expect(page).to have_content(new_dance[:year])
-    expect(page).to have_content(new_dance[:direction])
   end
 
   scenario 'authenticated user fail to create dance

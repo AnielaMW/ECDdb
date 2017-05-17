@@ -38,7 +38,6 @@ feature 'update a dance', %{
     expect(page).to have_current_path(dance_path(dance1.id))
     expect(page).to have_content(changes[:title])
     expect(page).to have_content(anne.first_name)
-    expect(page).to have_content(changes[:direction])
   end
 
   scenario 'authenticated user sucessfully update dance to all information' do
@@ -73,7 +72,6 @@ feature 'update a dance', %{
     expect(page).to have_content(changes[:author])
     expect(page).to have_content(changes[:publication])
     expect(page).to have_content(changes[:year])
-    expect(page).to have_content(changes[:direction])
   end
 
   scenario 'authenticated user fail to update dance with invalid information' do

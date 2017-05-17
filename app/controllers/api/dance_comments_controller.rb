@@ -9,7 +9,12 @@ class Api::DanceCommentsController < ApplicationController
       comment_type: @dance_comment.comment_type.name]
 
     render json: comment
-    # respond with all  the cretaed information.
+  end
+
+  def destroy
+    # binding.pry
+    # @dance_comment = DanceComment.find_by()
+    # @dance_comment.destroy
   end
 
   private
@@ -19,7 +24,8 @@ class Api::DanceCommentsController < ApplicationController
       :comment,
       :comment_type_id,
       :user_id,
-      :dance_id
+      :dance_id,
+      :comment_id
     )
   end
 end
