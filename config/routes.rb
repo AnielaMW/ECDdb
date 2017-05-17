@@ -15,11 +15,7 @@ Rails.application.routes.draw do
   resources :comment_types
 
   namespace :api do
-<<<<<<< HEAD
     resources :dance_comments, only: [:create]
     resources :dances, only: [:create]
-=======
-    resources :dance_comments, only: [:create, :destroy]
->>>>>>> ba217c524692aa75c70584c638910b5e431f04f9
   end
 end
