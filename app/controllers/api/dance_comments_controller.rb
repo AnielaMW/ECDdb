@@ -9,15 +9,6 @@ class Api::DanceCommentsController < ApplicationController
       comment_type: @dance_comment.comment_type.name]
 
     render json: comment
-<<<<<<< HEAD
-=======
-  end
-
-  def destroy
-    # binding.pry
-    # @dance_comment = DanceComment.find_by()
-    # @dance_comment.destroy
->>>>>>> ba217c524692aa75c70584c638910b5e431f04f9
   end
 
   private
