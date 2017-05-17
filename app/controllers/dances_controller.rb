@@ -17,6 +17,7 @@ class DancesController < ApplicationController
 
   def new
     @dance = Dance.new
+    @dance_direction = DanceDirection.new
   end
 
   def create
@@ -85,7 +86,8 @@ class DancesController < ApplicationController
       :meter_id,
       :author,
       :publication,
-      :year
+      :year,
+      :complete
     )
   end
 end
