@@ -1,6 +1,10 @@
 @import "colors";
 
 .forms {
+  .hidden-label label {
+    display: none;
+  }
+
   label {
     font-size: 18px;
     margin: 10px 10px 10px 0;
@@ -31,29 +35,32 @@
   .ref-button,
   .new-button,
   .actions input {
+    background-color: $color-dark-grey;
     border: 2px solid $color-black;
     box-shadow: 5px 5px 3px $color-dark-grey;
     display: inline;
     font-size: 12px;
-    padding: 0 4px;
+    padding: 2px 4px;
+    transition: all 1s ease-in-out;
     width: auto;
+  }
+
+  .ref-button,
+  .new-button {
+    border-radius: 10%;
+    margin: 0 5px;
   }
 
   .ref-button:hover,
   .new-button:hover,
   .actions input:hover {
-    border: 2px solid $color-red;
+    background: radial-gradient($color-med-grey, $color-dark-grey);
   }
 
   .ref-button a:hover,
   .new-button a:hover,
   .actions input:hover {
-    color: $color-red;
+    color: inherit;
     text-decoration: none;
-  }
-
-  .ref-button {
-    border-radius: 50%;
-    margin: 0 5px;
   }
 }

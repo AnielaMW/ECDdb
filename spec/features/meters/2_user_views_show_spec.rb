@@ -33,6 +33,6 @@ feature 'view meters#show', %{
     click_link meter.name.to_s
 
     expect(page).to have_current_path(meter_path(meter.id))
-    # IN A POPUP WINDOW MAYBE WHEN ? ICON IS CLICKED"
+    # AS A TOOLTIP OVER EACH FORMATIONS NAME IN THE DROP DOWN
   end
 end

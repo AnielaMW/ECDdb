@@ -34,6 +34,6 @@ feature 'view formations#show', %{
 
     expect(page).to have_current_path(formation_path(formation.id))
 
-    # IN A POPUP WINDOW MAYBE WHEN ? ICON IS CLICKED"
+    # AS A TOOLTIP OVER EACH FORMATIONS NAME IN THE DROP DOWN
   end
 end

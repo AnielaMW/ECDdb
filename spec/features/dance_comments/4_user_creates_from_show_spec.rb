@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'create a dance_comment', %{
+feature 'create a dance_comment from dance#show', %{
   As an Authenticated User
   I want to create new dance_comments
   So I can share dance_comments with other users.
@@ -10,6 +10,7 @@ feature 'create a dance_comment', %{
   # User must povide Comment, Comment_Type
   # If user is not signed-in and tries to create a new dance_comment,
   # they are redirected and prompted to sign-in
+  # User comment should be added without a page reload
 
   let!(:anne) { FactoryGirl.create(:anne) }
   let!(:dance) { FactoryGirl.create(:dance) }
@@ -17,43 +18,39 @@ feature 'create a dance_comment', %{
   new_dance_comment = { comment: "Really Great" }
 
   scenario 'authenticated user successfully create dance_comment
-    with valid information' do
+    with valid information from dance#show' do
     sign_in anne
     visit dance_path(dance)
-    click_link "Create Comment"
 
-    expect(page).to have_current_path(new_dance_dance_comment_path(dance))
-
-    # How to fill_in in a test if I get rid of the Comment label
     fill_in 'Comment', with: new_dance_comment[:comment].to_s
     select comment_type.name.to_s, from: 'Type'
+
+      # How do I test no page reload like it was done in the Phase 9 grocery list
+      # ajax challenge?????????????
+      # expect_no_page_reload do
     click_button "Create Dance comment"
 
     expect(page).to have_content(new_dance_comment[:comment])
     expect(page).to have_content(anne.first_name)
     expect(page).to have_content(comment_type.name)
     expect(page).to have_content(dance.title)
+      # end
   end
 
   scenario 'authenticated user fail to create dance_comment
-    with invalid information' do
+    with invalid information from dance#show' do
     sign_in anne
     visit dance_path(dance)
-    click_link "Create Comment"
+
     click_button "Create Dance comment"
 
     expect(page).to have_content("Comment can't be blank")
-
-    # CANNOT SEEM TO TEST FOR TYPE CAN'T BE BLANK.
   end
 
-  scenario 'fail to create a dance_comment with unauthenticated user' do
+  scenario 'fail to create a dance_comment with unauthenticated user from
+    dance#show' do
     visit dance_path(dance)
-    click_link "Create Comment"
 
-    expect(page).to have_content(
-      "You need to sign in or sign up before continuing."
-    )
-    expect(page).to have_current_path(new_user_session_path)
+    expect(page).not_to have_content("Create Dance comment")
   end
 end

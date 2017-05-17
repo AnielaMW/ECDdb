@@ -29,6 +29,5 @@ feature 'view dance_comments#show', %{
     click_link com1.comment.to_s
 
     expect(page).to have_current_path(dance_comment_path(com1.id))
-    # IN A POPUP WINDOW MAYBE
   end
 end

@@ -30,6 +30,8 @@ feature 'view comment_types#index', %{
 
   pending 'sucessfully view the comment_types#index after click on
   the comment form view button'
-    # IN A POPUP WINDOW MAYBE WHEN ? ICON IS CLICKED INSTEAD OF
-    # "VIEW TYPES"
+  # IN A POPUP WINDOW MAYBE WHEN ? ICON IS CLICKED INSTEAD OF
+  # "VIEW TYPES"
+  # OR
+  # AS A TOOLTIP OVER EACH COMMENT TYPE OPTION IN THE DROP DOWN
 end
