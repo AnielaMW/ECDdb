@@ -1,20 +1,21 @@
 class NewDance{
   constructor(json) {
     this.id = json[0].id;
-    this.title = json[0].title;
-    this.author = json[0].author;
-    this.publication = json[0].publication;
-    this.year = json[0].year;
-    this.formation = [json[0].formation_id, json[1].formation];
-    this.meter = [json[0].meter_id, json[1].meter];
-    this.user = [json[0].user_id, json[1].user];
     this.directions = [];
   }
 }
 
+let dividDirections = (dds, newDan) => {
+  dds.each((dd) => {
+    newDan.directions.push(submitDD(dd, newDan));
+  });
+  window.location = `/dances/${newDan.id}`;
+};
+
 submitDDDClick = (event) => {
   event.preventDefault();
 
+  let dirList = $('tr.dd-new');
   let dance = {
     title: $('#dance_title').val(),
     author: $('#dance_author').val(),
@@ -35,9 +36,11 @@ submitDDDClick = (event) => {
 
   let createDance = (response) => {
     let newDan = new NewDance(response);
+    dividDirections(dirList, newDan);
   };
 
   saveDance();
+
 };
 
 $(document).ready(() => {

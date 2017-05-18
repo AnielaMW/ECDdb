@@ -1,5 +1,5 @@
 addBlankDirection = () => {
-  let newDDForm = `<tr>
+  let newDDForm = `<tr class="dd-new">
   <td class="seq hidden-label">
     <label for="sequence">Sequence</label>
     <input type="text" name="sequence" required>
