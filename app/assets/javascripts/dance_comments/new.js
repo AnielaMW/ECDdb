@@ -35,7 +35,7 @@ submitDCClick = (event) => {
     dance_id: $('#dance-id').text()
   };
 
-  let saveComment = () => {
+  saveComment = () => {
     $.ajax({
       method: 'POST',
       url: '/api/dance_comments',
@@ -43,10 +43,10 @@ submitDCClick = (event) => {
     }).done((response) => { createComment(response);});
   };
 
-  let createComment = (response) => {
+  createComment = (response) => {
     let newCom = new NewComment(response);
     prependTarget($('#dance-comment-list'), newCom.toHTML());
-  
+
     $('#dc-form')[0].reset();
     $('#dc-form #actions>input').prop('disabled',false);
   };

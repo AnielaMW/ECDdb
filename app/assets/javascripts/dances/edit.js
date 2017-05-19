@@ -1,21 +1,17 @@
-class NewDance{
-  constructor(json) {
-    this.id = json[0].id;
-    this.directions = [];
-  }
-}
-
-dividNewDirections = (dds, newDan) => {
+dividUpdateDirections = (dds, newDan) => {
   dds.each((dd) => {
-    newDan.directions.push(submitDDAdd(dd, newDan));
+    newDan.directions.push(submitDDUpdate(dd, newDan));
   });
 };
 
-submitDDDClick = (event) => {
+submitDDDEditClick = (event) => {
   event.preventDefault();
 
+  let dirListUpdate = $('tr.dd-editable');
   let dirListAdd = $('tr.dd-new');
+
   let dance = {
+    id: $('#dance-id').text(),
     title: $('#dance_title').val(),
     author: $('#dance_author').val(),
     publication: $('#dance_publication').val(),
@@ -25,23 +21,24 @@ submitDDDClick = (event) => {
     user_id: $('#user-id').text()
   };
 
-  saveDance = () => {
+  updateDance = () => {
     $.ajax({
-      method: 'POST',
-      url: '/api/dances',
+      method: 'PUT',
+      url: `/api/dances/$(dance[:id])`,
       data: {dance: dance}
     }).done((response) => { createDance(response); });
   };
 
   createDance = (response) => {
-    newDan = new NewDance(response);
+    let newDan = new NewDance(response);
     dividNewDirections(dirListAdd, newDan);
+    dividUpdateDirections(dirListUpdate, newDan);
     window.location = `/dances/${newDan.id}`;
   };
 
-  saveDance();
+  updateDance();
 };
 
 $(document).ready(() => {
-  $('form#new_dance').submit(submitDDDClick);
+  $('form.edit_dance').submit(submitDDDEditClick);
 });

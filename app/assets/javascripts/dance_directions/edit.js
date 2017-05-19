@@ -1,12 +1,14 @@
-submitDDAdd = (dd, newDan) => {
+submitDDUpdate = (dd, newDan) => {
 
-  let seqs = $('.dd-new td.seq input');
-  let mars = $('.dd-new td.mar input');
-  let meas = $('.dd-new td.mea input');
-  let dirs = $('.dd-new td.dir input');
-  let poss = $('.dd-new td.pos input');
+  let ids = $('.dd-editable td.id input');
+  let seqs = $('.dd-editable td.seq input');
+  let mars = $('.dd-editable td.mar input');
+  let meas = $('.dd-editable td.mea input');
+  let dirs = $('.dd-editable td.dir input');
+  let poss = $('.dd-editable td.pos input');
 
   let dir = {
+    id: ids[dd].value,
     dance_id: newDan.id,
     sequence: seqs[dd].value,
     mark: mars[dd].value,
@@ -17,8 +19,8 @@ submitDDAdd = (dd, newDan) => {
 
   saveDirections = () => {
     $.ajax({
-      method: 'POST',
-      url: '/api/dance_directions',
+      method: 'PUT',
+      url: `/api/dance_directions/$(dir[:id])`,
       data: {dd: dir}
     }).done((response) => { returnDirection(response); });
   };

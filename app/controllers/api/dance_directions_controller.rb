@@ -8,6 +8,15 @@ class Api::DanceDirectionsController < ApplicationController
     render json: dance_direction
   end
 
+  def update
+    @dance_direction = DanceDirection.find(dance_direction_params[:id])
+    @dance_direction.update(dance_direction_params)
+
+    dance_direction = [@dance_direction]
+
+    render json: dance_direction
+  end
+
   private
 
   def dance_direction_params

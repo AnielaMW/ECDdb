@@ -80,7 +80,7 @@
             <section id="dd-editable-list">
               <% if @dance_directions %>
                 <% @dance_directions.each do |dd| %>
-                  <tr id="dd-editable">
+                  <tr class="dd-editable">
                     <%= render 'dance_directions/form', dd: dd %>
                   </tr>
                 <% end %>

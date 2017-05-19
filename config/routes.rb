@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :dance_comments, only: [:create]
-    resources :dances, only: [:create]
-    resources :dance_directions, only: [:create]
+    resources :dances, only: [:create, :update]
+    resources :dance_directions, only: [:create, :update]
   end
 end
