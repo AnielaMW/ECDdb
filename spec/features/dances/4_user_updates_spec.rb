@@ -22,7 +22,7 @@ feature 'update a dance', %{
               year: "2016" }
   let!(:clay) { FactoryGirl.create(:anne) }
 
-  scenario 'authenticated user sucessfully update dance with valid
+  pending 'authenticated user sucessfully update dance with valid
   information' do
     sign_in anne
     visit dance_path(dance1.id)
@@ -38,7 +38,7 @@ feature 'update a dance', %{
     expect(page).to have_content(anne.first_name)
   end
 
-  scenario 'authenticated user sucessfully update dance to all information' do
+  pending 'authenticated user sucessfully update dance to all information' do
     sign_in anne
     visit dance_path(dance1.id)
     click_link "Edit"
@@ -53,7 +53,7 @@ feature 'update a dance', %{
     expect(page).to have_content(changes[:year])
   end
 
-  scenario 'authenticated user sucessfully update dance with all information' do
+  pending 'authenticated user sucessfully update dance with all information' do
     sign_in anne
     visit dance_path(dance2.id)
     click_link "Edit"
@@ -71,7 +71,7 @@ feature 'update a dance', %{
     expect(page).to have_content(changes[:year])
   end
 
-  scenario 'authenticated user fail to update dance with invalid information' do
+  pending 'authenticated user fail to update dance with invalid information' do
     sign_in anne
     visit dance_path(dance1.id)
     click_link "Edit"

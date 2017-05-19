@@ -20,7 +20,7 @@ feature 'create a dance', %{
                 publication: "Dance Books",
                 year: "2016" }
 
-  scenario 'authenticated user successfully create dance
+  pending 'authenticated user successfully create dance
     with valid information' do
     sign_in anne
     visit root_path
@@ -39,7 +39,7 @@ feature 'create a dance', %{
     expect(page).to have_content(met.name)
   end
 
-  scenario 'authenticated user successfully create dance
+  pending 'authenticated user successfully create dance
     with all information' do
     sign_in anne
     visit root_path
@@ -61,7 +61,7 @@ feature 'create a dance', %{
     expect(page).to have_content(new_dance[:year])
   end
 
-  scenario 'authenticated user fail to create dance
+  pending 'authenticated user fail to create dance
     with invalid information' do
     sign_in anne
     visit root_path
