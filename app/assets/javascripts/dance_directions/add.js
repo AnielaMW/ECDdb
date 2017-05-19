@@ -33,4 +33,5 @@ addBlankDirection = () => {
 
 $(document).ready(() => {
   $('#dance-new').on('click', '#dd-add', addBlankDirection);
+  $('#dance-edit').on('click', '#dd-add', addBlankDirection);
 });
