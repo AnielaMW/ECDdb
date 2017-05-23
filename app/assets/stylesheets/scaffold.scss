@@ -51,7 +51,7 @@ h6 {
   margin: 1px 0;
 }
 
-p {
+p, label, input {
   font-size: 1.6em; // 16px; //
 }
 
@@ -67,6 +67,10 @@ a {
 a:hover {
   color: #00008b;
   text-decoration: underline;
+}
+
+header>a {
+  font-size: 1.2em; // 12px; //
 }
 
 // Sitewide Header
@@ -103,7 +107,7 @@ header aside li {
 .user-bar li {
   display: inline;
   float: right;
-  font-size: 10px;
+  font-size: 12px;
   margin-top: 14px;
   padding-right: 8px;
 }

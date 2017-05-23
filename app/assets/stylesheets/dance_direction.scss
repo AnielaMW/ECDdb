@@ -1,23 +1,19 @@
 @import "colors";
 
 th.seq, td.seq {
-  width: 2%;
+  width: 8px;
 }
 
 th.mar, td.mar {
-  width: 7%;
+  width: 5%;
 }
 
 th.mea, td.mea {
-  width: 7%;
-}
-
-th.dir, td.dir {
-  width: 67%;
+  width: 5%;
 }
 
 th.pos, td.pos {
-  width: 15%;
+  width: 10%;
 }
 
 td.dir{
@@ -27,6 +23,7 @@ td.dir{
 .dance-directions-table {
   border: 1px solid $color-black;
   border-collapse: collapse;
+  font-size: 1.6em; // 18px; //
   text-align: center;
   vertical-align: top;
   width: 100%;

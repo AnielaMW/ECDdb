@@ -10,18 +10,18 @@
   background: $color-white;
   border: 3px solid $color-black;
   margin: 5px;
-  padding-left: 20px;
+  padding-left: 1.4479638009049774%; // 20px; //
   position: relative;
 
   h2 bdi {
-    font-size: 0.3571em; // 14px; //
+    font-size: 0.5em; // 14px; //
     font-weight: normal;
   }
 
   section {
     p {
       display: inline;
-      padding: 20px 8px;
+      padding: 1.4479638009049774% 0.5791855203619909%; // 20px 8px; //
     }
 
     bdi {
@@ -47,7 +47,6 @@
 // dance#show
 
 .dance-info {
-  // border: 1px solid $color-black;
   border-collapse: collapse;
   text-align: left;
   vertical-align: top;
