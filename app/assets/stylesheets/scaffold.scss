@@ -17,42 +17,42 @@ html {
 
 body {
   background: linear-gradient(to bottom, $color-med-grey, $color-white);
-  font-size: 62.5%; // 10px; //
+  font-size: 87.5%; // 14px; //
   width: 100%;
 }
 
 h1 {
-  font-size: 3em; // 30px; //
+  font-size: 2.2em; // 30px; //
   margin: 15px 0;
 }
 
 h2 {
-  font-size: 2.8em;  // 28px; //
+  font-size: 2em;  // 28px; //
   margin: 10px 0;
 }
 
 h3 {
-  font-size: 2.6em;  // 26px; //
+  font-size: 1.8571em;  // 26px; //
   margin: 5px 0;
 }
 
 h4 {
-  font-size: 2.4em;  // 24px; //
+  font-size: 1.7142em;  // 24px; //
   margin: 3px 0;
 }
 
 h5 {
-  font-size: 2.2em;  // 22px; //
+  font-size: 1.5714em;  // 22px; //
   margin: 2px 0;
 }
 
 h6 {
-  font-size: 2em;  // 20px; //
+  font-size: 1.4285em;  // 20px; //
   margin: 1px 0;
 }
 
 p, label, input {
-  font-size: 1.6em; // 16px; //
+  font-size: 1.1428em; // 16px; //
 }
 
 main {
@@ -70,7 +70,15 @@ a:hover {
 }
 
 header>a {
-  font-size: 1.2em; // 12px; //
+  font-size: 0.8571em; // 12px; //
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
 }
 
 // Sitewide Header
@@ -122,7 +130,7 @@ header aside li {
   text-shadow: 1px 3px 1px $color-black;
 
   h1 {
-    font-size: 2em;  // 20px; //
+    font-size: 1.4285em;  // 20px; //
     font-style: italic;
     font-weight: normal;
     text-align: center;
@@ -161,12 +169,6 @@ header aside li {
   // Sitewide Header
   .top-bar {
     margin-bottom: 10px;
-  }
-
-  header aside h1, header aside ul {
-    float: none;
-    text-align: center;
-    padding-top: 0;
   }
 
   // Sitewide Footer

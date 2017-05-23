@@ -14,7 +14,7 @@
   position: relative;
 
   h2 bdi {
-    font-size: 0.5em; // 14px; //
+    font-size: 0.5em; // half; //
     font-weight: normal;
   }
 
@@ -38,7 +38,7 @@
 
     li {
       display: inline;
-      font-size: 12px; //
+      font-size: 12px;
       padding: 20px 8px;
     }
   }
@@ -58,7 +58,7 @@
 
   h6, p {
     display: inline;
-    font-size: 1.8em; // 18px; //
+    font-size: 1.2857em; // 18px; //
   }
 }
 
