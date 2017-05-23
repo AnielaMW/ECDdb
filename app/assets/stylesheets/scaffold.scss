@@ -1,6 +1,9 @@
 @import "colors";
 
-// Basic sitewide css styles
+// Basic Sitewide CSS Styles
+.hidden-all {
+  display: none;
+}
 
 * {
   border: 0;
@@ -10,10 +13,6 @@
 
 html {
   font-size: 16px;
-}
-
-.hidden-all {
-  display: none;
 }
 
 body {
@@ -52,8 +51,8 @@ h6 {
   margin: 1px 0;
 }
 
-p, li, td, th, label, input {
-  font-size: 14px;
+p {
+  font-size: 1.6em; // 16px; //
 }
 
 main {
@@ -70,7 +69,7 @@ a:hover {
   text-decoration: underline;
 }
 
-// sitewide header
+// Sitewide Header
 .top-bar {
   background-color: $color-red;
   border-bottom: 5px solid $color-black;
@@ -80,23 +79,36 @@ a:hover {
   text-shadow: 1px 3px 1px $color-black;
 }
 
-header aside li {
-  display: inline;
-  float: right;
-  font-size: 12px;
-  padding: 31px 8px;
+header aside {
+ height: 60px;
 }
 
-// sitewide user bars
+header aside h1 {
+ float: left;
+ padding-top: 1px;
+}
+
+header aside ul {
+  float: right;
+  padding-top: 31px;
+}
+
+header aside li {
+  display: inline;
+  font-size: 12px;
+  padding: 0 8px;
+}
+
+// Sitewide user bars
 .user-bar li {
   display: inline;
   float: right;
-  font-size: 0.8888em;  // 14px; //
+  font-size: 10px;
   margin-top: 14px;
   padding-right: 8px;
 }
 
-// sitewide footer
+// Sitewide Footer
 .bottom-bar {
   background-color: $color-red;
   border-top: 3px solid $color-black;
@@ -106,52 +118,55 @@ header aside li {
   text-shadow: 1px 3px 1px $color-black;
 
   h1 {
-    font-size: 1.125em;  // 18px; //
+    font-size: 2em;  // 20px; //
     font-style: italic;
     font-weight: normal;
     text-align: center;
   }
 }
 
-//---MEDIA QUERIES---//
-@media only screen and (max-width: 850px ) {
+/*-------------------------------MEDIA QUERIES-------------------------------*/
 
-  // Basic sitewide css styles
-  // sitewide header
+/*--Tablet Portrait and Smart Phone Landscape--*/
+@media only screen and (min-width: 500px) and (max-width: 850px) {
+
+  // Basic Sitewide CSS Styles
+  html {
+    font-size: 15px;
+  }
+
+  // Sitewide Header
   .top-bar {
     margin-bottom: 15px;
   }
 
-  // sitewide footer
+  // Sitewide Footer
   .bottom-bar {
     margin-top: 15px;
   }
 }
 
-@media only screen and (max-width: 650px) {
+/*------------Smart Phone Portrait-------------*/
+@media only screen and (max-width: 499px) {
 
-  // Basic sitewide css styles
-  // sitewide header
+  // Basic Sitewide CSS Styles
+  html {
+    font-size: 14px;
+  }
+
+  // Sitewide Header
   .top-bar {
     margin-bottom: 10px;
   }
 
-  // sitewide footer
+  header aside h1, header aside ul {
+    float: none;
+    text-align: center;
+    padding-top: 0;
+  }
+
+  // Sitewide Footer
   .bottom-bar {
     margin-top: 10px;
-  }
-}
-
-@media only screen and (max-width: 450px) {
-
-  // Basic sitewide css styles
-  // sitewide header
-  .top-bar {
-    margin-bottom: 5px;
-  }
-
-  // sitewide footer
-  .bottom-bar {
-    margin-top: 5px;
   }
 }
