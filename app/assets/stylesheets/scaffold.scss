@@ -2,54 +2,62 @@
 
 // Basic sitewide css styles
 
-.hidden-all {
-  display: none;
-}
-
 * {
   border: 0;
   margin: 0;
   padding: 0;
 }
 
+html {
+  font-size: 16px;
+}
+
+.hidden-all {
+  display: none;
+}
+
 body {
   background: linear-gradient(to bottom, $color-med-grey, $color-white);
-  font-size: 16px;
+  font-size: 62.5%; // 10px; //
   width: 100%;
 }
 
 h1 {
-  font-size: 1.875em; // 30px; //
+  font-size: 3em; // 30px; //
   margin: 15px 0;
 }
 
 h2 {
-  font-size: 1.75em;  // 28px; //
+  font-size: 2.8em;  // 28px; //
   margin: 10px 0;
 }
 
 h3 {
-  font-size: 1.625em;  // 26px; //
+  font-size: 2.6em;  // 26px; //
   margin: 5px 0;
 }
 
 h4 {
-  font-size: 1.5em;  // 24px; //
+  font-size: 2.4em;  // 24px; //
   margin: 3px 0;
 }
 
 h5 {
-  font-size: 1.375em;  // 22px; //
+  font-size: 2.2em;  // 22px; //
   margin: 2px 0;
 }
 
 h6 {
-  font-size: 1.25em;  // 20px; //
-  margin: 5px 0;
+  font-size: 2em;  // 20px; //
+  margin: 1px 0;
+}
+
+p, li, td, th, label, input {
+  font-size: 14px;
 }
 
 main {
-  padding: 0 20px;
+  padding: 0 2.040816%; // 0 20px; //
 }
 
 a {
@@ -63,41 +71,38 @@ a:hover {
 }
 
 // sitewide header
-
 .top-bar {
   background-color: $color-red;
   border-bottom: 5px solid $color-black;
   color: $color-white;
   margin-bottom: 20px;
-  padding: 10px 20px;
+  padding: 1.020408% 2.040816%; // 10px 20px; //
   text-shadow: 1px 3px 1px $color-black;
 }
 
 header aside li {
   display: inline;
   float: right;
-  font-size: 0.75em;  // 12px; //
+  font-size: 12px;
   padding: 31px 8px;
 }
 
 // sitewide user bars
-
 .user-bar li {
   display: inline;
   float: right;
-  font-size: 0.875em;  // 14px; //
+  font-size: 0.8888em;  // 14px; //
   margin-top: 14px;
   padding-right: 8px;
 }
 
 // sitewide footer
-
 .bottom-bar {
   background-color: $color-red;
   border-top: 3px solid $color-black;
   color: $color-white;
   margin-top: 20px;
-  padding: 10px 20px;
+  padding: 1.020408% 2.040816%; // 10px 20px; //
   text-shadow: 1px 3px 1px $color-black;
 
   h1 {
@@ -105,5 +110,48 @@ header aside li {
     font-style: italic;
     font-weight: normal;
     text-align: center;
+  }
+}
+
+//---MEDIA QUERIES---//
+@media only screen and (max-width: 850px ) {
+
+  // Basic sitewide css styles
+  // sitewide header
+  .top-bar {
+    margin-bottom: 15px;
+  }
+
+  // sitewide footer
+  .bottom-bar {
+    margin-top: 15px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+
+  // Basic sitewide css styles
+  // sitewide header
+  .top-bar {
+    margin-bottom: 10px;
+  }
+
+  // sitewide footer
+  .bottom-bar {
+    margin-top: 10px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+
+  // Basic sitewide css styles
+  // sitewide header
+  .top-bar {
+    margin-bottom: 5px;
+  }
+
+  // sitewide footer
+  .bottom-bar {
+    margin-top: 5px;
   }
 }
