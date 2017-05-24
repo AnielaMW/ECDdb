@@ -12,39 +12,35 @@
     <h2><%= @dance.title %></h2>
   </header>
 
+  <div class="d-info-field left">
+    <h6>Formation: </h6>
+    <p><%= link_to @dance.formation.name, formation_path(@dance.formation) %></p>
+  </div>
+
+  <div class="d-info-field right">
+    <h6>Meter: </h6>
+    <p><%= link_to @dance.meter.name, meter_path(@dance.meter) %></p>
+  </div>
+
+  <% if @dance.author && @dance.author != "" %>
+    <div class="d-info-field left">
+      <h6>Author: </h6>
+      <p><%= @dance.author %></p>
+    </div>
+  <% end %>
+
+  <% if @dance.publication && @dance.publication != "" %>
+    <div class="d-info-field right">
+      <h6>Publication: </h6>
+      <p><%= @dance.publication %>
+  <% end %>
+
+  <% if @dance.year %>
+      (<%= @dance.year %>)</p>
+    </div>
+  <% end %>
+
   <table class='dance-info'>
-    <tr>
-      <td>
-        <h6>Formation: </h6>
-        <p><%= link_to @dance.formation.name, formation_path(@dance.formation) %></p>
-      </td>
-
-      <td>
-        <h6>Meter: </h6>
-        <p><%= link_to @dance.meter.name, meter_path(@dance.meter) %></p>
-      </td>
-    </tr>
-
-    <% if @dance.author && @dance.author != "" %>
-      <tr>
-        <td>
-          <h6>Author: </h6>
-          <p><%= @dance.author %></p>
-        </td>
-    <% end %>
-
-      <% if @dance.publication && @dance.publication != "" %>
-        <td>
-          <h6>Publication: </h6>
-          <p><%= @dance.publication %>
-      <% end %>
-
-      <% if @dance.year %>
-          (<%= @dance.year %>)</p>
-        </td>
-      </tr>
-    <% end %>
-
     <tr>
       <td>
         <h6>Directions</h6>

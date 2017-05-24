@@ -46,6 +46,11 @@
 
 // dance#show
 
+h6, p {
+  display: inline;
+  font-size: 1.2857em; // 18px; //
+}
+
 .dance-info {
   border-collapse: collapse;
   text-align: left;
@@ -56,17 +61,17 @@
     padding: 2px;
   }
 
-  h6, p {
+  p {
     display: inline;
-    font-size: 1.2857em; // 18px; //
+    font-size: 1.1428em; // 16px; //
   }
 }
 
-// dance forms
-.form-field {
+.d-info-field {
   width: 50%;
 }
 
+// dance forms
 .no-bord {
   border: none;
   width: 100%;
@@ -78,15 +83,14 @@
 
 /*-------------------------------MEDIA QUERIES-------------------------------*/
 
-/*------------Dance Form Break-------------*/
+/*------------Dance Break-------------*/
 @media only screen and (max-width: 650px) {
 
-  // Dance Forms
-  .forms {
+  .forms, .dance-show {
     .left, .right {
       float: none;
     }
-    .form-field {
+    .d-info-field {
       width: 100%;
     }
   }

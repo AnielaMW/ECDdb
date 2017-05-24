@@ -2,33 +2,33 @@
   <div id="forms" class="forms" spellcheck="true">
     <form id="d-dd-form">
 
-      <div class="form-field left">
+      <div class="d-info-field left">
         <%= f.label :title, "Title" %>
         <%= f.text_field :title, required: true %>
       </div>
 
-      <div class="form-field right year">
+      <div class="d-info-field right year">
         <%= f.label :year, "Year" %>
         <%= f.text_field :year %>
       </div>
 
-      <div class="form-field left">
+      <div class="d-info-field left">
         <%= f.label :author, "Author" %>
         <%= f.text_field :author %>
       </div>
 
-      <div class="form-field right">
+      <div class="d-info-field right">
         <%= f.label :publication, "Publication" %>
         <%= f.text_field :publication %>
       </div>
 
-      <div class="form-field left">
+      <div class="d-info-field left">
         <%= f.label :formation_id, "Formation" %>
         <%= f.collection_select :formation_id, @formation_collection, :id, :name, required: true %>
         <%= link_to "*", formations_path, target: '_blank', :class => "new-button" %>
       </div>
 
-      <div class="form-field right">
+      <div class="d-info-field right">
         <%= f.label :meter_id, "Meter" %>
         <%= f.collection_select :meter_id, @meter_collection, :id, :name, required: true %>
         <%= link_to "*", meters_path, target: '_blank', :class => "new-button" %>
