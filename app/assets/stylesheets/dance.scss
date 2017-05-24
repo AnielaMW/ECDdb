@@ -63,6 +63,9 @@
 }
 
 // dance forms
+.form-field {
+  width: 50%;
+}
 
 .no-bord {
   border: none;
@@ -70,5 +73,21 @@
 
   label {
     font-weight: bold;
+  }
+}
+
+/*-------------------------------MEDIA QUERIES-------------------------------*/
+
+/*------------Dance Form Break-------------*/
+@media only screen and (max-width: 650px) {
+
+  // Dance Forms
+  .forms {
+    .left, .right {
+      float: none;
+    }
+    .form-field {
+      width: 100%;
+    }
   }
 }
