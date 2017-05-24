@@ -1,22 +1,26 @@
 @import "colors";
 
-th.seq, td.seq {
+th.seq,
+td.seq {
   width: 8px;
 }
 
-th.mar, td.mar {
+th.mar,
+td.mar {
   width: 5%;
 }
 
-th.mea, td.mea {
+th.mea,
+td.mea {
   width: 5%;
 }
 
-th.pos, td.pos {
+th.pos,
+td.pos {
   width: 10%;
 }
 
-td.dir{
+td.dir {
   text-align: left;
 }
 
@@ -28,7 +32,8 @@ td.dir{
   vertical-align: top;
   width: 100%;
 
-  th, td {
+  th,
+  td {
     border-bottom: 1px solid $color-dark-grey;
     padding: 2px;
   }
@@ -46,7 +51,8 @@ td.dir{
   width: 100%;
 
 
-  th, td {
+  th,
+  td {
     border-bottom: 1px solid $color-dark-grey;
     padding: 0 8px 0 0;
 

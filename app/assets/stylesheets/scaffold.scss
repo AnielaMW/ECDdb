@@ -51,7 +51,9 @@ h6 {
   margin: 1px 0;
 }
 
-p, label, input {
+p,
+label,
+input {
   font-size: 1.1428em; // 16px; //
 }
 
@@ -92,23 +94,23 @@ header>a {
 }
 
 header aside {
- height: 60px;
-}
+  height: 60px;
 
-header aside h1 {
- float: left;
- padding-top: 1px;
-}
+  h1 {
+    float: left;
+    padding-top: 1px;
+  }
 
-header aside ul {
-  float: right;
-  padding-top: 31px;
-}
+  ul {
+    float: right;
+    padding-top: 31px;
+  }
 
-header aside li {
-  display: inline;
-  font-size: 12px;
-  padding: 0 8px;
+  li {
+    display: inline;
+    font-size: 12px;
+    padding: 0 8px;
+  }
 }
 
 // Sitewide user bars
@@ -137,9 +139,9 @@ header aside li {
   }
 }
 
-/*-------------------------------MEDIA QUERIES-------------------------------*/
+//-------------------------------MEDIA QUERIES-------------------------------//
 
-/*--Tablet Portrait and Smart Phone Landscape--*/
+//--Tablet Portrait and Smart Phone Landscape--//
 @media only screen and (min-width: 500px) and (max-width: 850px) {
 
   // Basic Sitewide CSS Styles
@@ -158,7 +160,7 @@ header aside li {
   }
 }
 
-/*------------Smart Phone Portrait-------------*/
+//------------Smart Phone Portrait-------------//
 @media only screen and (max-width: 499px) {
 
   // Basic Sitewide CSS Styles
