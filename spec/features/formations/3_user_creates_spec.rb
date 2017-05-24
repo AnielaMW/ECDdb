@@ -17,7 +17,7 @@ feature 'create a formation', %{
   scenario 'authenticated user successfully create formation
     with valid information' do
     sign_in anne
-    visit new_dance_path
+    visit formations_path
     click_link "New Formation"
 
     expect(page).to have_current_path(new_formation_path)
@@ -33,7 +33,7 @@ feature 'create a formation', %{
   scenario 'authenticated user fail to create formation
     with invalid information' do
     sign_in anne
-    visit new_dance_path
+    visit formations_path
     click_link "New Formation"
     fill_in 'Name', with: ""
     fill_in 'Description', with: ""
