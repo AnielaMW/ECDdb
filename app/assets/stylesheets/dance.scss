@@ -81,15 +81,18 @@ h6, p {
   }
 }
 
-/*-------------------------------MEDIA QUERIES-------------------------------*/
+//-------------------------------MEDIA QUERIES-------------------------------//
 
-/*------------Dance Break-------------*/
+//------------Dance Break-------------//
 @media only screen and (max-width: 650px) {
 
-  .forms, .dance-show {
-    .left, .right {
+  .forms,
+  .dance-show {
+    .left,
+    .right {
       float: none;
     }
+
     .d-info-field {
       width: 100%;
     }
