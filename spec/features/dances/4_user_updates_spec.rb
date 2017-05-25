@@ -71,7 +71,7 @@ feature 'update a dance', %{
     expect(page).to have_content(changes[:year])
   end
 
-  pending 'authenticated user fail to update dance with invalid information' do
+  scenario 'authenticated user fail to update dance with invalid information' do
     sign_in anne
     visit dance_path(dance1.id)
     click_link "Edit"

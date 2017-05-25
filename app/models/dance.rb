@@ -5,7 +5,7 @@ class Dance < ApplicationRecord
   has_many :dance_comments
   has_many :dance_directions
 
-  validates :title, presence: true
+  validates :title, presence: true, uniqueness: true
   validates :formation_id, presence: true
   validates :meter_id, presence: true
 
