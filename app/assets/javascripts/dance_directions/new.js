@@ -20,11 +20,7 @@ submitDDAdd = (dd, newDan) => {
       method: 'POST',
       url: '/api/dance_directions',
       data: {dd: dir}
-    }).done((response) => { returnDirection(response); });
-  };
-
-  returnDirection = (response) => {
-    return response;
+    }).done((response) => { return response; });
   };
 
   saveDirections();

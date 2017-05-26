@@ -14,7 +14,7 @@ class Api::DancesController < ApplicationController
   def update
     @dance = Dance.find(dance_params[:id])
     @dance.update(dance_params)
-    
+
     dance = [@dance,
       user: @dance.user.first_name,
       formation: @dance.formation.name,
