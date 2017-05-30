@@ -22,11 +22,7 @@ submitDDUpdate = (dd, newDan) => {
       method: 'PUT',
       url: `/api/dance_directions/$(dir[:id])`,
       data: {dd: dir}
-    }).done((response) => { returnDirection(response); });
-  };
-
-  returnDirection = (response) => {
-    return response;
+    }).done((response) => { return response; });
   };
 
   saveDirections();
