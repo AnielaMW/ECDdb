@@ -7,5 +7,6 @@ class DanceDevSeeder
     # need to create a record for each dance
     # need to link to, via foreign key, or create a new record for each formation, key*, level*, meter, mood*, and tempo*
     # need to seed each dance_direction with it's associated dance
+    # associate all of these seeded dances with the user Dan Seppler
   end
 end
