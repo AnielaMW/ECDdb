@@ -76,13 +76,9 @@ feature 'update a dance', %{
     visit dance_path(dance1.id)
     click_link "Edit"
     fill_in 'Title', with: ""
-    fill_in 'Direction', with: ""
     click_button "Update"
 
-    expect(page).to have_content(
-      "Title can't be blank,
-      Direction can't be blank"
-    )
+    expect(page).to have_content("Edit Dance")
   end
 
   scenario 'fail to see "Edit" button with unauthenticated or non-creator

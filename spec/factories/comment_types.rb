@@ -4,11 +4,11 @@ FactoryGirl.define do
     description "Comment Description"
 
     factory :variation, class: CommentType do
-      name "Variation"
+      sequence(:name) { |n| "Variation #{n}" }
     end
 
     factory :style_point, class: CommentType do
-      name "Style Point"
+      sequence(:name) { |n| "Style Point #{n}" }
     end
   end
 end
