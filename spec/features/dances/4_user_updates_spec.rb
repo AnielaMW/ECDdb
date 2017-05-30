@@ -15,7 +15,7 @@ feature 'update a dance', %{
 
   let!(:anne) { FactoryGirl.create(:anne) }
   let!(:dance1) { FactoryGirl.create(:dance, user_id: anne.id) }
-  let!(:dance2) { FactoryGirl.create(:choreographered, user_id: anne.id) }
+  let!(:dance2) { FactoryGirl.create(:choreographed, user_id: anne.id) }
   changes = { title: "My New Dance",
               choreographer: "Louisa M.",
               publication: "Dance Books",

@@ -14,7 +14,7 @@ feature 'view dances#index', %{
 
   let!(:dance1) { FactoryGirl.create(:dance, title: "Zelda's Waltz") }
   let!(:dance2) { FactoryGirl.create(:dance, title: "Link's Jig") }
-  let!(:dance3) { FactoryGirl.create(:choreographered, title: "Mario's Maggot") }
+  let!(:dance3) { FactoryGirl.create(:choreographed, title: "Mario's Maggot") }
 
   scenario 'sucessfully view the dances#index' do
     visit dances_path
@@ -23,13 +23,13 @@ feature 'view dances#index', %{
 
     expect(dances[0]).to have_content(dance2.title)
     expect(dances[0]).to have_content(dance2.user.first_name)
-    expect(dances[0]).not_to have_content("Choreographered by: ")
+    expect(dances[0]).not_to have_content("choreographed by: ")
     expect(dances[1]).to have_content(dance3.title)
     expect(dances[1]).to have_content(dance3.user.first_name)
     expect(dances[1]).to have_content(dance3.choreographer)
     expect(dances[1]).to have_content(dance3.year)
     expect(dances[2]).to have_content(dance1.title)
     expect(dances[2]).to have_content(dance1.user.first_name)
-    expect(dances[2]).not_to have_content("Choreographered by: ")
+    expect(dances[2]).not_to have_content("choreographed by: ")
   end
 end
