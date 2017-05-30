@@ -83,7 +83,7 @@ class DancesController < ApplicationController
       :title,
       :formation_id,
       :meter_id,
-      :author,
+      :choreographer,
       :publication,
       :year,
       :complete

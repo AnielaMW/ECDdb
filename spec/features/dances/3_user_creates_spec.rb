@@ -8,7 +8,7 @@ feature 'create a dance', %{
   # Acceptance
   # User cannot create new dances unless user is signed-in
   # User must povide Title, Formation, Meter
-  # User may provide Author, Year, Publication
+  # User may provide Choreographer, Year, Publication
   # If user is not signed-in and tries to create a new dance,
   # they are redirected and prompted to sign-in
 
@@ -16,7 +16,7 @@ feature 'create a dance', %{
   let!(:form) { FactoryGirl.create(:formation) }
   let!(:met) { FactoryGirl.create(:meter) }
   new_dance = { title: "My New Dance",
-                author: "Louisa M.",
+                choreographer: "Louisa M.",
                 publication: "Dance Books",
                 year: "2016" }
 
@@ -47,7 +47,7 @@ feature 'create a dance', %{
     fill_in 'Title', with: new_dance[:title].to_s
     select form.name.to_s, from: 'Formation'
     select met.name.to_s, from: 'Meter'
-    fill_in 'Author', with: new_dance[:author].to_s
+    fill_in 'Choreographer', with: new_dance[:choreographer].to_s
     fill_in 'Year', with: new_dance[:year].to_s
     fill_in 'Publication', with: new_dance[:publication].to_s
     click_button "Create Dance"
@@ -56,7 +56,7 @@ feature 'create a dance', %{
     expect(page).to have_content(anne.first_name)
     expect(page).to have_content(form.name)
     expect(page).to have_content(met.name)
-    expect(page).to have_content(new_dance[:author])
+    expect(page).to have_content(new_dance[:choreographer])
     expect(page).to have_content(new_dance[:publication])
     expect(page).to have_content(new_dance[:year])
   end

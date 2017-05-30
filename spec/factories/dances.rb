@@ -5,8 +5,8 @@ FactoryGirl.define do
     meter
     formation
 
-    factory :authored_dance, aliases: [:authored] do
-      sequence(:author) { |n| "Author #{n}" }
+    factory :choreographered_dance, aliases: [:choreographered] do
+      sequence(:choreographer) { |n| "Choreographer #{n}" }
       sequence(:year) { |n| "177#{n}" }
       sequence(:publication) { |n| "Publication #{n}" }
     end

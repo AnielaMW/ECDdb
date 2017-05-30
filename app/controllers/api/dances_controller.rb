@@ -33,7 +33,7 @@ class Api::DancesController < ApplicationController
     params.require(:dance).permit(
       :id,
       :title,
-      :author,
+      :choreographer,
       :publication,
       :year,
       :formation_id,

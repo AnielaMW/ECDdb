@@ -22,10 +22,10 @@
     <p><%= link_to @dance.meter.name, meter_path(@dance.meter) %></p>
   </div>
 
-  <% if @dance.author && @dance.author != "" %>
+  <% if @dance.choreographer && @dance.choreographer != "" %>
     <div class="d-info-field left">
-      <h6>Author: </h6>
-      <p><%= @dance.author %></p>
+      <h6>Choreographer: </h6>
+      <p><%= @dance.choreographer %></p>
     </div>
   <% end %>
 

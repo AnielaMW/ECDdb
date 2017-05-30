@@ -13,7 +13,7 @@ submitDDDEditClick = (event) => {
   let dance = {
     id: $('#dance-id').text(),
     title: $('#dance_title').val(),
-    author: $('#dance_author').val(),
+    choreographer: $('#dance_choreographer').val(),
     publication: $('#dance_publication').val(),
     year: $('#dance_year').val(),
     formation_id: $('#dance_formation_id').val(),
