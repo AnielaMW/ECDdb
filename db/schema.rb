@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170530192454) do
+ActiveRecord::Schema.define(version: 20170530195901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,11 @@ ActiveRecord::Schema.define(version: 20170530192454) do
     t.string  "position"
   end
 
+  create_table "dance_levels", force: :cascade do |t|
+    t.string "name",        null: false
+    t.string "description", null: false
+  end
+
   create_table "dances", force: :cascade do |t|
     t.integer  "user_id",                       null: false
     t.string   "title",                         null: false
@@ -52,8 +57,9 @@ ActiveRecord::Schema.define(version: 20170530192454) do
     t.datetime "updated_at",                    null: false
     t.boolean  "complete",      default: false, null: false
     t.integer  "level"
-    t.string   "tempo"
-    t.string   "key"
+    t.integer  "tempo"
+    t.integer  "key"
+    t.integer  "mood"
   end
 
   create_table "formations", force: :cascade do |t|
@@ -63,11 +69,25 @@ ActiveRecord::Schema.define(version: 20170530192454) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "keys", force: :cascade do |t|
+    t.string "name", null: false
+  end
+
   create_table "meters", force: :cascade do |t|
     t.string   "name",        null: false
     t.string   "description", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "moods", force: :cascade do |t|
+    t.string "name",        null: false
+    t.string "description"
+  end
+
+  create_table "tempos", force: :cascade do |t|
+    t.string "name",        null: false
+    t.string "description"
   end
 
   create_table "users", force: :cascade do |t|
