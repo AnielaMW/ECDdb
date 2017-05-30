@@ -11,19 +11,19 @@
     <!-- nav bar -->
     <header id="top-bar" class="top-bar" data-topbar>
       <aside class="main-user-bar">
-        <ul class="left">
+        <h1 class="left"><%= link_to "ECDdb", root_path %></h1>
+
+        <ul class="right">
           <% if user_signed_in? %>
-            <li><%= link_to('Sign Out', destroy_user_session_path, :method => :delete) %></li>
             <li><%= link_to current_user.first_name, user_path(current_user.id) %></li>
+            <li><%= link_to('Sign Out', destroy_user_session_path, :method => :delete) %></li>
             <li id='user-id' class='hidden-all'><%= current_user.id %></li>
           <% else %>
-            <li><%= link_to "Sign In", new_user_session_path %></li>
             <li><%= link_to "Sign Up", new_user_registration_path %></li>
+            <li><%= link_to "Sign In", new_user_session_path %></li>
           <% end %>
         </ul>
       </aside>
-
-      <h1><%= link_to "ECDdb", root_path %></h1>
     </header>
 
     <!-- flash messages -->

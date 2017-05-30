@@ -3,10 +3,12 @@ class Api::DancesController < ApplicationController
     @dance = Dance.new(dance_params)
     @dance.save
 
-    dance = [@dance,
+    dance = [
+      @dance,
       user: @dance.user.first_name,
       formation: @dance.formation.name,
-      meter: @dance.meter.name]
+      meter: @dance.meter.name
+    ]
 
     render json: dance
   end
@@ -15,10 +17,12 @@ class Api::DancesController < ApplicationController
     @dance = Dance.find(dance_params[:id])
     @dance.update(dance_params)
 
-    dance = [@dance,
+    dance = [
+      @dance,
       user: @dance.user.first_name,
       formation: @dance.formation.name,
-      meter: @dance.meter.name]
+      meter: @dance.meter.name
+    ]
 
     render json: dance
   end

@@ -1,55 +1,40 @@
 <%= form_for @dance do |f| %>
   <div id="forms" class="forms" spellcheck="true">
     <form id="d-dd-form">
+
+      <div class="d-info-field left">
+        <%= f.label :title, "Title" %>
+        <%= f.text_field :title, required: true %>
+      </div>
+
+      <div class="d-info-field right year">
+        <%= f.label :year, "Year" %>
+        <%= f.text_field :year %>
+      </div>
+
+      <div class="d-info-field left">
+        <%= f.label :author, "Author" %>
+        <%= f.text_field :author %>
+      </div>
+
+      <div class="d-info-field right">
+        <%= f.label :publication, "Publication" %>
+        <%= f.text_field :publication %>
+      </div>
+
+      <div class="d-info-field left">
+        <%= f.label :formation_id, "Formation" %>
+        <%= f.collection_select :formation_id, @formation_collection, :id, :name, required: true %>
+        <%= link_to "*", formations_path, target: '_blank', :class => "new-button" %>
+      </div>
+
+      <div class="d-info-field right">
+        <%= f.label :meter_id, "Meter" %>
+        <%= f.collection_select :meter_id, @meter_collection, :id, :name, required: true %>
+        <%= link_to "*", meters_path, target: '_blank', :class => "new-button" %>
+      </div>
+
       <table>
-
-        <tr>
-          <table class="no-bord">
-            <tr>
-              <td>
-                <%= f.label :title, "Title" %>
-                <%= f.text_field :title, required: true %>
-              </td>
-            </tr>
-          </table>
-        </tr>
-
-        <tr>
-          <table class="no-bord">
-            <tr>
-              <td>
-                <%= f.label :author, "Author" %>
-                <%= f.text_field :author %>
-              </td>
-              <td>
-                <%= f.label :publication, "Publication" %>
-                <%= f.text_field :publication %>
-              </td>
-              <td>
-                <%= f.label :year, "Year" %>
-                <%= f.text_field :year %>
-              </td>
-            </tr>
-          </table>
-        </tr>
-
-        <tr>
-          <table class="no-bord">
-            <tr>
-              <td>
-                <%= f.label :formation_id, "Formation" %>
-                <%= f.collection_select :formation_id, @formation_collection, :id, :name, required: true %>
-                <%= link_to "New Formation", new_formation_path, target: '_blank', :class => "new-button" %>
-              </td>
-              <td>
-                <%= f.label :meter_id, "Meter" %>
-                <%= f.collection_select :meter_id, @meter_collection, :id, :name, required: true %>
-                <%= link_to "New Meter", new_meter_path, target: '_blank', :class => "new-button" %>
-              </td>
-            </tr>
-          </table>
-        </tr>
-
         <tr>
           <table class="no-bord">
             <tr>
@@ -64,17 +49,17 @@
           <table id="dd-form" class="dd-form">
             <tr>
               <th class="hidden-label">
-                <label for="sequence">Sequence</label>
+                <label for="sequence" class="seq">Sequence</label>
               </th>
               <th>
-                <label for="mark">Mark</label>
+                <label for="mark" class="mar">Mark</label>
               </th>
               <th>
-                <label for="measure">Measure</label>
+                <label for="measure" class="mea">Measure</label>
               <th>
-                <label for="direction">Movement</label>
+                <label for="direction" class="dir">Movement</label>
               <th>
-                <label for="position">Position</label>
+                <label for="position" class="pos">Position</label>
               </th>
             </tr>
             <section id="dd-editable-list">
@@ -89,26 +74,10 @@
             <section id="dd-new-list">
             </section>
           </table>
-          <table>
-            <tr>
-              <td>
-                <button type="button" id="dd-add" class="ref-button">+</button>
-              </td>
-            </tr>
-          </table>
-        </tr>
+        </table>
 
-        <tr>
-          <table>
-            <tr>
-              <td class="actions">
-                <p><%= f.submit %></p>
-              </td>
-            </tr>
-          </table>
-        </tr>
-
-      </table>
+        <button type="button" id="dd-add" class="ref-button">+</button>
+        <p class="actions"><%= f.submit %></p>
     </form>
   </div>
 <% end %>

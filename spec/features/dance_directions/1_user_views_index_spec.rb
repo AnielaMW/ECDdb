@@ -23,27 +23,27 @@ feature 'view dance directions', %{
   scenario 'sucessfully view the dance_directions for a given dance' do
     visit dance_path(dance)
 
-    dirT = page.all(".direction-row")
+    dir_t = page.all(".direction-row")
 
-    expect(dirT[0]).to have_content(dir1.sequence)
-    expect(dirT[0]).to have_content(dir1.direction)
-    expect(dirT[1]).to have_content(dir2.sequence)
-    expect(dirT[1]).to have_content(dir2.direction)
-    expect(dirT[2]).to have_content(dir3.sequence)
-    expect(dirT[2]).to have_content(dir3.direction)
-    expect(dirT).not_to have_content(dir4.sequence)
-    expect(dirT).not_to have_content(dir4.direction)
+    expect(dir_t[0]).to have_content(dir1.sequence)
+    expect(dir_t[0]).to have_content(dir1.direction)
+    expect(dir_t[1]).to have_content(dir2.sequence)
+    expect(dir_t[1]).to have_content(dir2.direction)
+    expect(dir_t[2]).to have_content(dir3.sequence)
+    expect(dir_t[2]).to have_content(dir3.direction)
+    expect(dir_t).not_to have_content(dir4.sequence)
+    expect(dir_t).not_to have_content(dir4.direction)
   end
 
   scenario 'sucessfully view the dance_directions with optional information' do
     visit dance_path(dir4.dance_id)
 
-    dirT = page.all(".direction-row")
+    dir_t = page.all(".direction-row")
 
-    expect(dirT[0]).to have_content(dir4.sequence)
-    expect(dirT[0]).to have_content(dir4.direction)
-    expect(dirT[0]).to have_content(dir4.mark)
-    expect(dirT[0]).to have_content(dir4.measure)
-    expect(dirT[0]).to have_content(dir4.position)
+    expect(dir_t[0]).to have_content(dir4.sequence)
+    expect(dir_t[0]).to have_content(dir4.direction)
+    expect(dir_t[0]).to have_content(dir4.mark)
+    expect(dir_t[0]).to have_content(dir4.measure)
+    expect(dir_t[0]).to have_content(dir4.position)
   end
 end

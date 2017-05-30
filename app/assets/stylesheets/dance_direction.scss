@@ -1,15 +1,40 @@
 @import "colors";
 
+th.seq,
+td.seq {
+  width: 8px;
+}
+
+th.mar,
+td.mar {
+  width: 5%;
+}
+
+th.mea,
+td.mea {
+  width: 5%;
+}
+
+th.pos,
+td.pos {
+  width: 10%;
+}
+
+td.dir {
+  text-align: left;
+}
+
 .dance-directions-table {
   border: 1px solid $color-black;
   border-collapse: collapse;
-  text-align: left;
+  font-size: 1.2857em; // 18px; //
+  text-align: center;
   vertical-align: top;
   width: 100%;
 
-  th, td {
+  th,
+  td {
     border-bottom: 1px solid $color-dark-grey;
-    font-size: 16px;
     padding: 2px;
   }
 
@@ -21,13 +46,18 @@
 .dd-form {
   border: 1px solid $color-black;
   border-collapse: collapse;
-  text-align: left;
+  text-align: center;
   vertical-align: top;
   width: 100%;
 
-  th, td {
+
+  th,
+  td {
     border-bottom: 1px solid $color-dark-grey;
-    font-size: 16px;
-    padding: 2px;
+    padding: 0 8px 0 0;
+
+    input {
+      width: 100%;
+    }
   }
 }

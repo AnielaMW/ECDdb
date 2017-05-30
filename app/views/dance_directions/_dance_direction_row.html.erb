@@ -1,25 +1,25 @@
 <tr class="direction-row">
-  <td>
+  <td  class="seq">
     <%= link_to dd.sequence, dance_dance_direction_path(dd.dance_id, dd.id) %>
   </td>
 
-  <td>
+  <td class="mar">
     <% if dd.mark %>
       <%= dd.mark %>
     <% end %>
   </td>
 
-  <td>
+  <td class="mea">
     <% if dd.measure %>
       <%= dd.measure %>
     <% end %>
   </td>
 
-  <td>
+  <td class="dir">
     <%= dd.direction %>
   </td>
 
-  <td>
+  <td class="pos">
     <% if dd.position %>
       <%= dd.position %>
     <% end %>
