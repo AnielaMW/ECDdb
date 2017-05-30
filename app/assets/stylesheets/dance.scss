@@ -83,8 +83,19 @@ p {
 }
 
 //-------------------------------MEDIA QUERIES-------------------------------//
+//------------Dance Form Break-------------//
+@media only screen and (max-width: 820px) {
 
-//------------Dance Break-------------//
+  .forms {
+    .chor,
+    .pub {
+      float: none;
+      width: 100%;
+    }
+  }
+}
+
+//------------Dance Info Break-------------//
 @media only screen and (max-width: 650px) {
 
   .forms,
@@ -92,9 +103,6 @@ p {
     .left,
     .right {
       float: none;
-    }
-
-    .d-info-field {
       width: 100%;
     }
   }
