@@ -3,8 +3,10 @@ class DancesController < ApplicationController
   before_action :admin_user?
   before_action :dances, only: [:index]
   before_action :set_dance, only: [:show, :edit, :update, :destroy]
+  before_action :directions?, only: [:show, :edit]
   before_action :comments?, only: [:show]
   before_action :collections, only: [:show, :new, :create, :edit, :update]
+  before_action :new_direction, only: [:new, :edit]
 
   def index
   end
@@ -15,9 +17,11 @@ class DancesController < ApplicationController
 
   def new
     @dance = Dance.new
+    @dance_direction = DanceDirection.new
   end
 
   def create
+    # NEED TO ACCOUNT FOR THE EMPTY "" STRINGS BEING ENTERED INTO THE DATABASE IN PLACE OF NIL
     @dance = Dance.new(dance_params.merge(user_id: current_user.id.to_s))
     if @dance.save
       redirect_to dance_path(@dance.id)
@@ -57,6 +61,10 @@ class DancesController < ApplicationController
     @dances ||= Dance.all.order(:title)
   end
 
+  def directions?
+    @dance_directions ||= @dance.dance_directions.order(:sequence)
+  end
+
   def comments?
     @dance_comments ||= @dance.dance_comments.order(created_at: :desc)
   end
@@ -67,6 +75,10 @@ class DancesController < ApplicationController
     @comment_type_collection ||= CommentType.all.order(:name)
   end
 
+  def new_direction
+    @dance_direction = DanceDirection.new
+  end
+
   def dance_params
     params.require(:dance).permit(
       :title,
@@ -75,7 +87,7 @@ class DancesController < ApplicationController
       :author,
       :publication,
       :year,
-      :direction
+      :complete
     )
   end
 end

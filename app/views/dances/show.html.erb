@@ -12,42 +12,49 @@
     <h2><%= @dance.title %></h2>
   </header>
 
-  <section class='dance-info'>
+  <table class='dance-info'>
+    <tr>
+      <td>
+        <h6>Formation: </h6>
+        <p><%= link_to @dance.formation.name, formation_path(@dance.formation) %></p>
+      </td>
 
-    <div>
-      <h3>Formation:</h3>
-      <p><%= link_to @dance.formation.name, formation_path(@dance.formation) %></p>
-    </div>
+      <td>
+        <h6>Meter: </h6>
+        <p><%= link_to @dance.meter.name, meter_path(@dance.meter) %></p>
+      </td>
+    </tr>
 
-    <div>
-      <h3>Meter:</h3>
-      <p><%= link_to @dance.meter.name, meter_path(@dance.meter) %></p>
-    </div>
-
-    <% if @dance.author %>
-      <div>
-        <h3>Author</h3>
-        <p><%= @dance.author %></p>
-      </div>
+    <% if @dance.author && @dance.author != "" %>
+      <tr>
+        <td>
+          <h6>Author: </h6>
+          <p><%= @dance.author %></p>
+        </td>
     <% end %>
 
-    <% if @dance.publication %>
-      <div>
-        <h3>Publication</h3>
-        <p><%= @dance.publication %>
+      <% if @dance.publication && @dance.publication != "" %>
+        <td>
+          <h6>Publication: </h6>
+          <p><%= @dance.publication %>
+      <% end %>
+
+      <% if @dance.year %>
+          (<%= @dance.year %>)</p>
+        </td>
+      </tr>
     <% end %>
 
-    <% if @dance.year %>
-        (<%= @dance.year %>)</p>
-      </div>
-    <% end %>
-  </section>
-
-  <section class='dance-directions'>
-    <div>
-      <h3>Direction</h3>
-      <p><%= @dance.direction %></p>
-  </section>
+    <tr>
+      <td>
+        <h6>Directions</h6>
+      </td>
+      <td></td>
+      <% if @dance.dance_directions %>
+        <%= render 'dance_directions/dance_direction_table', dance: @dance, dds: @dance_directions %>
+      <% end %>
+    </tr>
+  </table>
 
   <section id='comments' class='comments'>
     <header>

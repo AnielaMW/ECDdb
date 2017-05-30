@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users
   resources :dances do
     resources :dance_comments, only: [:new, :create]
+    resources :dance_directions
   end
   resources :dance_comments, except: [:new, :create]
   resources :formations
@@ -14,6 +15,8 @@ Rails.application.routes.draw do
   resources :comment_types
 
   namespace :api do
-    resources :dance_comments, only: [:create, :destroy]
+    resources :dance_comments, only: [:create]
+    resources :dances, only: [:create, :update]
+    resources :dance_directions, only: [:create, :update]
   end
 end

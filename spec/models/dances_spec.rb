@@ -5,6 +5,7 @@ RSpec.describe Dance, type: :model do
   it { should belong_to(:formation) }
   it { should belong_to(:meter) }
   it { should have_many(:dance_comments) }
+  it { should have_many(:dance_directions) }
 
   it { should validate_presence_of(:title) }
   it { should_not have_valid(:title).when('') }
@@ -14,7 +15,4 @@ RSpec.describe Dance, type: :model do
 
   it { should validate_presence_of(:meter_id) }
   it { should_not have_valid(:meter_id).when('') }
-
-  it { should validate_presence_of(:direction) }
-  it { should_not have_valid(:direction).when('') }
 end

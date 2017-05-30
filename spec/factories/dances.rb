@@ -2,7 +2,6 @@ FactoryGirl.define do
   factory :dance do
     user
     sequence(:title) { |n| "Dance Title #{n}" }
-    sequence(:direction) { |n| "Dance Direction #{n}" }
     meter
     formation
 

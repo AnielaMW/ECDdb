@@ -1,48 +1,114 @@
-<%= form_for(@dance) do |f| %>
-  <div class="forms">
-    <div class="field">
-      <%= f.label :title, "Title" %>
-      <%= f.text_field :title, required: true %>
-    </div>
+<%= form_for @dance do |f| %>
+  <div id="forms" class="forms" spellcheck="true">
+    <form id="d-dd-form">
+      <table>
 
-    <div class="field">
-      <%= f.label :author, "Author" %>
-      <%= f.text_field :author %>
-    </div>
+        <tr>
+          <table class="no-bord">
+            <tr>
+              <td>
+                <%= f.label :title, "Title" %>
+                <%= f.text_field :title, required: true %>
+              </td>
+            </tr>
+          </table>
+        </tr>
 
-    <div class="field">
-      <%= f.label :publication, "Publication" %>
-      <%= f.text_field :publication %>
-    </div>
+        <tr>
+          <table class="no-bord">
+            <tr>
+              <td>
+                <%= f.label :author, "Author" %>
+                <%= f.text_field :author %>
+              </td>
+              <td>
+                <%= f.label :publication, "Publication" %>
+                <%= f.text_field :publication %>
+              </td>
+              <td>
+                <%= f.label :year, "Year" %>
+                <%= f.text_field :year %>
+              </td>
+            </tr>
+          </table>
+        </tr>
 
-    <div class="field">
-      <%= f.label :year, "Year" %>
-      <%= f.text_field :year %>
-    </div>
+        <tr>
+          <table class="no-bord">
+            <tr>
+              <td>
+                <%= f.label :formation_id, "Formation" %>
+                <%= f.collection_select :formation_id, @formation_collection, :id, :name, required: true %>
+                <%= link_to "New Formation", new_formation_path, target: '_blank', :class => "new-button" %>
+              </td>
+              <td>
+                <%= f.label :meter_id, "Meter" %>
+                <%= f.collection_select :meter_id, @meter_collection, :id, :name, required: true %>
+                <%= link_to "New Meter", new_meter_path, target: '_blank', :class => "new-button" %>
+              </td>
+            </tr>
+          </table>
+        </tr>
 
-    <div class="field">
-      <%= f.label :formation_id, "Formation" %>
-      <%= f.collection_select :formation_id, @formation_collection, :id, :name, required: true %>
-      <div class="new-button">
-        <%= link_to "New Formation", new_formation_path, target: '_blank' %>
-      </div>
-    </div>
+        <tr>
+          <table class="no-bord">
+            <tr>
+              <td>
+                <label>Directions</label>
+              </td>
+            </tr>
+          </table>
+        </tr>
 
-    <div class="field">
-      <%= f.label :meter_id, "Meter" %>
-      <%= f.collection_select :meter_id, @meter_collection, :id, :name, required: true %>
-      <div class="new-button">
-        <%= link_to "New Meter", new_meter_path, target: '_blank' %>
-      </div>
-    </div>
+        <tr>
+          <table id="dd-form" class="dd-form">
+            <tr>
+              <th class="hidden-label">
+                <label for="sequence">Sequence</label>
+              </th>
+              <th>
+                <label for="mark">Mark</label>
+              </th>
+              <th>
+                <label for="measure">Measure</label>
+              <th>
+                <label for="direction">Movement</label>
+              <th>
+                <label for="position">Position</label>
+              </th>
+            </tr>
+            <section id="dd-editable-list">
+              <% if @dance_directions %>
+                <% @dance_directions.each do |dd| %>
+                  <tr class="dd-editable">
+                    <%= render 'dance_directions/form', dd: dd %>
+                  </tr>
+                <% end %>
+              <% end %>
+            </section>
+            <section id="dd-new-list">
+            </section>
+          </table>
+          <table>
+            <tr>
+              <td>
+                <button type="button" id="dd-add" class="ref-button">+</button>
+              </td>
+            </tr>
+          </table>
+        </tr>
 
-    <div class="field">
-      <%= f.label :direction, "Direction" %>
-      <%= f.text_area :direction, required: true %>
-    </div>
+        <tr>
+          <table>
+            <tr>
+              <td class="actions">
+                <p><%= f.submit %></p>
+              </td>
+            </tr>
+          </table>
+        </tr>
 
-    <div class="actions">
-      <p><%= f.submit %></p>
-    </div>
+      </table>
+    </form>
   </div>
 <% end %>

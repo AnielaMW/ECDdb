@@ -11,12 +11,6 @@ class Api::DanceCommentsController < ApplicationController
     render json: comment
   end
 
-  def destroy
-    # binding.pry
-    # @dance_comment = DanceComment.find_by()
-    # @dance_comment.destroy
-  end
-
   private
 
   def dc_params

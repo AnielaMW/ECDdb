@@ -17,7 +17,7 @@ class NewComment{
         <footer>
           <ul>
             <li><a href="/dance_comments/${this.comment[0]}/edit">Edit</a></li>
-            <li id="remove_item"><a href="">Delete</a></li>
+            <li><a href="">Delete</a></li>
           </ul>
         </footer>
       </article>
@@ -25,27 +25,25 @@ class NewComment{
   }
 }
 
-let prependTarget = (target, text) => {
-  target.prepend(text);
-};
-
-submitClick = (event) => {
+submitDCClick = (event) => {
   event.preventDefault();
 
-  let tId = $('#dance_comment_comment_type_id').val();
-  let com = $('#dance_comment_comment').val();
-  let uId = $('#user-id').text();
-  let dId = $('#dance-id').text();
+  let comment = {
+    comment: $('#dance_comment_comment').val(),
+    comment_type_id: $('#dance_comment_comment_type_id').val(),
+    user_id: $('#user-id').text(),
+    dance_id: $('#dance-id').text()
+  };
 
-  let saveComment = () => {
+  saveComment = () => {
     $.ajax({
       method: 'POST',
       url: '/api/dance_comments',
-      data: {dance_comment: {comment: com, comment_type_id: tId, user_id: uId, dance_id: dId}}
+      data: {dance_comment: comment}
     }).done((response) => { createComment(response);});
   };
 
-  let createComment = (response) => {
+  createComment = (response) => {
     let newCom = new NewComment(response);
     prependTarget($('#dance-comment-list'), newCom.toHTML());
 
@@ -57,5 +55,5 @@ submitClick = (event) => {
 };
 
 $(document).ready(() => {
-  $('#dance-show #dc-form').submit(submitClick);
+  $('#dance-show #dc-form').submit(submitDCClick);
 });

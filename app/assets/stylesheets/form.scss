@@ -6,7 +6,7 @@
   }
 
   label {
-    font-size: 18px;
+    font-size: 16px;
     margin: 10px 10px 10px 0;
   }
 
@@ -45,10 +45,13 @@
     width: auto;
   }
 
-  .ref-button,
   .new-button {
     border-radius: 10%;
     margin: 0 5px;
+  }
+
+  .ref-button {
+    border-radius: 10%;
   }
 
   .ref-button:hover,

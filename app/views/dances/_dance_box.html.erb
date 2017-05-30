@@ -6,7 +6,7 @@
   </h2>
 
   <section>
-    <% if dance.author %>
+    <% if dance.author && dance.author != "" %>
       <p><bdi>Authored by:</bdi> <%= dance.author %></p>
     <% end %>
     <p><bdi>Created by:</bdi> <%= link_to dance.user.first_name, user_path(dance.user_id) %></p>

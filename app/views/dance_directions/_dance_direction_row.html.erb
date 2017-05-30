@@ -1,0 +1,27 @@
+<tr class="direction-row">
+  <td>
+    <%= link_to dd.sequence, dance_dance_direction_path(dd.dance_id, dd.id) %>
+  </td>
+
+  <td>
+    <% if dd.mark %>
+      <%= dd.mark %>
+    <% end %>
+  </td>
+
+  <td>
+    <% if dd.measure %>
+      <%= dd.measure %>
+    <% end %>
+  </td>
+
+  <td>
+    <%= dd.direction %>
+  </td>
+
+  <td>
+    <% if dd.position %>
+      <%= dd.position %>
+    <% end %>
+  </td>
+</tr>

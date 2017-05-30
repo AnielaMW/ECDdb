@@ -1,4 +1,5 @@
-<main class="dance-edit">
+<main id="dance-edit" class="dance-edit">
   <h2>Edit <%= @dance.title %></h2>
-  <%= render 'form', dance: @dance %>
+  <p id='dance-id' class='hidden-all'><%= @dance.id %></p>
+  <%= render 'form', dance: @dance, dance_direction: @dance_direction %>
 </main>
