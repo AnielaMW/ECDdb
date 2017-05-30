@@ -1,7 +1,6 @@
 @import "colors";
 
-// Basic sitewide css styles
-
+// Basic Sitewide CSS Styles
 .hidden-all {
   display: none;
 }
@@ -12,43 +11,54 @@
   padding: 0;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   background: linear-gradient(to bottom, $color-med-grey, $color-white);
-  font-size: 18px;
+  font-size: 87.5%; // 14px; //
+  width: 100%;
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 2.2em; // 30px; //
   margin: 15px 0;
 }
 
 h2 {
-  font-size: 28px;
+  font-size: 2em;  // 28px; //
   margin: 10px 0;
 }
 
 h3 {
-  font-size: 26px;
+  font-size: 1.8571em;  // 26px; //
   margin: 5px 0;
 }
 
 h4 {
-  font-size: 24px;
+  font-size: 1.7142em;  // 24px; //
   margin: 3px 0;
 }
 
 h5 {
-  font-size: 22px;
+  font-size: 1.5714em;  // 22px; //
   margin: 2px 0;
 }
 
 h6 {
-  font-size: 20px;
-  margin: 5px 0;
+  font-size: 1.4285em;  // 20px; //
+  margin: 1px 0;
+}
+
+p,
+label,
+input {
+  font-size: 1.1428em; // 16px; //
 }
 
 main {
-  padding: 0 20px;
+  padding: 0 2.040816%; // 0 20px; //
 }
 
 a {
@@ -61,48 +71,110 @@ a:hover {
   text-decoration: underline;
 }
 
-// sitewide header
+header>a {
+  font-size: 0.8571em; // 12px; //
+}
 
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+// Sitewide Header
 .top-bar {
   background-color: $color-red;
   border-bottom: 5px solid $color-black;
   color: $color-white;
   margin-bottom: 20px;
-  padding: 10px 20px;
+  padding: 1.020408% 2.040816%; // 10px 20px; //
   text-shadow: 1px 3px 1px $color-black;
 }
 
-header aside li {
-  display: inline;
-  float: right;
-  font-size: 12px;
-  padding: 31px 8px;
+header aside {
+  height: 60px;
+
+  h1 {
+    float: left;
+    padding-top: 1px;
+  }
+
+  ul {
+    float: right;
+    padding-top: 31px;
+  }
+
+  li {
+    display: inline;
+    font-size: 12px;
+    padding: 0 8px;
+  }
 }
 
-// sitewide user bars
-
+// Sitewide user bars
 .user-bar li {
   display: inline;
   float: right;
-  font-size: 14px;
+  font-size: 12px;
   margin-top: 14px;
   padding-right: 8px;
 }
 
-// sitewide footer
-
+// Sitewide Footer
 .bottom-bar {
   background-color: $color-red;
   border-top: 3px solid $color-black;
   color: $color-white;
   margin-top: 20px;
-  padding: 10px 20px;
+  padding: 1.020408% 2.040816%; // 10px 20px; //
   text-shadow: 1px 3px 1px $color-black;
 
   h1 {
-    font-size: 18px;
+    font-size: 1.4285em;  // 20px; //
     font-style: italic;
     font-weight: normal;
     text-align: center;
+  }
+}
+
+//-------------------------------MEDIA QUERIES-------------------------------//
+
+//--Tablet Portrait and Smart Phone Landscape--//
+@media only screen and (min-width: 500px) and (max-width: 850px) {
+
+  // Basic Sitewide CSS Styles
+  html {
+    font-size: 15px;
+  }
+
+  // Sitewide Header
+  .top-bar {
+    margin-bottom: 15px;
+  }
+
+  // Sitewide Footer
+  .bottom-bar {
+    margin-top: 15px;
+  }
+}
+
+//------------Smart Phone Portrait-------------//
+@media only screen and (max-width: 499px) {
+
+  // Basic Sitewide CSS Styles
+  html {
+    font-size: 14px;
+  }
+
+  // Sitewide Header
+  .top-bar {
+    margin-bottom: 10px;
+  }
+
+  // Sitewide Footer
+  .bottom-bar {
+    margin-top: 10px;
   }
 }

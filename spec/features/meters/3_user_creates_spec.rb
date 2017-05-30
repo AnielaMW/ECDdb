@@ -17,7 +17,7 @@ feature 'create a meter', %{
   scenario 'authenticated user successfully create meter
     with valid information' do
     sign_in anne
-    visit new_dance_path
+    visit meters_path
     click_link "New Meter"
 
     expect(page).to have_current_path(new_meter_path)
@@ -33,7 +33,7 @@ feature 'create a meter', %{
   scenario 'authenticated user fail to create meter
     with invalid information' do
     sign_in anne
-    visit new_dance_path
+    visit meters_path
     click_link "New Meter"
     fill_in 'Name', with: ""
     fill_in 'Description', with: ""
