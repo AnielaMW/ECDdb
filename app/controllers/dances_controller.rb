@@ -64,18 +64,22 @@ class DancesController < ApplicationController
     @dance_directions ||= @dance.dance_directions.order(:sequence)
   end
 
+  def new_direction
+    @dance_direction = DanceDirection.new
+  end
+
   def comments?
     @dance_comments ||= @dance.dance_comments.order(created_at: :desc)
   end
 
   def collections
-    @formation_collection ||= Formation.all.order(:name)
-    @meter_collection ||= Meter.all.order(:name)
     @comment_type_collection ||= CommentType.all.order(:name)
-  end
-
-  def new_direction
-    @dance_direction = DanceDirection.new
+    @formation_collection ||= Formation.all.order(:name)
+    @key_collection ||= Key.all.order(:name)
+    @level_collection ||= DanceLevel.all
+    @meter_collection ||= Meter.all.order(:name)
+    @mood_collection ||= Mood.all.order(:name)
+    @tempo_collection ||= Tempo.all
   end
 
   def dance_params
@@ -86,6 +90,10 @@ class DancesController < ApplicationController
       :choreographer,
       :publication,
       :year,
+      :key_id,
+      :dance_level_id,
+      :mood_id,
+      :tempo_id,
       :complete
     )
   end

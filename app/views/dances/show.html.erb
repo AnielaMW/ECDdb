@@ -22,6 +22,34 @@
     <p><%= link_to @dance.meter.name, meter_path(@dance.meter) %></p>
   </div>
 
+  <% if @dance.tempo && @dance.tempo != "" %>
+    <div class="d-info-field left">
+      <h6>Tempo: </h6>
+      <p><%= link_to @dance.tempo.name, tempo_path(@dance.tempo) %></p>
+    </div>
+  <% end %>
+
+  <% if @dance.key && @dance.key != "" %>
+    <div class="d-info-field right">
+      <h6>Key: </h6>
+      <p><%= link_to @dance.key.name, key_path(@dance.key) %></p>
+    </div>
+  <% end %>
+
+  <% if @dance.dance_level && @dance.dance_level != "" %>
+    <div class="d-info-field left">
+      <h6>Level: </h6>
+      <p><%= link_to @dance.dance_level.name, dance_level_path(@dance.dance_level) %></p>
+    </div>
+  <% end %>
+
+  <% if @dance.mood && @dance.mood != "" %>
+    <div class="d-info-field right">
+      <h6>Mood: </h6>
+      <p><%= link_to @dance.mood.name, mood_path(@dance.mood) %></p>
+    </div>
+  <% end %>
+
   <% if @dance.choreographer && @dance.choreographer != "" %>
     <div class="d-info-field left">
       <h6>Choreographer: </h6>

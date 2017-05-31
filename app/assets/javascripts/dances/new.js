@@ -22,6 +22,10 @@ submitDDDClick = (event) => {
     year: $('#dance_year').val(),
     formation_id: $('#dance_formation_id').val(),
     meter_id: $('#dance_meter_id').val(),
+    key_id: $('#dance_key_id').val(),
+    tempo_id: $('#dance_tempo_id').val(),
+    dance_level_id: $('#dance_dance_level_id').val(),
+    mood_id: $('#dance_mood_id').val(),
     user_id: $('#user-id').text()
   };
 
