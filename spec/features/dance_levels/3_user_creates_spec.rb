@@ -10,11 +10,11 @@ feature 'create a dance_level', %{
   # User must povide Name and Desription
   # If user is not signed-in they cannot see the link to add new dance_levels.
 
-  let!(:anne) { FactoryGirl.create(:anne) }
+  let!(:anne) { FactoryGirl.create(:admin) }
   let!(:dance) { FactoryGirl.create(:dance) }
   new_dance_level = { name: "6 Couple", description: "3 next to 3" }
 
-  scenario 'authenticated user successfully create dance_level
+  scenario 'admin user successfully create dance_level
     with valid information' do
     sign_in anne
     visit dance_levels_path
@@ -30,7 +30,7 @@ feature 'create a dance_level', %{
     expect(page).to have_content(new_dance_level[:name])
   end
 
-  scenario 'authenticated user fail to create dance_level
+  scenario 'admin user fail to create dance_level
     with invalid information' do
     sign_in anne
     visit dance_levels_path
@@ -44,7 +44,7 @@ feature 'create a dance_level', %{
     )
   end
 
-  scenario 'fail to create a dance_level with unauthenticated user' do
+  scenario 'fail to create a dance_level with non-admin user' do
     visit new_dance_path
 
     expect(page).to have_content(

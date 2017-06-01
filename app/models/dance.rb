@@ -7,6 +7,7 @@ class Dance < ApplicationRecord
   belongs_to :dance_level
   has_many :dance_comments
   has_many :dance_directions
+  has_many :moods, through: :dances_mmod
 
   validates :title, presence: true, uniqueness: true
   validates :formation_id, presence: true

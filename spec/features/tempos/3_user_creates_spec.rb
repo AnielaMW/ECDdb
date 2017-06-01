@@ -10,11 +10,11 @@ feature 'create a tempo', %{
   # User must povide Name and Desription
   # If user is not signed-in they cannot see the link to add new tempos.
 
-  let!(:anne) { FactoryGirl.create(:anne) }
+  let!(:anne) { FactoryGirl.create(:admin) }
   let!(:dance) { FactoryGirl.create(:dance) }
   new_tempo = { name: "Flirty", description: "Romantic, but fun." }
 
-  scenario 'authenticated user successfully create tempo
+  scenario 'admin user successfully create tempo
     with valid information' do
     sign_in anne
     visit tempos_path
@@ -30,7 +30,7 @@ feature 'create a tempo', %{
     expect(page).to have_content(new_tempo[:name])
   end
 
-  scenario 'authenticated user fail to create tempo
+  scenario 'admin user fail to create tempo
     with invalid information' do
     sign_in anne
     visit tempos_path
@@ -42,7 +42,7 @@ feature 'create a tempo', %{
     expect(page).to have_content("Name can't be blank")
   end
 
-  scenario 'fail to create a tempo with unauthenticated user' do
+  scenario 'fail to create a tempo with non-admin user' do
     visit new_dance_path
 
     expect(page).to have_content(
