@@ -2,12 +2,11 @@ class Dance < ApplicationRecord
   belongs_to :user
   belongs_to :meter
   belongs_to :formation
-  belongs_to :key
   belongs_to :tempo
+  belongs_to :key
   belongs_to :dance_level
   has_many :dance_comments
   has_many :dance_directions
-  has_many :moods
 
   validates :title, presence: true, uniqueness: true
   validates :formation_id, presence: true

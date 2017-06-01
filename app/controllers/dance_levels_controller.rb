@@ -47,7 +47,7 @@ class DanceLevelsController < ApplicationController
   private
 
   def dance_levels
-    DanceLevel.all.order(:name)
+    DanceLevel.all
   end
 
   def set_dance_level

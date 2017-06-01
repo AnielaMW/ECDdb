@@ -43,13 +43,6 @@
     </div>
   <% end %>
 
-  <% if @dance.mood && @dance.mood != "" %>
-    <div class="d-info-field right">
-      <h6>Mood: </h6>
-      <p><%= link_to @dance.mood.name, mood_path(@dance.mood) %></p>
-    </div>
-  <% end %>
-
   <% if @dance.choreographer && @dance.choreographer != "" %>
     <div class="d-info-field left">
       <h6>Choreographer: </h6>

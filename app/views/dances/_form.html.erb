@@ -54,12 +54,7 @@
         <%= link_to "*", dance_levels_path, target: '_blank', :class => "new-button" %>
       </div>
 
-      <!-- Eventually need to be able to select multiple from a list of radio buttons rather than drop down -->
-      <div class="d-info-field right">
-        <%= f.label :mood_id, "Mood" %>
-        <%= f.collection_select :mood_id, @mood_collection, :id, :name %>
-        <%= link_to "*", moods_path, target: '_blank', :class => "new-button" %>
-      </div>
+      <!-- Eventually need to be able to select multiple MOODS from a list of radio buttons rather than drop down -->
 
       <table>
         <tr>

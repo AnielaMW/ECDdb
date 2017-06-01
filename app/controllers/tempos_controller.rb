@@ -47,7 +47,7 @@ class TemposController < ApplicationController
   private
 
   def tempos
-    Tempo.all.order(:name)
+    Tempo.all
   end
 
   def set_tempo
