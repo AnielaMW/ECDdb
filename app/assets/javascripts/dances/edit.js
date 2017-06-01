@@ -21,7 +21,6 @@ submitDDDEditClick = (event) => {
     key_id: $('#dance_key_id').val(),
     tempo_id: $('#dance_tempo_id').val(),
     dance_level_id: $('#dance_dance_level_id').val(),
-    mood_id: $('#dance_mood_id').val(),
     user_id: $('#user-id').text()
   };
 
