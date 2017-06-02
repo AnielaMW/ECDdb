@@ -41,6 +41,7 @@ class DanceDevSeeder
       user_id = 2
 
       dance = Dance.find_or_initialize_by(title: d_params["title"])
+      
       dance.title = d_params["title"]
       dance.choreographer = d_params["choreographer"]
       dance.dance_level = dance_level
@@ -50,6 +51,7 @@ class DanceDevSeeder
       # dance.mood = mood
       dance.tempo = tempo
       dance.user_id = user_id
+
       dance.save
     end
   end

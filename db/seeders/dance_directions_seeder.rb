@@ -7,10 +7,10 @@ class DirectionDevSeeder
 
     dd_list["instruction"].each do |dd_params|
 
-      puts dd_params["index"]
       dance = Dance.find_by(id: dd_params["index"])
 
       d_direction = DanceDirection.find_or_initialize_by(dance_id: dd_params["index"], sequence: dd_params["sequence"])
+      
       d_direction.dance = dance
       d_direction.sequence = dd_params["sequence"]
       d_direction.mark = dd_params["mark"]

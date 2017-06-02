@@ -23,6 +23,7 @@ class UserDevSeeder
   def self.seed!
     USERS.each do |u_params|
       user = User.find_or_initialize_by(email: u_params[:email])
+      
       user.update_attributes!(u_params)
     end
   end
