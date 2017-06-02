@@ -12,27 +12,26 @@ feature 'view moods#show', %{
   # they should expect to see all details of a mood
   # Details must include Name and Description
 
-  let!(:mood) { FactoryGirl.create(:mood) }
-  # let!(:dance) { FactoryGirl.create(:dance, mood_id: mood.id) }
+  let!(:dm) { FactoryGirl.create(:dance_mood) }
 
   scenario 'sucessfully view a mood#show when entered directly' do
-    visit mood_path(mood.id)
+    visit mood_path(dm.mood.id)
 
-    expect(page).to have_content(mood.name)
-    expect(page).to have_content(mood.description)
+    expect(page).to have_content(dm.mood.name)
+    expect(page).to have_content(dm.mood.description)
   end
 
   scenario 'sucessfully view a mood#show from moods#index_path or
   dance_path' do
     visit moods_path
-    click_link mood.name
+    click_link dm.mood.name
 
-    expect(page).to have_current_path(mood_path(mood.id))
+    expect(page).to have_current_path(mood_path(dm.mood.id))
 
-    # visit dance_path(dance)
-    # click_link mood.name
-    #
-    # expect(page).to have_current_path(mood_path(mood.id))
+    visit dance_path(dm.dance.id)
+    click_link dm.mood.name
+
+    expect(page).to have_current_path(mood_path(dm.mood.id))
 
     # AS A TOOLTIP OVER EACH FORMATIONS NAME IN THE DROP DOWN
   end

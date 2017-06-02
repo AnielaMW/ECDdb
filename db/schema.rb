@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170531204748) do
+ActiveRecord::Schema.define(version: 20170602203852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,11 @@ ActiveRecord::Schema.define(version: 20170531204748) do
     t.string "description", null: false
   end
 
+  create_table "dance_moods", force: :cascade do |t|
+    t.integer "dance_id", null: false
+    t.integer "mood_id",  null: false
+  end
+
   create_table "dances", force: :cascade do |t|
     t.integer  "user_id",                        null: false
     t.string   "title",                          null: false
@@ -59,11 +64,6 @@ ActiveRecord::Schema.define(version: 20170531204748) do
     t.integer  "dance_level_id"
     t.integer  "tempo_id"
     t.integer  "key_id"
-  end
-
-  create_table "dances_moods", id: false, force: :cascade do |t|
-    t.integer "dance_id", null: false
-    t.integer "mood_id",  null: false
   end
 
   create_table "formations", force: :cascade do |t|
