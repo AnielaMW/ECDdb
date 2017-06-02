@@ -27,7 +27,7 @@ submitDDDEditClick = (event) => {
   updateDance = () => {
     $.ajax({
       method: 'PUT',
-      url: `/api/dances/$(dance[:id])`,
+      url: `/api/dances/${dance.id}`,
       data: {dance: dance}
     }).done((response) => { createDance(response); });
   };

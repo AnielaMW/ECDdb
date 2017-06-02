@@ -783,7 +783,7 @@
 		},
 		{
 			"index":66,
-			"title":"Sadler’s Wells",
+			"title":"Sadlerï¿½s Wells",
 			"formation":"LW",
 			"level":"Simple",
 			"tempo":"Fast",
@@ -828,6 +828,6 @@
 			"layout":"",
 			"meter":"2/2",
 			"key":""
-		},
+		}
 	]
 }
