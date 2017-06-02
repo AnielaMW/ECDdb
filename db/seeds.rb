@@ -7,9 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require_relative 'seeders/user_seeder'
 require_relative 'seeders/dances_seeder'
-
+require_relative 'seeders/dance_directions_seeder'
 
 if Rails.env.development?
-  # UserDevSeeder.seed!
+  UserDevSeeder.seed!
   DanceDevSeeder.seed!
+  DirectionDevSeeder.seed!
 end
