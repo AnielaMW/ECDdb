@@ -14,6 +14,17 @@
     font-size: 14px;
     margin-bottom: 10px;
     padding: 3px;
+  }
+
+  .short>input {
+    width: 30%;
+  }
+
+  .medium>input {
+    width: 50%;
+  }
+
+  .long>input {
     width: 70%;
   }
 
@@ -30,6 +41,43 @@
     margin-bottom: 10px;
     padding: 3px;
     width: 100%;
+  }
+
+  fieldset {
+    border: 1px solid $color-black;
+    margin-bottom: 15px;
+
+    legend{
+      font-weight: bold;
+      font-size: 20px;
+      margin: 0 5px;
+      padding: 0 5px;
+    }
+
+    h1 {
+      font-weight: bold;
+      font-size: 16px;
+      margin: 0 5px 0 5px;
+      padding: 5px;
+    }
+
+    div {
+      display: inline;
+      margin: 0 15px 5px 15px;
+    }
+
+    input{
+      margin: 0 5px;
+      width: auto;
+    }
+
+    textarea {
+      display: block;
+      font-size: 14px;
+      height: auto;
+      margin: 10px;
+      width: 95%;
+    }
   }
 
   .ref-button,
