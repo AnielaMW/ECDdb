@@ -3,7 +3,50 @@
     <ul class="user-bar">
       <li><%= link_to "Edit Profile", edit_user_registration_path(@user) %></li>
     </ul>
-    <h2><%= @user.first_name %></h2>
+    <h2><%= @user.name %></h2>
+
+    <h4>
+      <% if @user.privacy1 && @user.privacy2 %>
+        <%= @user.first_name %>
+      <% end %>
+      <% if @user.privacy3 %>
+        <%= @user.last_name %>
+      <% end %>
+    </h4>
+
+    <% if @user.privacy5 %>
+      <p><%= @user.location %></p>
+    <% end %>
+
+    <% if @user.privacy4 %>
+      <h5>Contact</h5>
+      <p><%= @user.email %></p>
+    <% end %>
+
+    <% if @user.ima %>
+      <h4>I am a...</h4>
+      <% if @user.dancer %>
+        <p>Dancer</p>
+      <% end %>
+      <% if @user.caller %>
+        <p>Caller</p>
+      <% end %>
+      <% if @user.musician %>
+        <p>Musician</p>
+      <% end %>
+      <% if @user.band %>
+        <p>Band</p>
+      <% end %>
+      <% if @user.choreographer %>
+        <p>Choreographer</p>
+      <% end %>
+      <% if @user.composer %>
+        <p>Composer</p>
+      <% end %>
+    <% end %>
+
+    <p><%= @user.about %></p>
+
   </header>
 
   <% if @user.dances? %>
@@ -31,4 +74,8 @@
       </ul>
     </section>
   <% end %>
+
+  <div class="bottom-line">
+    <p>Last signed in on <%= @user.last_sign_in_at %></p>
+  </div>
 </main>

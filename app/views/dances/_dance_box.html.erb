@@ -9,7 +9,7 @@
     <% if dance.choreographer && dance.choreographer != "" %>
       <p><bdi>Choreographed by:</bdi> <%= dance.choreographer %></p>
     <% end %>
-    <p><bdi>Created by:</bdi> <%= link_to dance.user.first_name, user_path(dance.user_id) %></p>
+    <p><bdi>Created by:</bdi> <%= link_to dance.user.name, user_path(dance.user_id) %></p>
   </section>
 
   <footer>

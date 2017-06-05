@@ -37,6 +37,8 @@
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
 
+      <!-- How do I get checkboxes and radios to "pre-check" based on the existing values at the start of the form? -->
+
       <fieldset>
         <legend>I am a...</legend>
         <div class="line-up"><input type="checkbox" name="dancer" value=true><p> Dancer</p></div>
@@ -55,37 +57,37 @@
         <h1>Use your...</h1>
         <div>
           <p>First Name</p>
-          <input type="radio" name="privacy1" value="true" checked>
+          <input type="radio" name="privacy1" value="false">
           <p>Username </p>
           <i>(must enter a username above)</i>
-          <input type="radio" name="privacy1" value="false">
+          <input type="radio" name="privacy1" value="true">
         </div>
         <h1>Share your...</h1>
         <div class="line-up">
           <p>First Name? </p>
           <p>Yes</p>
-          <input type="radio" name="privacy2" value="true" checked>
+          <input type="radio" name="privacy2" value="true">
           <p>No</p>
           <input type="radio" name="privacy2" value="false">
         </div>
         <div class="line-up">
           <p>Last Name? </p>
           <p>Yes</p>
-          <input type="radio" name="privacy3" value="true" checked>
+          <input type="radio" name="privacy3" value="true">
           <p>No</p>
           <input type="radio" name="privacy3" value="false">
         </div>
         <div class="line-up">
           <p>Email? </p>
           <p>Yes</p>
-          <input type="radio" name="privacy4" value="true" checked>
+          <input type="radio" name="privacy4" value="true">
           <p>No</p>
           <input type="radio" name="privacy4" value="false">
         </div>
         <div class="line-up">
           <p>Location? </p>
           <p>Yes</p>
-          <input type="radio" name="privacy5" value="true" checked>
+          <input type="radio" name="privacy5" value="true">
           <p>No</p>
           <input type="radio" name="privacy5" value="false">
         </div>

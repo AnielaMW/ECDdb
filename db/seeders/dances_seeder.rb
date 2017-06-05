@@ -28,10 +28,10 @@ class DanceDevSeeder
         meter.update_attributes!(name: d_params["meter"], description: "must change")
       end
 
-      # mood = Mood.find_or_initialize_by(name: d_params["mood"])
-      # unless d_params["mood"] == "" || d_params["mood"] == nil
-      #   mood.update_attributes!(name: d_params["mood"], description: "must change")
-      # end
+      mood = Mood.find_or_initialize_by(name: d_params["mood"])
+      unless d_params["mood"] == "" || d_params["mood"] == nil
+        mood.update_attributes!(name: d_params["mood"], description: "must change")
+      end
 
       tempo = Tempo.find_or_initialize_by(name: d_params["tempo"])
       unless d_params["tempo"] == "" || d_params["tempo"] == nil
@@ -41,7 +41,7 @@ class DanceDevSeeder
       user_id = 2
 
       dance = Dance.find_or_initialize_by(title: d_params["title"])
-      
+
       dance.title = d_params["title"]
       dance.choreographer = d_params["choreographer"]
       dance.dance_level = dance_level

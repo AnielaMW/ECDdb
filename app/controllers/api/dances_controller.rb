@@ -5,7 +5,7 @@ class Api::DancesController < ApplicationController
 
     dance = [
       @dance,
-      user: @dance.user.first_name,
+      user: @dance.user.name,
       formation: @dance.formation.name,
       meter: @dance.meter.name
     ]
@@ -19,7 +19,7 @@ class Api::DancesController < ApplicationController
 
     dance = [
       @dance,
-      user: @dance.user.first_name,
+      user: @dance.user.name,
       formation: @dance.formation.name,
       meter: @dance.meter.name
     ]

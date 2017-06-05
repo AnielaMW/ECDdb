@@ -4,7 +4,7 @@ class Api::DanceCommentsController < ApplicationController
     @dance_comment.save
 
     comment = [@dance_comment,
-      user: @dance_comment.user.first_name,
+      user: @dance_comment.user.name,
       dance: @dance_comment.dance.title,
       comment_type: @dance_comment.comment_type.name]
 

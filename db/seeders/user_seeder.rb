@@ -3,9 +3,15 @@ class UserDevSeeder
     {
       first_name: "Aniela",
       last_name: "Wolkonowski",
+      username: "Dance Mistress",
       email: "anielamw@gmail.com",
+      location: "NY, USA",
+      dancer: true,
       password: "12041980",
-      admin: true
+      admin: true,
+      privacy1: true,
+      privacy3: true,
+      privacy4: true
     }, {
       first_name: "Dan",
       last_name: "Seppler",
@@ -23,7 +29,7 @@ class UserDevSeeder
   def self.seed!
     USERS.each do |u_params|
       user = User.find_or_initialize_by(email: u_params[:email])
-      
+
       user.update_attributes!(u_params)
     end
   end

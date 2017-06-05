@@ -10,6 +10,20 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
 
+  def name
+    if privacy1 && username != nil
+      username
+    else
+      first_name
+    end
+  end
+
+  def ima
+    if dancer || caller || musician || band ||choreographer || composer
+      true
+    end
+  end
+
   def dances?
     dances != []
   end

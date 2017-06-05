@@ -5,7 +5,7 @@
         <li><%= link_to 'Delete', @dance, method: :delete, data: { confirm: 'Are you sure?' } %></li>
         <li><%= link_to 'Edit', edit_dance_path(@dance) %></li>
       <% end %>
-      <li>Created by: <%= link_to @dance.user.first_name, user_path(@dance.user_id) %></li>
+      <li>Created by: <%= link_to @dance.user.name, user_path(@dance.user_id) %></li>
     </ul>
     <p id='dance-id' class='hidden-all'><%= @dance.id %></p>
 
