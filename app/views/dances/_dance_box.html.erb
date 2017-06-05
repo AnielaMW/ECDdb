@@ -1,9 +1,15 @@
 <article class="dance-box">
-  <h2><%= link_to dance.title, dance_path(dance) %>
-    <% if dance.year %>
-      <bdi>(<%= dance.year %>)</bdi>
-    <% end %>
-  </h2>
+  <section>
+    <h2><%= link_to dance.title, dance_path(dance) %>
+      <% if dance.year %>
+        <bdi>(<%= dance.year %>)</bdi>
+      <% end %>
+    </h2>
+  </section>
+
+  <section>
+    <!-- the name of the song -->
+  </section>
 
   <section>
     <% if dance.choreographer && dance.choreographer != "" %>
