@@ -14,3 +14,9 @@ if Rails.env.development?
   DanceDevSeeder.seed!
   DirectionDevSeeder.seed!
 end
+
+if Rails.env.production?
+  UserDevSeeder.seed!
+  DanceDevSeeder.seed!
+  DirectionDevSeeder.seed!
+end
