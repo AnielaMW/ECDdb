@@ -26,38 +26,12 @@
       </aside>
     </header>
 
-    <table class="page-layout">
-      <td class="left-side-bar">
-        <!-- Partials that are list specific JS to narrow the parameters of what is shown on the page. Like a search feature almost. -->
-        <p>yo</P>
-      </td>
+    <!-- flash messages -->
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
-      <td class="main-window">
-        <!-- flash messages -->
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-
-        <!-- main content -->
-        <%= yield %>
-      </td>
-
-      <!-- right side bar -->
-      <td class="right-side-bar">
-        <ul>
-          <li><%= link_to "Members", users_path %></li>
-          <li><%= link_to "Dances", dances_path %></li>
-          <li><%= link_to "Comments", dance_comments_path %></li>
-          <li><%= link_to "Comment Types", comment_types_path %></li>
-          <li><%= link_to "Formations", formations_path %></li>
-          <li><%= link_to "Meters", meters_path %></li>
-          <li><%= link_to "Moods", moods_path %></li>
-          <li><%= link_to "Keys", keys_path %></li>
-          <li><%= link_to "Levels", dance_levels_path %></li>
-          <li><%= link_to "Tempos", tempos_path %></li>
-        </ul>
-        <!-- Eventually this should be controled by partials based on what page the user is on. -->
-      </td>
-    </table>
+    <!-- main content -->
+    <%= yield %>
 
     <footer class="bottom-bar">
       <h1>Dance like no one is watching.</h1>

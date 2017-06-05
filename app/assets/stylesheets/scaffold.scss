@@ -113,39 +113,6 @@ header aside {
   }
 }
 
-.page-layout {
-  width: 100%;
-  td {
-    vertical-align: top;
-  }
-
-  // Sitewide left side bars
-  .left-side-bar {
-    width: 10%;
-    p {
-      margin-top: 24px;
-    }
-  }
-
-  // Sitewide right side bars
-  .right-side-bar {
-    width: 10%;
-    ul {
-      margin-top: 24px;
-      li {
-        display: block;
-        margin-bottom: 5px;
-      }
-    }
-  }
-
-  // Sitewide main window
-  .main-window {
-    width: 80%;
-  }
-}
-
-
 // Sitewide user bars
 .user-bar li {
   display: inline;
