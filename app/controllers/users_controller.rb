@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   private
 
   def users
-    @users ||= User.all
+    @users ||= User.all.order(:first_name)
   end
 
   def set_user
