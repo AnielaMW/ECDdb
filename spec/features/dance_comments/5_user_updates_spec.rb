@@ -9,7 +9,7 @@ feature 'update a dance_comment', %{
   # User cannot edit dance_comments unless user is signed-in
   # User cannot edit dance_comments unless they are the creator
   # User must povide Title, Formation, Meter, Dance_Instructions
-  # User may provide Author, Year, Publication
+  # User may provide Choreographer, Year, Publication
   # If user is not signed-in, they cannot see the 'Edit' button
   # If user is not the creator, they cannot see the 'Edit' button
 

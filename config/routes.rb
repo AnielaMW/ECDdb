@@ -10,8 +10,12 @@ Rails.application.routes.draw do
     resources :dance_directions
   end
   resources :dance_comments, except: [:new, :create]
+  resources :dance_levels
   resources :formations
+  resources :keys
   resources :meters
+  resources :moods
+  resources :tempos
   resources :comment_types
 
   namespace :api do

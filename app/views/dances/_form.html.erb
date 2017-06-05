@@ -12,12 +12,12 @@
         <%= f.text_field :year %>
       </div>
 
-      <div class="d-info-field left">
-        <%= f.label :author, "Author" %>
-        <%= f.text_field :author %>
+      <div class="d-info-field left chor">
+        <%= f.label :choreographer, "Choreographer" %>
+        <%= f.text_field :choreographer %>
       </div>
 
-      <div class="d-info-field right">
+      <div class="d-info-field right pub">
         <%= f.label :publication, "Publication" %>
         <%= f.text_field :publication %>
       </div>
@@ -33,6 +33,28 @@
         <%= f.collection_select :meter_id, @meter_collection, :id, :name, required: true %>
         <%= link_to "*", meters_path, target: '_blank', :class => "new-button" %>
       </div>
+
+      <!-- Eventually need to be able to select blank as an option as these fields are not required -->
+      <div class="d-info-field left">
+        <%= f.label :key_id, "Key" %>
+        <%= f.collection_select :key_id, @key_collection, :id, :name %>
+        <%= link_to "*", keys_path, target: '_blank', :class => "new-button" %>
+      </div>
+
+      <div class="d-info-field right">
+        <%= f.label :tempo_id, "Tempo" %>
+        <%= f.collection_select :tempo_id, @tempo_collection, :id, :name %>
+        <%= link_to "*", tempos_path, target: '_blank', :class => "new-button" %>
+      </div>
+
+      <!-- Eventually want to be able to select one from a list of radio buttons rather than drop down. -->
+      <div class="d-info-field left">
+        <%= f.label :dance_level_id, "Level" %>
+        <%= f.collection_select :dance_level_id, @level_collection, :id, :name %>
+        <%= link_to "*", dance_levels_path, target: '_blank', :class => "new-button" %>
+      </div>
+
+      <!-- Eventually need to be able to select multiple MOODS from a list of radio buttons rather than drop down -->
 
       <table>
         <tr>

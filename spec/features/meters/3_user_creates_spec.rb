@@ -52,10 +52,4 @@ feature 'create a meter', %{
     )
     expect(page).to have_current_path(new_user_session_path)
   end
-
-  scenario 'meter form should open in a new window or popup, close, and new
-  meter should be in the meter select box of the new dance form'
-  # expect the form to open in new window or popup?
-  # expect the form to close and be able to select the new meter from the
-  # select box?
 end

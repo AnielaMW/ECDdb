@@ -14,10 +14,10 @@ feature 'view dances#show', %{
   # they should expect to see all details of a dance
   # Details must include Creator(User),
   #   Title, Formation, Meter
-  # Details may include Author, Year, Publication
+  # Details may include Choreographer, Year, Publication
 
   let!(:dance1) { FactoryGirl.create(:dance) }
-  let!(:dance2) { FactoryGirl.create(:authored) }
+  let!(:dance2) { FactoryGirl.create(:choreographed) }
 
   scenario 'sucessfully view a dance#show when entered directly' do
     visit dance_path(dance1.id)
@@ -26,13 +26,13 @@ feature 'view dances#show', %{
     expect(page).to have_content(dance1.user.first_name)
     expect(page).to have_content(dance1.formation.name)
     expect(page).to have_content(dance1.meter.name)
-    expect(page).not_to have_content("Author")
+    expect(page).not_to have_content("Choreographer")
     expect(page).not_to have_content("Publication")
 
     visit dance_path(dance2.id)
 
     expect(page).to have_content(dance2.title)
-    expect(page).to have_content(dance2.author)
+    expect(page).to have_content(dance2.choreographer)
     expect(page).to have_content(dance2.publication)
     expect(page).to have_content(dance2.year)
   end

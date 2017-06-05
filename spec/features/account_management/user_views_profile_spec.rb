@@ -24,12 +24,14 @@ feature 'views account', %{
     sign_in fred
     visit user_path(anne)
 
+    headings = page.all("h3")
+
     expect(page).to have_content(anne.first_name)
     expect(page).not_to have_content(anne.last_name)
     expect(page).not_to have_content(anne.email)
     expect(page).not_to have_content(anne.password)
-    expect(page).not_to have_content("Dances")
-    expect(page).not_to have_content("Comments")
+    expect(headings).not_to have_content("Dances")
+    expect(headings).not_to have_content("Comments")
   end
 
   scenario 'sucessfully view profile with dances or comments' do

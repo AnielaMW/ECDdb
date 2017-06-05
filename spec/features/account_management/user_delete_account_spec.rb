@@ -14,7 +14,7 @@ feature 'deletes account', %{
   scenario 'sucessfully delete account' do
     sign_in anne
     visit root_path
-    click_link anne.first_name.to_s
+    click_link anne.name.to_s
     click_link 'Edit Profile'
     click_button 'Cancel My Account'
 

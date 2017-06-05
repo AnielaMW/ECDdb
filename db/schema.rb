@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170516230047) do
+ActiveRecord::Schema.define(version: 20170603021130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,17 +40,30 @@ ActiveRecord::Schema.define(version: 20170516230047) do
     t.string  "position"
   end
 
+  create_table "dance_levels", force: :cascade do |t|
+    t.string "name",        null: false
+    t.string "description", null: false
+  end
+
+  create_table "dance_moods", force: :cascade do |t|
+    t.integer "dance_id", null: false
+    t.integer "mood_id",  null: false
+  end
+
   create_table "dances", force: :cascade do |t|
-    t.integer  "user_id",                      null: false
-    t.string   "title",                        null: false
-    t.string   "author"
+    t.integer  "user_id",                        null: false
+    t.string   "title",                          null: false
+    t.string   "choreographer"
     t.integer  "year"
     t.string   "publication"
-    t.integer  "formation_id",                 null: false
-    t.integer  "meter_id",                     null: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.boolean  "complete",     default: false, null: false
+    t.integer  "formation_id",                   null: false
+    t.integer  "meter_id",                       null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "complete",       default: false, null: false
+    t.integer  "dance_level_id"
+    t.integer  "tempo_id"
+    t.integer  "key_id"
   end
 
   create_table "formations", force: :cascade do |t|
@@ -60,11 +73,25 @@ ActiveRecord::Schema.define(version: 20170516230047) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "keys", force: :cascade do |t|
+    t.string "name", null: false
+  end
+
   create_table "meters", force: :cascade do |t|
     t.string   "name",        null: false
     t.string   "description", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "moods", force: :cascade do |t|
+    t.string "name",        null: false
+    t.string "description"
+  end
+
+  create_table "tempos", force: :cascade do |t|
+    t.string "name",        null: false
+    t.string "description"
   end
 
   create_table "users", force: :cascade do |t|
@@ -83,6 +110,20 @@ ActiveRecord::Schema.define(version: 20170516230047) do
     t.string   "first_name",                             null: false
     t.string   "last_name",                              null: false
     t.boolean  "admin",                  default: false, null: false
+    t.string   "username"
+    t.boolean  "privacy1",               default: false
+    t.string   "location"
+    t.boolean  "privacy2",               default: false
+    t.boolean  "dancer",                 default: false
+    t.boolean  "caller",                 default: false
+    t.boolean  "musician",               default: false
+    t.boolean  "band",                   default: false
+    t.text     "about"
+    t.boolean  "privacy3",               default: false
+    t.boolean  "privacy4",               default: false
+    t.boolean  "privacy5",               default: false
+    t.boolean  "choreographer",          default: false
+    t.boolean  "composer",               default: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

@@ -4,25 +4,15 @@
 ![Code Climate](https://codeclimate.com/github/AnielaMW/ECDdb.png)
 ![Coverage Status](https://coveralls.io/repos/AnielaMW/ECDdb/badge.png)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This program is a repository and social network for dancers, callers, and musicians of English Country Dance.
 
-Things you may want to cover:
+* Use
+Go to ...
+
+* New Features
+
+* Updates and Changes
 
 * Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
 
 * ...

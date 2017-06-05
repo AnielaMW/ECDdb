@@ -26,6 +26,15 @@ feature 'view comment_types#index', %{
     expect(comment_types[0]).to have_content(type2.name)
     expect(comment_types[1]).to have_content(type3.name)
     expect(comment_types[2]).to have_content(type1.name)
+
+    visit root_path
+    click_link "Comment Types"
+
+    comment_types = page.all(".info-list article")
+
+    expect(comment_types[0]).to have_content(type2.name)
+    expect(comment_types[1]).to have_content(type3.name)
+    expect(comment_types[2]).to have_content(type1.name)
   end
 
   pending 'sucessfully view the comment_types#index after click on

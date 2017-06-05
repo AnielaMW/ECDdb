@@ -1,12 +1,13 @@
 <main class="comment-type-index">
-  <% if @admin_user %>
-    <header>
+  <header>
+    <% if @admin_user %>
       <ul class="user-bar">
         <li><%= link_to 'Create New Type', new_comment_type_path %></li>
       </ul>
-      <h2>Comment Types</h2>
-    </header>
-  <% end %>
+    <% end %>
+
+    <h2>Comment Types</h2>
+  </header>
 
   <ul class="info-list">
     <% @comment_types.each do |ct| %>

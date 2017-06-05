@@ -13,18 +13,21 @@ submitDDDEditClick = (event) => {
   let dance = {
     id: $('#dance-id').text(),
     title: $('#dance_title').val(),
-    author: $('#dance_author').val(),
+    choreographer: $('#dance_choreographer').val(),
     publication: $('#dance_publication').val(),
     year: $('#dance_year').val(),
     formation_id: $('#dance_formation_id').val(),
     meter_id: $('#dance_meter_id').val(),
+    key_id: $('#dance_key_id').val(),
+    tempo_id: $('#dance_tempo_id').val(),
+    dance_level_id: $('#dance_dance_level_id').val(),
     user_id: $('#user-id').text()
   };
 
   updateDance = () => {
     $.ajax({
       method: 'PUT',
-      url: `/api/dances/$(dance[:id])`,
+      url: `/api/dances/${dance.id}`,
       data: {dance: dance}
     }).done((response) => { createDance(response); });
   };

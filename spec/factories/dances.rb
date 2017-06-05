@@ -4,9 +4,12 @@ FactoryGirl.define do
     sequence(:title) { |n| "Dance Title #{n}" }
     meter
     formation
+    key
+    tempo
+    dance_level
 
-    factory :authored_dance, aliases: [:authored] do
-      sequence(:author) { |n| "Author #{n}" }
+    factory :choreographed_dance, aliases: [:choreographed] do
+      sequence(:choreographer) { |n| "Choreographer #{n}" }
       sequence(:year) { |n| "177#{n}" }
       sequence(:publication) { |n| "Publication #{n}" }
     end
