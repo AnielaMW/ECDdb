@@ -86,9 +86,8 @@ header>a {
 // Sitewide Header
 .top-bar {
   background-color: $color-red;
-  border-bottom: 5px solid $color-black;
+  border-bottom: 3px solid $color-black;
   color: $color-white;
-  margin-bottom: 20px;
   padding: 1.020408% 2.040816%; // 10px 20px; //
   text-shadow: 1px 3px 1px $color-black;
 }
@@ -113,38 +112,20 @@ header aside {
   }
 }
 
-.page-layout {
-  width: 100%;
-  td {
-    vertical-align: top;
-  }
+// Sitewide top nav bar
+.top-nav-bar {
+  text-align: center;
+  background-color: $color-red;
+  color: $color-white;
+  margin-bottom: 20px;
+  padding: 1.020408% 2.040816%; // 10px 20px; //
+  text-shadow: 1px 3px 1px $color-black;
 
-  // Sitewide left side bars
-  .left-side-bar {
-    width: 10%;
-    p {
-      margin-top: 24px;
-    }
-  }
-
-  // Sitewide right side bars
-  .right-side-bar {
-    width: 10%;
-    ul {
-      margin-top: 24px;
-      li {
-        display: block;
-        margin-bottom: 5px;
-      }
-    }
-  }
-
-  // Sitewide main window
-  .main-window {
-    width: 80%;
+  li{
+    display: inline;
+    margin: 15px;
   }
 }
-
 
 // Sitewide user bars
 .user-bar li {
@@ -187,11 +168,6 @@ header aside {
     font-size: 15px;
   }
 
-  // Sitewide Header
-  .top-bar {
-    margin-bottom: 15px;
-  }
-
   // Sitewide Footer
   .bottom-bar {
     margin-top: 15px;
@@ -204,11 +180,6 @@ header aside {
   // Basic Sitewide CSS Styles
   html {
     font-size: 14px;
-  }
-
-  // Sitewide Header
-  .top-bar {
-    margin-bottom: 10px;
   }
 
   // Sitewide Footer
