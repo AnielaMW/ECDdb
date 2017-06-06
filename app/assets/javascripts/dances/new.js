@@ -1,5 +1,6 @@
 class NewDance{
   constructor() {
+    this.id = $('#dance-id').text();
     this.title = $('#dance_title').val();
     this.choreographer = $('#dance_choreographer').val();
     this.publication = $('#dance_publication').val();
@@ -13,7 +14,7 @@ class NewDance{
     this.directions = [];
   }
 
-  info(json) {
+  newId(json) {
     this.id = json[0].id;
   }
 }
@@ -39,7 +40,7 @@ submitDDDClick = (event) => {
   };
 
   createDance = (response) => {
-    newDan.info(response);
+    newDan.newId(response);
     dividNewDirections(dirListAdd, newDan);
     window.location = `/dances/${newDan.id}`;
   };
