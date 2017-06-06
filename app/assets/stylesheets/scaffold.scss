@@ -86,9 +86,8 @@ header>a {
 // Sitewide Header
 .top-bar {
   background-color: $color-red;
-  border-bottom: 5px solid $color-black;
+  border-bottom: 3px solid $color-black;
   color: $color-white;
-  margin-bottom: 20px;
   padding: 1.020408% 2.040816%; // 10px 20px; //
   text-shadow: 1px 3px 1px $color-black;
 }
@@ -110,6 +109,21 @@ header aside {
     display: inline;
     font-size: 12px;
     padding: 0 8px;
+  }
+}
+
+// Sitewide top nav bar
+.top-nav-bar {
+  text-align: center;
+  background-color: $color-red;
+  color: $color-white;
+  margin-bottom: 20px;
+  padding: 1.020408% 2.040816%; // 10px 20px; //
+  text-shadow: 1px 3px 1px $color-black;
+
+  li{
+    display: inline;
+    margin: 15px;
   }
 }
 
@@ -154,11 +168,6 @@ header aside {
     font-size: 15px;
   }
 
-  // Sitewide Header
-  .top-bar {
-    margin-bottom: 15px;
-  }
-
   // Sitewide Footer
   .bottom-bar {
     margin-top: 15px;
@@ -171,11 +180,6 @@ header aside {
   // Basic Sitewide CSS Styles
   html {
     font-size: 14px;
-  }
-
-  // Sitewide Header
-  .top-bar {
-    margin-bottom: 10px;
   }
 
   // Sitewide Footer
