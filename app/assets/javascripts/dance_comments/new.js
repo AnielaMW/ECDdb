@@ -35,7 +35,7 @@ class NewComment{
 submitDCClick = (event) => {
   event.preventDefault();
 
-  var newCom = new NewComment();
+  let newCom = new NewComment();
 
   saveComment = () => {
     $.ajax({
