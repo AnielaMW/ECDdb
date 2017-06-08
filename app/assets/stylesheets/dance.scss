@@ -1,5 +1,10 @@
 @import "colors";
 
+h2 bdi {
+  font-size: 0.5em; // half; //
+  font-weight: normal;
+}
+
 // dance#index
 
 .dance-list li {
@@ -12,11 +17,6 @@
   margin: 5px;
   padding-left: 1.4479638009049774%; // 20px; //
   position: relative;
-
-  h2 bdi {
-    font-size: 0.5em; // half; //
-    font-weight: normal;
-  }
 
   section {
     p {

@@ -9,7 +9,11 @@
     </ul>
     <p id='dance-id' class='hidden-all'><%= @dance.id %></p>
 
-    <h2><%= @dance.title %></h2>
+    <h2><%= @dance.title %>
+      <% if @dance.year %>
+        <bdi>(<%= @dance.year %>)</bdi>
+      <% end %>
+    </h2>
   </header>
 
   <div class="d-info-field left">
@@ -64,13 +68,10 @@
   <% if @dance.publication && @dance.publication != "" %>
     <div class="d-info-field right">
       <h6>Publication: </h6>
-      <p><%= @dance.publication %>
-  <% end %>
-
-  <% if @dance.year %>
-      (<%= @dance.year %>)</p>
+      <p><%= @dance.publication %></p>
     </div>
   <% end %>
+
 
   <table class='dance-info'>
     <tr>
